@@ -1,0 +1,1 @@
+[Contributing](docs/resources/contributing.md)
