@@ -45,12 +45,12 @@ You can access the UI & Server on your browser to verify that they are running c
 #### Conductor Server URL
 [http://localhost:8080](http://localhost:8080)
 
-<img src="/img/tutorial/swagger.png" style="width: 100%"/>
+![swagger](swagger.png)
 
 #### Conductor UI URL
 [http://localhost:5000/](http://localhost:5000)
 
-<img src="/img/tutorial/conductorUI.png" style="width: 100%" />
+![conductor ui](conductorUI.png)
 
 
 ### 4. Exiting Compose

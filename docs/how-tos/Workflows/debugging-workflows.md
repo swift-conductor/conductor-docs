@@ -33,7 +33,7 @@ Note: We can also access the task list from **Tasks > Task List** tab.
 
 Here is a screen grab of the fields referred above.
 
-![Debugging Wowkflow Execution](/img/tutorial/workflow_debugging.png)
+![Debugging Wowkflow Execution](workflow_debugging.png)
 
 ## Recovering From Failures
 

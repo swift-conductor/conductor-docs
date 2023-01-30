@@ -50,7 +50,7 @@ server $ ../gradlew bootRun
 Navigate to the swagger API docs:
 [http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config](http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config)
 
-<img src="/img/tutorial/swagger.png" style="width: 100%"/>
+![swagger](swagger.png)
 
 ## Download and Run
 As an alternative to building from source, you can download and run the pre-compiled JAR.
@@ -87,7 +87,7 @@ ui $ yarn run start
 
 Launch UI [http://localhost:5000](http://localhost:5000)
 
-<img src="/img/tutorial/conductorUI.png" style="width: 100%" />
+![conductor ui](conductorUI.png)
 
 ## Summary
 1. By default in-memory persistence is used, so any workflows created or excuted will be wiped out once the server is terminated.

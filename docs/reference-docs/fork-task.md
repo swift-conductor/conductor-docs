@@ -58,7 +58,7 @@ Imagine a workflow that sends 3 notifications: email, SMS and HTTP. Since none o
 
 The diagram will appear as:
 
-![fork diagram](/img/fork-task-diagram.png)
+![fork diagram](fork-task-diagram.png)
 
 Here's the JSON definition for the workflow:
 

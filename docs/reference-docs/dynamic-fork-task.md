@@ -113,7 +113,7 @@ Here is an example of a `FORK_JOIN_DYNAMIC` task followed by a `JOIN` task.  The
 
 This appears in the UI as follows:
 
-![diagram of dynamic fork](/img/dynamic-task-diagram.png)
+![diagram of dynamic fork](dynamic-task-diagram.png)
 
 Let's assume this data is sent to the workflow:
 

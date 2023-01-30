@@ -50,8 +50,8 @@ opens a flyout panel from the side and contains the following tabs.
 An exciting feature of conductor is the ability to see the exact execution path of a workflow. The executed paths are
 shown in green and is easy to follow like the example below. The alternative paths are greyed out for reference
 
-![Conductor UI - Workflow Run](/img/tutorial/workflow_execution_view.png)
+![Conductor UI - Workflow Run](workflow_execution_view.png)
 
 Errors will be visible on the UI in ref such as the example below
 
-![Conductor UI - Failed Task](/img/tutorial/workflow_task_fail.png)
+![Conductor UI - Failed Task](workflow_task_fail.png)

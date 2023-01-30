@@ -1,13 +1,13 @@
 # Overview
 
-![Architecture diagram](/img/conductor-architecture.png)
+![Architecture diagram](conductor-architecture.png)
 
 The API and storage layers are pluggable and provide ability to work with different backends and queue service providers.
 
 ## Runtime Model
 Conductor follows RPC based communication model where workers are running on a separate machine from the server. Workers communicate with server over HTTP based endpoints and employs polling model for managing work queues.
 
-![Runtime Model of Conductor](/img/overview.png)
+![Runtime Model of Conductor](overview.png)
 
 **Notes**
 

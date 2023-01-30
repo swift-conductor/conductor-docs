@@ -125,7 +125,7 @@ We will create the Workflow with the following definition :
 Workflow is the created as shown in the below diagram.
 
 
-![Conductor UI - Workflow Diagram](/img/tutorial/ShippingWorkflow.png)
+![Conductor UI - Workflow Diagram](ShippingWorkflow.png)
 
 
 Note : `shipping_task` is a `DYNAMIC` task and the `taskToExecute` parameter can be set
@@ -147,11 +147,11 @@ decided.
 
 Based on given set of inputs i.e. Post Code starts with '9' hence, `ship_via_fedex` is executed -
 
-![Conductor UI - Workflow Run](/img/tutorial/ShippingWorkflowRunning.png)
+![Conductor UI - Workflow Run](ShippingWorkflowRunning.png)
 
 If the Post Code started with anything other than 9 `ship_via_ups` is executed -
 
-![Conductor UI - Workflow Run](/img/tutorial/ShippingWorkflowUPS.png)
+![Conductor UI - Workflow Run](ShippingWorkflowUPS.png)
 
 If the incorrect task name or the task that doesn't exist is provided then the workflow fails and
 we get the error `"Invalid task specified. Cannot find task by name in the task definitions."`

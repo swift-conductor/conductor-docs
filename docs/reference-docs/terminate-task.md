@@ -85,7 +85,7 @@ Here is a snippet that shows the default switch case terminating the workflow:
 
 Workflow gets created as shown in the diagram.
 
-![Conductor UI - Workflow Diagram](/img/Terminate_Task.png)
+![Conductor UI - Workflow Diagram](Terminate_Task.png)
 
 
 ### Best Practices

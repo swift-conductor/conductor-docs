@@ -13,10 +13,6 @@ Conductor Supports Eventing with two Interfaces:
 * [Event Task](/configuration/systask.html#event)
 * [Event Handlers](/configuration/eventhandlers.html#event-handler)
 
-We shall create a simple cyclic workflow similar to this:
-
-![img](img/EventHandlerCycle.png)
-
 ## Create Workflow Definitions
 
 Let's create two workflows:

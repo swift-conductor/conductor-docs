@@ -163,7 +163,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
 }
 ```
 ### Visual Flow
-![img](/img/kitchensink.png)
+![img](kitchensink.png)
 
 ### Running Kitchensink Workflow
 1. Start the server as documented [here](/gettingstarted/docker.html).  Use ```-DloadSample=true``` java system property when launching the server.  This will create a kitchensink workflow, related task definitions and kick off an instance of kitchensink workflow.
