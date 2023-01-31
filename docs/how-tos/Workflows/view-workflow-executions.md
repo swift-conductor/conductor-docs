@@ -6,17 +6,9 @@ sidebar_position: 1
 
 In this article we will learn how to view workflow executions via the UI.
 
-### Prerequisites
-
-1. Conductor app and UI installed and running in an environment. If required we can look at the following options to get
-   an environment up and running.
-
-    1. [Build and Run Conductor Locally](/gettingstarted/local.html)
-    2. [Running via Docker Compose](/gettingstarted/docker.html)
-
 ### Viewing a Workflow Execution
 
-Refer to [Searching Workflows](/how-tos/Workflows/searching-workflows.html) to filter and find an execution you want to
+Refer to [Searching Workflows](searching-workflows.md) to filter and find an execution you want to
 view. Click on the workflow id hyperlink to open the Workflow Execution Details page.
 
 The following tabs are available to view the details of the Workflow Execution

@@ -12,6 +12,9 @@ nav:
       - Using Docker: gettingstarted/docker.md
       - Hosted Solutions: gettingstarted/hosted.md
     - Basic Concepts: gettingstarted/basicconcepts.md
+    - Architecture: 
+      - Overview: architecture/overview.md
+      - Task Lifecycle: architecture/tasklifecycle.md
     - High Level Steps: gettingstarted/steps.md
     - Using the Client: gettingstarted/client.md
     - Start a Workflow: gettingstarted/startworkflow.md
@@ -47,13 +50,10 @@ nav:
       - Events and Event Handlers: labs/eventhandlers.md
       - Kitchen Sink: labs/kitchensink.md
   - Documentation: 
-    - Architecture: 
-      - Overview: architecture/overview.md
-      - Task Lifecycle: architecture/tasklifecycle.md
     - API Specification: apispec.md
     - Configuration:
       - Task Definition: configuration/taskdef.md
-      - Worker Definition: configuration/workerdef.md
+      - Worker Definition: configuration/workerdef.md #TODO: remove
       - Workflow Definition: configuration/workflowdef.md
       - System Tasks: configuration/systask.md
       - System Operators: configuration/sysoperator.md

@@ -10,8 +10,8 @@ In this Lab, we shall:
 
 Conductor Supports Eventing with two Interfaces:
 
-* [Event Task](/configuration/systask.html#event)
-* [Event Handlers](/configuration/eventhandlers.html#event-handler)
+* [Event Task](../configuration/systask.md#event)
+* [Event Handlers](../configuration/eventhandlers.md#event-handler)
 
 ## Create Workflow Definitions
 
@@ -111,7 +111,7 @@ Event Handler can perform a list of actions defined in `actions` array parameter
 }
 ```
 
-Let's define `start_workflow` action. We shall pass the name of workflow we would like to start. The `start_workflow` parameter can use any of the values from the general [Start Workflow Request](/gettingstarted/startworkflow.html). Here we are passing in the workflowId, so that the Complete Task Event Handler can use it.
+Let's define `start_workflow` action. We shall pass the name of workflow we would like to start. The `start_workflow` parameter can use any of the values from the general [Start Workflow Request](../gettingstarted/startworkflow.md). Here we are passing in the workflowId, so that the Complete Task Event Handler can use it.
 
 ```json
 {

@@ -1,9 +1,9 @@
 # Workflow Definition
 
-## What are Workflows?
+## What are Workflow Definitions?
 
-At a high level, a workflow is the Conductor primitive that encompasses the definition and flow of your business logic.
-A workflow is a collection (graph) of tasks and sub-workflows. A workflow definition specifies the order of execution of
+At a high level, a workflow definition is the Conductor primitive that encompasses the flow of your business logic.
+A workflow definition is a collection (graph) of tasks and sub-workflows. A workflow definition specifies the order of execution of
 these [Tasks](taskdef.md). It also specifies how data/state is passed from one task to the other (using the
 input/output parameters). These are then combined to give you the final result. This orchestration of Tasks can
 happen in a hybrid ecosystem that includes microservices, serverless functions, and monolithic applications. They can
@@ -111,9 +111,9 @@ The mail_a_box workflow has 2 tasks:
 | description       | Description of the task                                                                                                                        | optional                                                                |
 | optional          | true or false.  When set to true - workflow continues even if the task fails.  The status of the task is reflected as `COMPLETED_WITH_ERRORS` | Defaults to `false`                                                     |
 | inputParameters   | JSON template that defines the input given to the task                                                                                         | See [Wiring Inputs and Outputs](#wiring-inputs-and-outputs) for details |
-| domain            | See [Task Domains](/configuration/taskdomains.html) for more information.                                                                 | optional                                                                |
+| domain            | See [Task Domains](taskdomains.md) for more information.                                                                 | optional                                                                |
 
-In addition to these parameters, System Tasks have their own parameters. Checkout [System Tasks](/configuration/systask.html) for more information.
+In addition to these parameters, System Tasks have their own parameters. Checkout [System Tasks](systask.md) for more information.
 
 ## Wiring Inputs and Outputs
 
@@ -226,4 +226,6 @@ And `url` would be `https://some_url:7004` if no `url` was provided as input to 
 
 ## Workflow notifications
 
-Conductor can be configured to publish notifications to external systems upon completion/termination of workflows. See [extending conductor](/extend.html) for details.
+Conductor can be configured to publish notifications to external systems upon completion/termination of workflows. See [extending conductor](../extend.md) for details.
+
+## TODO - Add Includ Netflix Specific footnote

@@ -9,12 +9,12 @@ Conductor supports the following programming language constructs:
 
 | Language Construct               | Conductor Operator                                          |
 |----------------------------------|-------------------------------------------------------------|
-| Do/While or Loops                | [Do While Task](/reference-docs/do-while-task.html)         |
-| Dynamic Fork                     | [Dynamic Fork Task](/reference-docs/dynamic-fork-task.html) |
-| Fork / Parallel execution        | [Fork Task](/reference-docs/fork-task.html)                 | 
-| Join                             | [Join Task](/reference-docs/join-task.html)                 |
-| Sub Process / Sub-Flow           | [Sub Workflow Task](/reference-docs/sub-workflow-task.html) |
-| Switch//Decision/if..then...else | [Switch Task](/reference-docs/switch-task.html)             |
-| Terminate                        | [Terminate Task](/reference-docs/terminate-task.html)       |
-| Variables                        | [Variable Task](/reference-docs/set-variable-task.html)     |
-| Wait                             | [Wait Task](/reference-docs/wait-task.html)                 |
+| Do/While or Loops                | [Do While Task](../reference-docs/do-while-task.md)         |
+| Dynamic Fork                     | [Dynamic Fork Task](../reference-docs/dynamic-fork-task.md) |
+| Fork / Parallel execution        | [Fork Task](../reference-docs/fork-task.md)                 | 
+| Join                             | [Join Task](../reference-docs/join-task.md)                 |
+| Sub Process / Sub-Flow           | [Sub Workflow Task](../reference-docs/sub-workflow-task.md) |
+| Switch//Decision/if..then...else | [Switch Task](../reference-docs/switch-task.md)             |
+| Terminate                        | [Terminate Task](../reference-docs/terminate-task.md)       |
+| Variables                        | [Variable Task](../reference-docs/set-variable-task.md)     |
+| Wait                             | [Wait Task](../reference-docs/wait-task.md)                 |

@@ -54,7 +54,7 @@ Terminate task is defined directly inside the workflow with type
 
 ### Examples
 
-Let's consider the same example we had in [Switch Task](/reference-docs/switch-task.html).
+Let's consider the same example we had in [Switch Task](switch-task.md).
 
 Suppose in a workflow, we have to take decision to ship the courier with the shipping
 service providers on the basis of input provided while running the workflow.

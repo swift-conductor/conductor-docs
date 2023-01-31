@@ -12,10 +12,10 @@ Conductor provides the following java clients to interact with the various APIs
 
 ## SDKs
 
-* [Clojure](/how-tos/clojure-sdk.html)
-* [C#](/how-tos/csharp-sdk.html)
-* [Go](/how-tos/go-sdk.html)
-* [Java](/how-tos/java-sdk.html)
-* [Python](/how-tos/python-sdk.html)
+* [Clojure](../how-tos/clojure-sdk.md)
+* [C#](../how-tos/csharp-sdk.md)
+* [Go](../how-tos/go-sdk.md)
+* [Java](../how-tos/java-sdk.md)
+* [Python](../how-tos/python-sdk.md)
 
 The non-Java Conductor SDKs are hosted on a separate GitHub repository: [github.com/conductor-sdk](https://github.com/conductor-sdk).  Contributions from the community are encouraged!

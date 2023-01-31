@@ -31,8 +31,8 @@ Sub Workflow task is defined directly inside the workflow with type `SUB_WORKFLO
 |--------------------|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | name               | String                                                | Name of the workflow to execute                                                                                                                                     |
 | version            | Integer                                               | Version of the workflow to execute                                                                                                                                  |
-| taskToDomain       | Map[String, String]                                   | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](/configuration/taskdomains.html) for instructions to configure taskDomains. |
-| workflowDefinition | [WorkflowDefinition](/configuration/workflowdef.html) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                   |
+| taskToDomain       | Map[String, String]                                   | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../configuration/taskdomains.md) for instructions to configure taskDomains. |
+| workflowDefinition | [WorkflowDefinition](../configuration/workflowdef.md) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                   |
 
 #### Output
 

@@ -6,14 +6,6 @@ sidebar_position: 1
 
 In this article we will learn how to search through workflow executions via the UI.
 
-### Prerequisites
-
-1. Conductor app and UI installed and running in an environment. If required we can look at the following options to get
-   an environment up and running.
-
-    1. [Build and Run Conductor Locally](/gettingstarted/local.html)
-    2. [Running via Docker Compose](/gettingstarted/docker.html)
-
 ## UI Workflows View
 
 Open the home page of the UI installation. It will take you to the `Workflow Executions` view. This is where we can look

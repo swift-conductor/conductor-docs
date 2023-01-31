@@ -4,13 +4,13 @@ In this article we will explore how we can run a really simple workflow that run
 
 Conductor can orchestrate HTTP services out of the box without implementing any code.  We will use that to create and run the first workflow.
 
-See [System Task](/configuration/systask.html) for the list of such built-in tasks.
+See [System Task](../configuration/systask.md) for the list of such built-in tasks.
 Using system tasks is a great way to run a lot of our code in production.
 
 To bring up a local instance of Conductor follow one of the recommended steps:
 
-1. [Running Locally - From Code](/gettingstarted/local.html)
-2. [Running Locally - Docker Compose](/gettingstarted/docker.html)
+1. [From Source](../gettingstarted/source.md)
+2. [Docker Compose](../gettingstarted/docker.md)
 
 ---
 
