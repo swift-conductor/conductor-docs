@@ -53,7 +53,6 @@ nav:
     - API Specification: apispec.md
     - Configuration:
       - Task Definition: configuration/taskdef.md
-      - Worker Definition: configuration/workerdef.md #TODO: remove
       - Workflow Definition: configuration/workflowdef.md
       - System Tasks: configuration/systask.md
       - System Operators: configuration/sysoperator.md
