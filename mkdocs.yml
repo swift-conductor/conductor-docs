@@ -115,5 +115,3 @@ markdown_extensions:
   - admonition
   - codehilite
   - attr_list
-extra:
-  environment: oss

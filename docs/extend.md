@@ -59,3 +59,9 @@ for eg., with Dynomite and Redlock:
 * Implement ```Lock``` interface.
 * Add a binding similar to [this](https://github.com/Netflix/conductor/blob/master/server/src/main/java/com/netflix/conductor/bootstrap/ModulesProvider.java#L115-L129)
 * Enable locking service: ```conductor.app.workflowExecutionLockEnabled: true```
+
+## Event Handling
+Provide the implementation of [EventQueueProvider](https://github.com/Netflix/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/events/EventQueueProvider.java).
+
+E.g. SQS Queue Provider: 
+[SQSEventQueueProvider.java ](https://github.com/Netflix/conductor/blob/master/contribs/src/main/java/com/netflix/conductor/core/events/sqs/SQSEventQueueProvider.java)

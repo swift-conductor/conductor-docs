@@ -1,4 +1,5 @@
 # Event Handlers
+## Eventing in Conductor
 Eventing in Conductor provides for loose coupling between workflows and support for producing and consuming events from external systems.
 
 This includes:
@@ -113,12 +114,3 @@ Input for starting a workflow and output when completing / failing task follows 
 !!!info "Expanding stringified JSON elements in payload"
 	`expandInlineJSON` property, when set to true will expand the inlined stringified JSON elements in the payload to JSON documents and replace the string value with JSON document.  
 	This feature allows such elements to be used with JSON path expressions. 
-
-{% if environment == 'oss' %}
-## Extending
-
-Provide the implementation of [EventQueueProvider](https://github.com/Netflix/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/events/EventQueueProvider.java).
-
-SQS Queue Provider: 
-[SQSEventQueueProvider.java ](https://github.com/Netflix/conductor/blob/master/contribs/src/main/java/com/netflix/conductor/core/events/sqs/SQSEventQueueProvider.java)
-{% endif %}
