@@ -109,7 +109,12 @@ theme:
   custom_dir: theme/
 extra_css:
   - css/custom.css
+plugins:
+  - search
+  - macros
 markdown_extensions:
   - admonition
   - codehilite
   - attr_list
+extra:
+  environment: oss

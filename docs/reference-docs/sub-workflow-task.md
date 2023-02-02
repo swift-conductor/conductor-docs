@@ -54,7 +54,7 @@ The left fork will create a JPG, and the right fork a WEBP image. Maintaining th
 
 ```json
 
-{{
+{
 	"name": "image_convert_resize_subworkflow1",
 	"description": "Image Processing Workflow",
 	"version": 1,

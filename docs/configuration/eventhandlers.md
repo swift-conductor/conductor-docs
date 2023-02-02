@@ -3,7 +3,7 @@ Eventing in Conductor provides for loose coupling between workflows and support 
 
 This includes:
 
-1.  Being able to produce an event (message) in an external system like SQS or internal to Conductor. 
+1. Being able to produce an event (message) in an external system like SQS or internal to Conductor. 
 2. Start a workflow when a specific event occurs that matches the provided criteria.
 
 Conductor provides SUB_WORKFLOW task that can be used to embed a workflow inside parent workflow.  Eventing supports provides similar capability without explicitly adding dependencies and provides **fire-and-forget** style integrations.
@@ -114,9 +114,11 @@ Input for starting a workflow and output when completing / failing task follows 
 	`expandInlineJSON` property, when set to true will expand the inlined stringified JSON elements in the payload to JSON documents and replace the string value with JSON document.  
 	This feature allows such elements to be used with JSON path expressions. 
 
+{% if environment == 'oss' %}
 ## Extending
 
 Provide the implementation of [EventQueueProvider](https://github.com/Netflix/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/events/EventQueueProvider.java).
 
 SQS Queue Provider: 
 [SQSEventQueueProvider.java ](https://github.com/Netflix/conductor/blob/master/contribs/src/main/java/com/netflix/conductor/core/events/sqs/SQSEventQueueProvider.java)
+{% endif %}

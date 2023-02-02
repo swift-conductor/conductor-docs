@@ -224,8 +224,8 @@ When scheduling the task, Conductor will merge the values from workflow input an
 
 And `url` would be `https://some_url:7004` if no `url` was provided as input to your workflow.
 
+{% if environment == 'oss' %}
 ## Workflow notifications
 
 Conductor can be configured to publish notifications to external systems upon completion/termination of workflows. See [extending conductor](../extend.md) for details.
-
-## TODO - Add Includ Netflix Specific footnote
+{% endif %}
