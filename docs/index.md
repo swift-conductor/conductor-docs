@@ -1,14 +1,20 @@
-<div class="container hero">
+---
+hide: 
+  - navigation
+  - toc
+---
+<div class="home">
+<div class="hero">
   <div class="row justify-content-center align-items-center">
     <div class="col-6">
       <div class="heading">
         Scalable Workflow Orchestration
       </div>
-      <div class="caption pt-3">
+      <div class="caption" style="padding-top:15px">
         Conductor is a platform created by <b>Netflix</b> to orchestrate workflows that span across microservices.
-      </div>
-      <div class="mt-5"> 
-      <a type="button" class="btn btn-primary" href="/gettingstarted/local.html">Get Started</a>
+      </div >
+      <div style="display: flex; margin-top: 45px;">
+        <a type="button" class="btn btn-primary" href="../devguide/concepts/index.html">Get Started</a>
       </div>
     </div>
     <div class="col-6">
@@ -18,7 +24,7 @@
 </div>
 
 
-<div class="container bullets">
+<div class="bullets">
   <div class="row justify-content-center">
     <div class="col-4">
       <div class="heading">
@@ -52,7 +58,7 @@
       <div class="heading">
          <img src="home/icons/wrench.svg" class="icon"/> Control
       </div>
-      <div class="caption">        
+      <div class="caption">
         Powerful flow control constructs including Decisions, Dynamic Fork-Joins and Subworkflows. Variables and templates are supported.
       </div>
     </div>
@@ -60,7 +66,7 @@
       <div class="heading">
         <img src="home/icons/brackets.svg" class="icon"/> Polyglot
       </div>
-      <div class="caption">        
+      <div class="caption">
         Client libraries in multiple languages allows workers to be implemented in Java, Node JS, Python and C#.
       </div>
     </div>
@@ -68,20 +74,20 @@
       <div class="heading">
          <img src="home/icons/server.svg" class="icon" /> Scalable
       </div>
-      <div class="caption">        
+      <div class="caption">
         Distributed architecture for both orchestrator and workers scalable from a single workflow to millions of concurrent processes.
       </div>
     </div>
   </div>
 </div>
 
-<div class="container module">
-  <div class="row align-items-center">
+<div class="module">
+  <div class="row">
     <div class="col-6">
       <div class="heading">
         Developer Experience
       </div>
-      <div class="caption">        
+      <div class="caption">
         <ul>
           <li>Discover and visualize the process flows from the bundled UI</li>
           <li>Integrated interface to create, refine and validate workflows</li>          
@@ -96,7 +102,7 @@
   </div>
 </div>
 
-<div class="container module">
+<div class="module">
   <div class="row">
     <div class="col-6">
       <div class="heading">
@@ -123,7 +129,7 @@
         <h2 class="heading">Why Conductor?</h2>
       </div>
     </div>
-    <div class="row align-items-stretch">
+    <div class="row" style="gap:30px;">
       <div class="col-6">
       <div class="bubble">
         <h3 class="heading">
@@ -150,4 +156,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
