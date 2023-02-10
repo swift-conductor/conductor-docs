@@ -12,6 +12,7 @@ nav:
       - devguide/concepts/index.md
       - devguide/concepts/workflows.md
       - devguide/concepts/tasks.md
+      - devguide/concepts/workers.md
       - devguide/concepts/why.md
     - Running Conductor:
       - devguide/running/source.md
@@ -78,7 +79,6 @@ nav:
           - documentation/configuration/workflowdef/operators/sub-workflow-task.md
           - documentation/configuration/workflowdef/operators/switch-task.md
           - documentation/configuration/workflowdef/operators/terminate-task.md
-          - documentation/configuration/workflowdef/operators/wait-task.md
         - System Tasks:
           - documentation/configuration/workflowdef/systemtasks/index.md
           - documentation/configuration/workflowdef/systemtasks/event-task.md
@@ -87,6 +87,7 @@ nav:
           - documentation/configuration/workflowdef/systemtasks/inline-task.md
           - documentation/configuration/workflowdef/systemtasks/json-jq-transform-task.md
           - documentation/configuration/workflowdef/systemtasks/kafka-publish-task.md
+          - documentation/configuration/workflowdef/systemtasks/wait-task.md
       - documentation/configuration/taskdef.md
       - documentation/configuration/eventhandlers.md
     - Conductor Metrics:
@@ -129,6 +130,11 @@ markdown_extensions:
   - admonition
   - codehilite
   - attr_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences  
 copyright: Netflix OSS
 extra:
   social:

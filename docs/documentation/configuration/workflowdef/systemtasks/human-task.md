@@ -1,25 +1,48 @@
----
-sidebar_position: 1
----
-
-# Human
+# Human Task
 ```json
 "type" : "HUMAN"
 ```
-### Introduction
 
-HUMAN is used when the workflow needs to be paused for an external signal by a human to continue.
+The `HUMAN` task is used when the workflow needs to be paused for an external signal to continue. It acts as a gate that 
+remains in the `IN_PROGRESS` state until marked as ```COMPLETED``` or ```FAILED``` by an external trigger.
 
-### Use Cases
-HUMAN is used when the workflow needs to wait and pause for  human intervention 
-(like manual approval) or an event coming from external source such as Kafka, SQS or Conductor's internal queueing mechanism.
+## Use Cases
+The HUMAN is can be used when the workflow needs to pause and wait for human intervention, such as manual approval.
+It can also be used with an event coming from external source such as Kafka, SQS or Conductor's internal queueing mechanism.
 
-Some use cases where HUMAN task is used:
-1. To add a human approval task.  When the task is approved/rejected by HUMAN task is updated using `POST /tasks` API to completion.
+## Configuration
+No parameters are required
 
+## Completing
+### Task Update API
+To conclude a `HUMAN` task, the `POST /tasks` [API](../../../api/task.md) can be used.
 
-### Configuration
-* taskType: HUMAN
-* There are no other configurations required
+You'll need to provide the`taskId`, the task status (generally `COMPLETED` or `FAILED`), and the desired task output.
+
+### Event Handler
+If SQS integration is enabled, the `HUMAN` task can also be resolved using the `/queue` API.
+
+You'll need the  `workflowId` and `taskRefName` or `taskId`.
+
+2. POST `/queue/update/{workflowId}/{taskRefName}/{status}` 
+3. POST `/queue/update/{workflowId}/task/{taskId}/{status}` 
+
+An [event handler](../../eventhandlers.md) using the `complete_task` action can also be configured.
+
+Any parameter that is sent in the body of the POST message will be repeated as the output of the task.  For example, if we send a COMPLETED message as follows:
+
+```bash
+curl -X "POST" "https://localhost:8080/api/queue/update/{workflowId}/waiting_around_ref/COMPLETED" -H 'Content-Type: application/json' -d '{"data_key":"somedatatoWait1","data_key2":"somedatatoWAit2"}'
+```
+
+The output of the task will be:
+
+```json
+{
+  "data_key":"somedatatoWait1",
+  "data_key2":"somedatatoWAit2"
+}
+```
+
 
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Monitoring Task Queues
 
 Conductor offers an API and UI interface to monitor the task queues. This is useful to see details of the number of
@@ -9,7 +5,7 @@ workers polling and monitoring the queue backlog.
 
 ### Using the UI
 
-```http request
+```
 <your UI server URL>/taskQueue
 ```
 
@@ -36,4 +32,5 @@ curl 'http://localhost:8080/api/tasks/queue/polldata?taskType=<TASK_NAME>' \
   -H 'accept: */*'
 ```
 
-> Replace `<TASK_NAME>` with your task name
+!!! note
+    Replace `<TASK_NAME>` with your task name

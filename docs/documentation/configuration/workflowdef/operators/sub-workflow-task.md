@@ -1,51 +1,41 @@
----
-sidebar_position: 1
----
 # Sub Workflow
 ```json
 "type" : "SUB_WORKFLOW"
 ```
-### Introduction
 Sub Workflow task allows for nesting a workflow within another workflow. Nested workflows contain a reference to their parent.
 
-### Use Cases
+## Use Cases
 
 Suppose we want to include another workflow inside our current workflow. In that
 case, Sub Workflow Task would be used.
 
-### Configuration
-
-Sub Workflow task is defined directly inside the workflow with type `SUB_WORKFLOW`.
-
-#### Input
-
-**Parameters:**
+## Configuration
+`subWorkflowParam` is provided at the top level of the task configuration.
 
 | name             | type             | description |
-|------------------|------------------|-------------|
+| ---------------- | ---------------- | ----------- |
 | subWorkflowParam | Map[String, Any] | See below   |
 
-**subWorkflowParam**
+`inputParameters` will be passed down to the invoked sub-workflow.
 
-| name               | type                                                  | description                                                                                                                                                         |
-|--------------------|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name               | String                                                | Name of the workflow to execute                                                                                                                                     |
-| version            | Integer                                               | Version of the workflow to execute                                                                                                                                  |
-| taskToDomain       | Map[String, String]                                   | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../../../api/startworkflow/taskdomains.md) for instructions to configure taskDomains. |
-| workflowDefinition | [WorkflowDefinition](../index.md) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                   |
+### subWorkflowParam
 
-#### Output
+| name               | type                              | description                                                                                                                                                                   |
+| ------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name               | String                            | Name of the workflow to execute                                                                                                                                               |
+| version            | Integer                           | Version of the workflow to execute                                                                                                                                            |
+| taskToDomain       | Map[String, String]               | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../../../api/startworkflow/taskdomains.md) for instructions to configure taskDomains. |
+| workflowDefinition | [WorkflowDefinition](../index.md) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                             |
+
+## Output
 
 | name          | type   | description                                                       |
-|---------------|--------|-------------------------------------------------------------------|
+| ------------- | ------ | ----------------------------------------------------------------- |
 | subWorkflowId | String | Sub-workflow execution Id generated when running the sub-workflow |
 
 
-### Examples
-
-
+## Examples
 Imagine we have a workflow that has a fork in it. In the example below, we input one image, but using a fork to create 2 images simultaneously:
-
 
 ![workflow with fork](workflow_fork.png)
 
@@ -155,24 +145,24 @@ Looking at the subworkflow (the WEBP version):
 
 ```
 {
-                        "name": "image_convert_resize_sub",
-                        "taskReferenceName": "subworkflow_webp_ref",
-                        "inputParameters": {
-                            "fileLocation": "${workflow.input.fileLocation}",
-                            "recipeParameters": {
-                                "outputSize": {
-                                    "width": "${workflow.input.recipeParameters.outputSize.width}",
-                                    "height": "${workflow.input.recipeParameters.outputSize.height}"
-                                },
-                                "outputFormat": "webp"
-                            }
-                        },
-                        "type": "SUB_WORKFLOW",
-                        "subWorkflowParam": {
-                            "name": "image_convert_resize",
-                            "version": 1
-                        }
-                    }
+	"name": "image_convert_resize_sub",
+	"taskReferenceName": "subworkflow_webp_ref",
+	"inputParameters": {
+		"fileLocation": "${workflow.input.fileLocation}",
+		"recipeParameters": {
+			"outputSize": {
+				"width": "${workflow.input.recipeParameters.outputSize.width}",
+				"height": "${workflow.input.recipeParameters.outputSize.height}"
+			},
+			"outputFormat": "webp"
+		}
+	},
+	"type": "SUB_WORKFLOW",
+	"subWorkflowParam": {
+		"name": "image_convert_resize",
+		"version": 1
+	}
+}
 ```
 
 The ```subWorkflowParam``` tells conductor which workflow to call. The task is marked as completed upon the completion of the spawned workflow. 

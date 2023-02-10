@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # View Workflow Executions
 
 In this article we will learn how to view workflow executions via the UI.

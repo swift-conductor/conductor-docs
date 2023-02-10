@@ -1,38 +1,35 @@
----
-sidebar_position: 1
----
 
 # Join
 ```json
 "type" : "JOIN"
 ```
 
-### Introduction
+A `JOIN` task is used in conjunction with a `FORK_JOIN` or `FORK_JOIN_DYNAMIC` task. Each of the aggregated task outputs is given a corresponding key in the `JOIN` task output.
 
-A `JOIN` task is used in conjunction with a `FORK_JOIN` or `FORK_JOIN_DYNAMIC` task. When `JOIN` is used along with
-a `FORK_JOIN` task, tt waits for a list of zero or more of the forked tasks to be completed. However, when used with
-a `FORK_JOIN_DYNAMIC` task, it implicitly waits for all of the dynamically forked tasks to complete.
+* When used with a `FORK_JOIN` task, it waits for a **user provided** list of zero or more of the forked tasks to be completed. 
+* When used with a `FORK_JOIN_DYNAMIC` task, it implicitly waits for all of the dynamically forked tasks to complete.
 
-### Use Cases
+`JOIN` used in this context is loosely analogous to the *Map* phase of the *Map-Reduce* programming pattern. In Conductor, the *reduce* step could 
+be implemented as a subsequent task that references the output of the `JOIN` task.
+
+## Use Cases
 
 [FORK_JOIN](fork-task.md) and [FORK_JOIN_DYNAMIC](dynamic-fork-task.md) task are used to execute a collection of other tasks or sub workflows in parallel. In
-such cases, there is a need for these forked tasks to complete before moving to the next stage in the workflow. 
+such cases, there is a need to collect the output from the forked tasks before moving to the next stage in the workflow. 
 
-### Configuration
+## Configuration
+When used with `FORK_JOIN` (Static Fork), The `joinOn` attribute is provided at the top level of the task configuration. 
 
-#### Input Configuration
+| Attribute | Description                                                                                               |
+| --------- | --------------------------------------------------------------------------------------------------------- |
+| joinOn    | A list of task reference names that this `JOIN` task will wait for completion. Omitted for `DYNAMIC_FORK` |
 
-| Attribute         | Description                                                                                                                          |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| name              | Task Name. A unique name that is descriptive of the task function                                                                    |
-| taskReferenceName | Task Reference Name. A unique reference to this task. There can be multiple references of a task within the same workflow definition |
-| type              | Task Type. In this case, `JOIN`                                                                                                      |
-| joinOn            | A list of task reference names, that this `JOIN` task will wait for completion                                                       |
+The `JOIN` task does not utilize `inputParameters`. 
 
-#### Output Configuration
+## Output
 
 | Attribute       | Description                                                                         |
-|-----------------|-------------------------------------------------------------------------------------|
+| --------------- | ----------------------------------------------------------------------------------- |
 | task_ref_name_1 | A task reference name that was being `joinOn`. The value is the output of that task |
 | task_ref_name_2 | A task reference name that was being `joinOn`. The value is the output of that task |
 | ...             | ...                                                                                 |
@@ -40,9 +37,9 @@ such cases, there is a need for these forked tasks to complete before moving to 
 
 
 
-### Examples
+## Examples
 
-#### Simple Example
+### Simple Example
 Here is an example of a _`JOIN`_ task. This task will wait for the completion of tasks `my_task_ref_1`
 and `my_task_ref_2` as specified by the `joinOn` attribute.
 
@@ -59,7 +56,7 @@ and `my_task_ref_2` as specified by the `joinOn` attribute.
 ```
 
 
-#### Example - ignoring one fork
+### Example - Ignoring one fork
 Here is an example of a `JOIN` task used in conjunction with a `FORK_JOIN` task. The 'FORK_JOIN' spawns 3 tasks.
 An `email_notification` task, a `sms_notification` task and a  `http_notification` task. Email and SMS are usually best
 effort delivery systems. However, in case of a http based notification you get a return code and you can retry until it

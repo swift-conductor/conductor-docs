@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Reusing Tasks
 
 A powerful feature of Conductor is that it supports and enables re-usability out of the box. Task workers typically

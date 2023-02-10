@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Versioning Workflows
 
 Every workflow has a version number (this number **must** be an integer.)

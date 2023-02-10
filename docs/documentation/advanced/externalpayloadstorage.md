@@ -50,7 +50,7 @@ Set the following property in the JVM system properties:
 conductor.external-payload-storage.type=S3
 ```
 
-!!!note
+!!! note
     This [implementation](https://github.com/Netflix/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/utils/S3PayloadStorage.java#L44-L45) assumes that S3 access is configured on the instance.
 
 Set the following properties to the desired values in the JVM system properties:
@@ -93,7 +93,7 @@ The payloads will be stored as done in [Amazon S3](https://github.com/Netflix/co
 Frinx provides an implementation of [PostgreSQL Storage](https://www.postgresql.org/) used to externalize large payload storage.
 
 !!!note
-This implementation assumes that you have an [PostgreSQL database server with all required credentials](https://jdbc.postgresql.org/documentation/94/connect.html).
+    This implementation assumes that you have an [PostgreSQL database server with all required credentials](https://jdbc.postgresql.org/documentation/94/connect.html).
 
 Set the following properties to your application.properties:
 

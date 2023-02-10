@@ -1,14 +1,10 @@
----
-sidebar_position: 1
----
-
 # Do-While
 ```json
 "type" : "DO_WHILE"
 ```
-## Introduction
-Sequentially execute a list of task as long as a condition is true. 
-The list of tasks is executed first, before the condition is checked (even for the first iteration).
+
+The `DO_WHILE` task sequentially executes a list of tasks as long as a given condition is true. 
+The list of tasks is executed first, before the condition is checked (the first iteration will always execute).
 
 When scheduled, each task of this loop will see its `taskReferenceName` concatenated with __i, with i being the iteration number, starting at 1. Warning: taskReferenceName containing arithmetic operators must not be used.
 
@@ -16,7 +12,7 @@ Each task output is stored as part of the DO_WHILE task, indexed by the iteratio
 
 The DO_WHILE task is set to `FAILED` as soon as one of the loopOver fails. In such case retry, iteration starts from 1.
 
-### Limitations 
+## Limitations 
 - Domain or isolation group execution is unsupported; 
 - Nested DO_WHILE is unsupported, however, DO_WHILE task supports SUB_WORKFLOW as loopOver task, so we can achieve similar functionality.
 - Since loopover tasks will be executed in loop inside scope of parent do while task, crossing branching outside of DO_WHILE task is not respected.
@@ -24,26 +20,24 @@ The DO_WHILE task is set to `FAILED` as soon as one of the loopOver fails. In su
 
 Branching inside loopOver task is supported.
 
-
-
 ## Configuration
+The following fields must be specified at the top level of the task configuration.
 
-### Input Parameters:
+| name          | type        | description                                                                                                                                                                                                             |
+| ------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| loopCondition | String      | Condition to be evaluated after every iteration. This is a Javascript expression, evaluated using the Nashorn engine. If an exception occurs during evaluation, the DO_WHILE task is set to FAILED_WITH_TERMINAL_ERROR. |
+| loopOver      | List\[Task] | List of tasks that needs to be executed as long as the condition is true.                                                                                                                                               |
 
-| name          | type       | description                                                                                                                                                                                                             |
-|---------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| loopCondition | String     | Condition to be evaluated after every iteration. This is a Javascript expression, evaluated using the Nashorn engine. If an exception occurs during evaluation, the DO_WHILE task is set to FAILED_WITH_TERMINAL_ERROR. |
-| loopOver      | List[Task] | List of tasks that needs to be executed as long as the condition is true.                                                                                                                                               |
-
-### Output Parameters
+## Output
 
 | name      | type             | description                                                                                                                                                                                           |
-|-----------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | iteration | Integer          | Iteration number: the current one while executing; the final one once the loop is finished                                                                                                            |
 | `i`       | Map[String, Any] | Iteration number as a string, mapped to the task references names and their output.                                                                                                                   |
 | *         | Any              | Any state can be stored here if the `loopCondition` does so. For example `storage` will exist if `loopCondition` is `if ($.LoopTask['iteration'] <= 10) {$.LoopTask.storage = 3; true } else {false}` |
 
 ## Examples
+### Basic Example
 
 The following definition:
 ```json
@@ -137,7 +131,7 @@ will produce the following execution, assuming 3 executions occurred (alongside 
 }
 ```
 
-## Example using iteration key
+### Example using iteration key
 
 Sometimes, you may want to use the iteration value/counter in the tasks used in the loop.  In this example, an API call is made to GitHub (to the Netflix Conductor repository), but each loop increases the pagination.
 

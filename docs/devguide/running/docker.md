@@ -120,55 +120,55 @@ docker build -t conductor:serverAndUI -f serverAndUI/Dockerfile ../
  - With interal DB: `docker run -p 8080:8080 -p 80:5000 -d -t conductor:serverAndUI`
  - With external DB: `docker run -p 8080:8080 -p 80:5000 -d -t -e "CONFIG_PROP=config.properties" conductor:serverAndUI`
 
-
-
-## Potential problem when using Docker Images
-
-#### Not enough memory
-
-    1. You will need at least 16 GB of memory to run everything. You can modify the docker compose to skip using
-       Elasticsearch if you have no option to run this with your memory options.
-    2. To disable Elasticsearch using Docker Compose - follow the steps listed here: **TODO LINK**
-
-#### Elasticsearch fails to come up in arm64 based CPU machines
-
-    1. As of writing this article, Conductor relies on 6.8.x version of Elasticsearch. This version doesn't have an
-       arm64 based Docker image. You will need to use Elasticsearch 7.x which requires a bit of customization to get up
-       and running 
-
-####  Elasticsearch remains in Yellow health
-
-    1. When you run Elasticsearch, sometimes the health remains in Yellow state. Conductor server by default requires
-       Green state to run when indexing is enabled. To work around this, you can use the following property: 
-       `conductor.elasticsearch.clusterHealthColor=yellow` Reference: [Issue 2262](https://github.com/Netflix/conductor/issues/2262)
-
-
-
-#### Elasticsearch timeout
-Standalone(single node) elasticsearch has a yellow status which will cause timeout for conductor server (Required: Green).
-Spin up a cluster (more than one) to prevent timeout or use config option `conductor.elasticsearch.clusterHealthColor=yellow`.
-
-See issue: https://github.com/Netflix/conductor/issues/2262
-
-#### Changes in config-*.properties do not take effect
-Config is copy into image during docker build. You have to rebuild the image or better, link a volume to it to reflect new changes.
-
-#### To troubleshoot a failed startup
-Check the log of the server, which is located at `/app/logs` (default directory in dockerfile)
-
-#### Unable to access to conductor:server API on port 8080
-It may takes some time for conductor server to start. Please check server log for potential error.
-
-#### Elasticsearch
+## Elasticsearch
 Elasticsearch is optional, please be aware that disable it will make most of the conductor UI not functional.
 
-##### How to enable Elasticsearch
+### How to enable Elasticsearch
 * Set `conductor.indexing.enabled=true` in your_config.properties
 * Add config related to elasticsearch
   E.g.: `conductor.elasticsearch.url=http://es:9200`
 
-##### How to disable Elasticsearch
+### How to disable Elasticsearch
 * Set `conductor.indexing.enabled=false` in your_config.properties
 * Comment out all the config related to elasticsearch
 E.g.: `conductor.elasticsearch.url=http://es:9200`
+
+
+## Troubleshooting 
+To troubleshoot a failed startup, check the server logss located at `/app/logs` (default directory in dockerfile)
+
+## Potential problem when using Docker Images
+
+### Not enough memory
+You will need at least 16 GB of memory to run everything. You can modify the docker compose to skip using
+Elasticsearch if you have no option to run this with your memory options.
+
+To disable Elasticsearch using Docker Compose - follow the steps above.
+
+### Elasticsearch fails to come up in arm64 based CPU machines
+As of writing this article, Conductor relies on 6.8.x version of Elasticsearch. This version doesn't have an
+arm64 based Docker image. You will need to use Elasticsearch 7.x which requires a bit of customization to get up
+and running 
+
+###  Elasticsearch remains in Yellow health
+
+When you run Elasticsearch, sometimes the health remains in Yellow state. Conductor server by default requires
+Green state to run when indexing is enabled. To work around this, you can use the following property: 
+`conductor.elasticsearch.clusterHealthColor=yellow` 
+
+See Github [issue](https://github.com/Netflix/conductor/issues/2262)
+
+### Elasticsearch timeout
+Symptom: Standalone (single node) Elasticsearch has a yellow status which will cause timeout for the Conductor server at startup (Required: Green).
+
+Solution: Spin up a cluster (more than one node) to prevent the timeout or use config option `conductor.elasticsearch.clusterHealthColor=yellow`.
+
+See Github [issue](https://github.com/Netflix/conductor/issues/2262)
+
+### Changes in config-*.properties do not take effect
+Config is copied into the image during the docker build. You have to rebuild the image or better, link a volume to it 
+to reflect new changes automatically.
+
+### Unable to access to conductor:server API on port 8080
+It may takes some time for conductor server to start. Please check server log for errors.
 

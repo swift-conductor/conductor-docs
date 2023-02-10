@@ -1,21 +1,16 @@
----
-sidebar_position: 1
----
-
 # JSON JQ Transform Task
 
 ```json
 "type" : "JSON_JQ_TRANSFORM"
 ```
-### Introduction
 
-JSON_JQ_TRANSFORM_TASK is a System task that allows processing of JSON data that is supplied to the task, by using the
+`JSON_JQ_TRANSFORM` is a System task that allows processing of JSON data that is supplied to the task, by using the
 popular JQ processing tool’s query expression language.
 
 Check the [JQ Manual](https://stedolan.github.io/jq/manual/v1.5/), and the
-[JQ Playground](https://jqplay.org/) for more information on JQ
+[JQ Playground](https://jqplay.org/) for more information on JQ.
 
-### Use Cases
+## Use Cases
 
 JSON is a popular format of choice for data-interchange. It is widely used in web and server applications, document
 storage, API I/O etc. It’s also used within Conductor to define workflow and task definitions and passing data and state
@@ -23,19 +18,16 @@ between tasks and workflows. This makes a tool like JQ a natural fit for process
 usages within Conductor includes, working with HTTP task, JOIN tasks or standalone tasks that try to transform data from
 the output of one task to the input of another.
 
-### Configuration
+## Configuration
+`queryExpression` is appended to the `inputParameters` of `JSON_JQ_TRANSFORM`, along side any other input values needed for the evaluation.
+
+### inputParameters
+| name            | description         |
+|-----------------|---------------------|
+| queryExpression | JQ query expression |
 
 
-| Attribute                           | Description                                                                                                                                                                                                                                                             |
-|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name                                | Task Name. A unique name that is descriptive of the task function                                                                                                                                                                                                       |
-| taskReferenceName                   | Task Reference Name. A unique reference to this task. There can be multiple references of a task within the same workflow definition                                                                                                                                    |
-| type                                | Task Type. In this case, JSON_JQ_TRANSFORM                                                                                                                                                                                                                              |
-| inputParameters                     | The input parameters that will be supplied to this task. The parameters will be a JSON object of atleast 2 attributes, one of which will be called queryExpression. The others are user named attributes. These attributes will be accessible by the JQ query processor |
-| inputParameters/user-defined-key(s) | User defined key(s) along with values.                                                                                                                                                                                                                                  |
-| inputParameters/queryExpression     | A JQ query expression                                                                                                                                                                                                                                                   |
-
-#### Output Configuration
+## Output
 
 | Attribute  | Description                                                               |
 |------------|---------------------------------------------------------------------------|
@@ -43,9 +35,8 @@ the output of one task to the input of another.
 | resultList | A List of results returned by the JQ expression                           |
 | error      | An optional error message, indicating that the JQ query failed processing |
 
-### Example
-
-
+## Example
+### Example 1
 Here is an example of a _`JSON_JQ_TRANSFORM`_ task. The `inputParameters` attribute is expected to have a value object
 that has the following
 
@@ -109,14 +100,10 @@ attribute along with a string message will be returned if there was an error pro
 }
 ```
 
-## Example JQ transforms
-
-### Cleaning up a JSON response
-
+### Example 2
 A HTTP Task makes an API call to GitHub to request a list of "stargazers" (users who have starred a repository).  The API response (for just one user) looks like:
 
-
-Snippet of ```${hundred_stargazers_ref.output}```
+Snippet of `${hundred_stargazers_ref.output}`
 
 ``` JSON 
   
@@ -145,33 +132,32 @@ Snippet of ```${hundred_stargazers_ref.output}```
   }
 }
 ]
-
 ```
 
-We only need the ```starred_at``` and ```login``` parameters for users who starred the repository AFTER a given date (provided as an input to the workflow ```${workflow.input.cutoff_date}```).  We'll use the JQ Transform to simplify the output:
+We only need the ```starred_at``` and ```login``` parameters for users who starred the repository AFTER a given date (provided as an input to the workflow `${workflow.input.cutoff_date}`).  We'll use the JQ Transform to simplify the output:
 
 ```JSON
 {
-          "name": "jq_cleanup_stars",
-          "taskReferenceName": "jq_cleanup_stars_ref",
-          "inputParameters": {
-            "starlist": "${hundred_stargazers_ref.output.response.body}",
-            "queryExpression": "[.starlist[] | select (.starred_at > \"${workflow.input.cutoff_date}\") |{occurred_at:.starred_at, member: {github:  .user.login}}]"
-          },
-          "type": "JSON_JQ_TRANSFORM",
-          "decisionCases": {},
-          "defaultCase": [],
-          "forkTasks": [],
-          "startDelay": 0,
-          "joinOn": [],
-          "optional": false,
-          "defaultExclusiveJoinTask": [],
-          "asyncComplete": false,
-          "loopOver": []
-        }
+  "name": "jq_cleanup_stars",
+  "taskReferenceName": "jq_cleanup_stars_ref",
+  "inputParameters": {
+    "starlist": "${hundred_stargazers_ref.output.response.body}",
+    "queryExpression": "[.starlist[] | select (.starred_at > \"${workflow.input.cutoff_date}\") |{occurred_at:.starred_at, member: {github:  .user.login}}]"
+  },
+  "type": "JSON_JQ_TRANSFORM",
+  "decisionCases": {},
+  "defaultCase": [],
+  "forkTasks": [],
+  "startDelay": 0,
+  "joinOn": [],
+  "optional": false,
+  "defaultExclusiveJoinTask": [],
+  "asyncComplete": false,
+  "loopOver": []
+}
 ```
 
-The JSON is stored in ```starlist```.  The ```queryExpression``` reads in the JSON, selects only entries where the ```starred_at``` value meets the date criteria, and generates output JSON of the form:
+The JSON is stored in `starlist`.  The `queryExpression` reads in the JSON, selects only entries where the `starred_at` value meets the date criteria, and generates output JSON of the form:
 
 ```JSON
 {
@@ -182,7 +168,7 @@ The JSON is stored in ```starlist```.  The ```queryExpression``` reads in the JS
 }
 ```
 
-The entire expression is wrapped in [] to indicate that the response should be an array.
+The entire expression is wrapped in `[]` to indicate that the response should be an array.
 
 
 

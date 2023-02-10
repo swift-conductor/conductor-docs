@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Task Inputs
 
 Task inputs can be provided in multiple ways. This is configured in the workflow definition when a task is participating

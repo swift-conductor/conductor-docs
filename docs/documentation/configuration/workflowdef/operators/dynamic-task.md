@@ -2,39 +2,35 @@
 ```json
 "type" : "DYNAMIC"
 ```
+The `DYNAMIC` task allows one to execute a task whose name is resolved dynamically at run-time.
+The task name to execute is specified as `taskToExecute` in `inputParameters`.
 
-### Introduction
-Dynamic Task allows to execute one of the registered Tasks dynamically at run-time.
-It accepts the task name to execute as `taskToExecute` in `inputParameters`.
-
-### Use Cases 
+## Use Cases 
 
 Consider a scenario, when we have to make decision of executing a task dynamically i.e. while the workflow is still
 running. In such cases, Dynamic Task would be useful.
 
-### Configuration
+## Configuration
+To use the `DYNAMIC` task, you need to provide `dynamicTaskNameParam` at the top level of the task configuration, **as well as** an attribute in `inputParameters` matching the value you selected for `dynamicTaskNameParam`.
 
-Dynamic task is defined directly inside the workflow with type `DYNAMIC`.
+| name                 | description                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------- |
+| dynamicTaskNameParam | Name of the parameter from `inputParameters` whose value is used to schedule the task. e.g. `"taskToExecute"` |
 
-#### Inputs
-
-Following are the input parameters :
-
-| name                 | description                                                                                                                                                               |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dynamicTaskNameParam | Name of the parameter from the task input whose value is used to schedule the task.  e.g. if the value of the parameter is ABC, the next task scheduled is of type 'ABC'. |
-
-#### Output
-
-TODO: Talk about output of the task, what to expect
+### inputParameters
+| name                                      | description              |
+| ----------------------------------------- | ------------------------ |
+| *dynamicTaskNameParam e.g. `taskToExecute` | Name of task to execute. |
 
 
-### Examples
+## Example
 
 Suppose in a workflow, we have to take decision to ship the courier with the shipping
 service providers on the basis of Post Code.
 
-Following task `shipping_info` generates an output on the basis of which decision would be
+Consider the following 3 task definitions.
+
+The following task `shipping_info` generates an output on the basis of which decision would be
 taken to run the next task.
 
 ```json
@@ -54,7 +50,7 @@ taken to run the next task.
 }
 ```
 
-Following are the two worker tasks, one among them would execute on the basis of output generated
+The following are the two worker tasks, one among them would execute on the basis of output generated
 by the `shipping_info` task :
 
 ```json
@@ -88,8 +84,7 @@ by the `shipping_info` task :
 }
 ```
 
-
-We will create the Workflow with the following definition :
+We will create a workflow with the following definition :
 
 ```json
 {
@@ -122,7 +117,7 @@ We will create the Workflow with the following definition :
 }
 ```
 
-Workflow is the created as shown in the below diagram.
+The workflow created is shown in the below diagram.
 
 
 ![Conductor UI - Workflow Diagram](ShippingWorkflow.png)

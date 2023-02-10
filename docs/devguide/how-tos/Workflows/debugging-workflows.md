@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Debugging Workflows
 
 Conductor UI is a tool that we can leverage for debugging issues. Refer to the following articles to search and view

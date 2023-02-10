@@ -1,5 +1,4 @@
 # Event Handlers
-## Eventing in Conductor
 Eventing in Conductor provides for loose coupling between workflows and support for producing and consuming events from external systems.
 
 This includes:
@@ -23,10 +22,10 @@ Event handlers are listeners registered that executes an action when a matching 
 
 Event Handlers can be configured to listen to Conductor Events or an external event like SQS.
 
-### Configuration
+## Configuration
 Event Handlers are configured via ```/event/``` APIs.
 
-#### Structure:
+### Structure
 ```json
 {
   "name" : "descriptive unique name",
@@ -35,12 +34,11 @@ Event Handlers are configured via ```/event/``` APIs.
   "actions": ["see examples below"]
 }
 ```
-#### Condition
-Condition is an expression that MUST evaluate to a boolean value.  A Javascript like syntax is supported that can be used to evaluate condition based on the payload.
+`condition` is an expression that MUST evaluate to a boolean value.  A Javascript like syntax is supported that can be used to evaluate condition based on the payload.
 Actions are executed only when the condition evaluates to `true`.
 
-**Examples**
-
+## Examples
+### Condition
 Given the following payload in the message:
 
 ```json
@@ -54,16 +52,19 @@ Given the following payload in the message:
 }
 ```
 
-|Expression|Result|
-|---|---|
-|`$.version > 1`|true|
-|`$.version > 10`|false|
-|`$.metadata.length == 300`|true|
+The following expressions can be used in `condition` with the indicated results:
+
+| Expression                 | Result |
+| -------------------------- | ------ |
+| `$.version > 1`            | true   |
+| `$.version > 10`           | false  |
+| `$.metadata.length == 300` | true   |
 
 
 ### Actions
+Examples of actions that can be configured in the `actions` array:
 
-**Start A Workflow**
+**To start a workflow**
 
 ```json
 {
@@ -78,7 +79,7 @@ Given the following payload in the message:
 }
 ```
 
-**Complete Task***
+**To complete a task**
 
 ```json
 {
@@ -94,7 +95,7 @@ Given the following payload in the message:
 }
 ```
 
-**Fail Task***
+**To fail a task***
 
 ```json
 {
@@ -109,7 +110,7 @@ Given the following payload in the message:
     "expandInlineJSON": true
 }
 ```
-Input for starting a workflow and output when completing / failing task follows the same [expressions](workflowdef/index.md#wiring-inputs-and-outputs) used for wiring workflow inputs.
+Input for starting a workflow and output when completing / failing task follows the same [expressions](workflowdef/index.md#using-expressions) used for wiring task inputs.
 
 !!!info "Expanding stringified JSON elements in payload"
 	`expandInlineJSON` property, when set to true will expand the inlined stringified JSON elements in the payload to JSON documents and replace the string value with JSON document.  

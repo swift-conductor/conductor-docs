@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Task Timeouts
 
 Tasks can be configured to handle various scenarios of timeouts. Here are some scenarios and the relevance configuration

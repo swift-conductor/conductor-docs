@@ -66,7 +66,7 @@ Send `POST` requests to `/metadata/workflow` endpoint with below payloads:
 `EVENT` task is a System task, and we shall define it just like other Tasks in Workflow, with `sink` parameter. Also, `EVENT` task doesn't have to be registered before using in Workflow. This is also true for the `WAIT` task.  
 Hence, we will not be registering any tasks for these workflows.
 
-## Events are sent, but they're not handled (yet)
+### Events are sent, but they're not handled (yet)
 
 Once you try to start `test_workflow_for_eventHandler` workflow, you would notice that the event is sent successfully, but the second worflow `test_workflow_startedBy_eventHandler` is not started. We have sent the Events, but we also need to define `Event Handlers` for Conductor to take any `actions` based on the Event. Let's create `Event Handlers`.
 
@@ -164,7 +164,7 @@ Similarly, create another Event Handler to complete task.
 }
 ```
 
-## Final flow of Workflow
+## Summary
 
 After wiring all of the above, starting the `test_workflow_for_eventHandler` should:
 

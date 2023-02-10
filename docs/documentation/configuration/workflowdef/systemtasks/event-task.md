@@ -1,21 +1,16 @@
----
-sidebar_position: 4
----
-
 # Event Task
 
 ```json
 "type" : "EVENT"
 ```
 
-### Introduction
-EVENT is a task used to publish an event into one of the supported eventing systems in Conductor.
+The `EVENT` task is a task used to publish an event into one of the supported eventing systems in Conductor.
 Conductor supports the the following eventing models:
 
-1. Conductor internal events (type: conductor)
-2. SQS (type: sqs)
+1. Conductor internal events (type: `conductor`)
+2. SQS (type: `sqs`)
 
-### Use Cases 
+## Use Cases 
 Consider a use case where at some point in the execution, an event is published to an external eventing system such as SQS.
 Event tasks are useful for creating event based dependencies for workflows and tasks.
 
@@ -37,32 +32,26 @@ An example where we want to publish a messase to conductor's internal queuing sy
     "asyncComplete": false
 }
 ```
-
-
-### Configuration
-
-#### Input Configuration
+## Configuration
+The following parameters are specified at the top level of the task configuration.
 
 | Attribute         | Description                                                                                                                                                                 |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name              | Task Name. A unique name that is descriptive of the task function                                                                                                           |
-| taskReferenceName | Task Reference Name. A unique reference to this task. There can be multiple references of a task within the same workflow definition                                        |
-| type              | Task Type. In this case, `EVENT`                                                                                                                                            |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | sink              | External event queue in the format of `prefix:location`.  Prefix is either `sqs` or `conductor` and `location` specifies the actual queue name. e.g. "sqs:send_email_queue" |
-| asyncComplete     | Boolean                                                                                                                                                                     |
+| asyncComplete     | Boolean. [See below](#asynccomplete)                                                                                                                                        |
 
-#### asyncComplete
+### asyncComplete
 * ```false``` to mark status COMPLETED upon execution 
 * ```true``` to keep it IN_PROGRESS, wait for an external event (via Conductor or SQS or EventHandler) to complete it. 
 
-#### Output Configuration
+## Output
 Tasks's output are sent as a payload to the external event. In case of SQS the task's output is sent to the SQS message a a payload.
 
 
 | name               | type    | description                           |
-|--------------------|---------|---------------------------------------|
+| ------------------ | ------- | ------------------------------------- |
 | workflowInstanceId | String  | Workflow id                           |
-| workflowType       | String  | Workflow Name                         | 
+| workflowType       | String  | Workflow Name                         |
 | workflowVersion    | Integer | Workflow Version                      |
 | correlationId      | String  | Workflow CorrelationId                |
 | sink               | String  | Copy of the input data "sink"         |
@@ -85,7 +74,7 @@ For SQS, use the **name** of the queue and NOT the URI.  Conductor looks up the 
     When using Conductor as sink, you have two options: defining the sink as `conductor` in which case the queue name will default to the taskReferenceName of the Event Task, or specifying the queue name in the sink, as `conductor:<queue_name>`. The queue name is in the `event` value of the event Handler, as `conductor:<workflow_name>:<queue_name>`.
 
 
-### Supported Queuing Systems
+## Supported Queuing Systems
 Conductor has support for the following external event queueing systems as part of the OSS build
 
 1. SQS (prefix: sqs)

@@ -1,29 +1,26 @@
----
-sidebar_position: 1
----
-
 # Set Variable
 
 ```json
 "type" : "SET_VARIABLE"
 ```
-### Introduction
-Set Variable allows us to set workflow variables by creating or updating them
-with new values.
 
-### Use Cases
+The `SET_VARIABLE` task allows users to create global workflow variables, and update them with new values.
 
-Variables can be initialized in the workflow definition as well as during
-the workflow run. Once a variable was initialized it can be read or
-overwritten with a new value by any other task.
+Variables can be initialized in the workflow definition as well as during the workflow run. Once a variable is initialized
+it can be read using the *expression* `${workflow.variables.NAME}` by any other task.
 
-### Configuration
+It can be overwritten by a subsequent `SET_VARIABLE` task.
 
-Set Variable task is defined directly inside the workflow with type
-`SET_VARIABLE`.
+!!!warning
+	There is a hard barrier for variables payload size in KB defined in the JVM system properties (`conductor.max.workflow.variables.payload.threshold.kb`) the default value is `256`. Passing this barrier will fail the task and the workflow.
 
-## Examples
+## Use Cases
+For example, you might want to track shared state at the workflow level, and have the state be accessible by any task executed as part of the workflow.
 
+## Configuration
+Global variables can be set in `inputParameters` using the desired variable names and their respective values.
+
+## Example
 Suppose in a workflow, we have to store a value in a variable and then later in
 workflow reuse the value stored in the variable just as we do in programming, in such
 scenarios `Set Variable` task can be used.
@@ -48,7 +45,7 @@ Following is the workflow definition with `SET_VARIABLE` task.
       "name": "Read_Name",
       "taskReferenceName": "Read_Name",
       "inputParameters": {
-        "var_name" : "${workflow.variables.name}"
+        "saved_name" : "${workflow.variables.name}"
       },
       "type": "SIMPLE"
     }

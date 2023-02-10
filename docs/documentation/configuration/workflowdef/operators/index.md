@@ -6,14 +6,14 @@ Conductor has support for most of the programing primitives allowing you to defi
 
 Conductor supports the following programming language constructs: 
 
-| Language Construct               | Conductor Operator                                          |
-|----------------------------------|-------------------------------------------------------------|
-| Do/While or Loops                | [Do While Task](do-while-task.md)         |
-| Dynamic Fork                     | [Dynamic Fork Task](dynamic-fork-task.md) |
-| Fork / Parallel execution        | [Fork Task](fork-task.md)                 | 
-| Join                             | [Join Task](join-task.md)                 |
-| Sub Process / Sub-Flow           | [Sub Workflow Task](sub-workflow-task.md) |
-| Switch//Decision/if..then...else | [Switch Task](switch-task.md)             |
-| Terminate                        | [Terminate Task](terminate-task.md)       |
-| Variables                        | [Variable Task](set-variable-task.md)     |
-| Wait                             | [Wait Task](wait-task.md)                 |
+| Language Construct         | Conductor Operator                        |
+| -------------------------- | ----------------------------------------- |
+| Do-While or For Loops      | [Do While Task](do-while-task.md)         |
+| Function Pointer           | [Dynamic Task](dynamic-task.md)           |
+| Dynamic Parallel execution | [Dynamic Fork Task](dynamic-fork-task.md) |
+| Static Parallel execution  | [Fork Task](fork-task.md)                 |
+| Map                        | [Join Task](join-task.md)                 |
+| Subroutine / Fork Process  | [Sub Workflow Task](sub-workflow-task.md) |
+| Switch/if..then...else     | [Switch Task](switch-task.md)             |
+| Exit                       | [Terminate Task](terminate-task.md)       |
+| Global Variables           | [Variable Task](set-variable-task.md)     |
