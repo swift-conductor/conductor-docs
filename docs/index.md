@@ -125,9 +125,7 @@ hide:
 <div class="compare">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <h2 class="heading">Why Conductor?</h2>
-      </div>
+      <h2 class="heading">Why Conductor?</h2>
     </div>
     <div class="row" style="gap:30px;">
       <div class="col-6">
