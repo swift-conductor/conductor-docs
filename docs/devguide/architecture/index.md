@@ -9,7 +9,7 @@ Conductor follows RPC based communication model where workers are running on a s
 
 ![Runtime Model of Conductor](overview.png)
 
-**Notes**
+## Notes
 
 * Workers are remote systems that communicate over HTTP with the conductor servers.
 * Task Queues are used to schedule tasks for workers.  We use [dyno-queues][1] internally but it can easily be swapped with SQS or similar pub-sub mechanism.
