@@ -93,10 +93,10 @@ Ok, now that we have walked through our workflow details, let's run this and see
 
 To configure the workflow, head over to the swagger API of conductor server and access the metadata workflow create API:
 
-[http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/metadata-resource/create](http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/metadata-resource/create)
+[http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/metadata-resource/create](http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/metadata-resource/create)
 
 If the link doesn’t open the right Swagger section, we can navigate to Metadata-Resource
-→ `POST /api/metadata/workflow`
+→ `POST {{ api_prefix }}/metadata/workflow`
 
 ![Swagger UI - Metadata - Workflow](metadataWorkflowPost.png)
 
@@ -114,7 +114,7 @@ If we click through we can see a visual representation of the workflow:
 
 Let’s run this workflow. To do that we can use the swagger API under the workflow-resources
 
-[http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/workflow-resource/startWorkflow_1](http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/workflow-resource/startWorkflow_1)
+[http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/workflow-resource/startWorkflow_1](http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/workflow-resource/startWorkflow_1)
 
 ![Swagger UI - Metadata - Workflow - Run](metadataWorkflowRun.png)
 

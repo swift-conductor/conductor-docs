@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Searching Workflows
 
 In this article we will learn how to search through workflow executions via the UI.

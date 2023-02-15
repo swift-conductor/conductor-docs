@@ -12,7 +12,6 @@ as `DYNAMIC` and determine which underlying task does it run during the workflow
    taken
 * SWITCH task comes with a default task option which can be useful in some use cases
 
-## Documentation
 Learn more about
 
 * [Dynamic Tasks](../../../documentation/configuration/workflowdef/operators/dynamic-task.md)

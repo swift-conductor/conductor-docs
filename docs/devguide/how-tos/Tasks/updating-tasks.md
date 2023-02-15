@@ -1,23 +1,19 @@
----
-sidebar_position: 1
----
-
 # Updating Task Definitions
 
 Updates to the task definitions can be made using the following API
 
 ```http
 
-PUT /api/metadata/taskdefs
+PUT {{ api_prefix }}/metadata/taskdefs
 ```
 
 This API takes a single task definition and updates itself. 
 
-
+## Examples
 ### Example using curl
 
 ```shell
-curl 'http://localhost:8080/api/metadata/taskdefs' \
+curl '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
   -X 'PUT' \
   -H 'accept: */*' \
   -H 'content-type: application/json' \
@@ -27,7 +23,7 @@ curl 'http://localhost:8080/api/metadata/taskdefs' \
 ### Example using node fetch
 
 ```javascript
-fetch("http://localhost:8080/api/metadata/taskdefs", {
+fetch("{{ server_host }}{{ api_prefix }}/metadata/taskdefs", {
     "headers": {
         "accept": "*/*",
         "content-type": "application/json",

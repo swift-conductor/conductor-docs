@@ -48,7 +48,7 @@ server $ ../gradlew bootRun
 ```
 
 Navigate to the swagger API docs:
-[http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config](http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config)
+[http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config](http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config)
 
 ![swagger](swagger.png)
 
@@ -61,7 +61,7 @@ export REPO_URL=https://repo1.maven.org/maven2/com/netflix/conductor/conductor-s
 curl $REPO_URL/$CONDUCTOR_VER/conductor-server-$CONDUCTOR_VER-boot.jar \
 --output conductor-server-$CONDUCTOR_VER-boot.jar; java -jar conductor-server-$CONDUCTOR_VER-boot.jar 
 ```
-Navigate to the swagger URL: [http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config](http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config)
+Navigate to the swagger URL: [http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config](http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config)
 
 
 

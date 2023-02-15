@@ -43,7 +43,7 @@ Once up and running, you will see the following in your Docker dashboard:
 You can access the UI & Server on your browser to verify that they are running correctly:
 
 #### Conductor Server URL
-[http://localhost:8080](http://localhost:8080)
+[{{ server_host }}]({{ server_host }})
 
 ![swagger](swagger.png)
 
@@ -81,7 +81,7 @@ To build and run the server image, without using `docker-compose`, from the `doc
 docker build -t conductor:server -f server/Dockerfile ../
 docker run -p 8080:8080 -d --name conductor_server conductor:server
 ```
-This builds the image `conductor:server` and runs it in a container named `conductor_server`. The API should now be accessible at `localhost:8080`.
+This builds the image `conductor:server` and runs it in a container named `conductor_server`. The API should now be accessible at `{{ server_host }}`.
 
 To 'login' to the running container, use the command:
 ```

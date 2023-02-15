@@ -8,7 +8,7 @@ The figure below depicts the state transitions that a task can go through within
 ## Retries and Failure Scenarios
 
 ### Task failure and retries
-Retries for failed task executions of each task can be configured independently. retryCount, retryDelaySeconds and retryLogic can be used to configure the retry mechanism.
+Retries for failed task executions of each task can be configured independently. `retryCount`, `retryDelaySeconds` and `retryLogic` can be used to configure the retry mechanism.
 
 ![Task Failure](TaskFailure.png)
 

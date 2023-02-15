@@ -24,7 +24,7 @@ def book_car_task(task):
 
 def main():
 	print('Starting Travel Booking workflows')
-	cc = ConductorWorker('http://localhost:8080/api', 1, 0.1)
+	cc = ConductorWorker('{{ server_host }}{{ api_prefix }}', 1, 0.1)
     cc.start('book_flight', book_flight_task, False)
     cc.start('book_car', book_car_task, True)
 
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 ```python
 server_url: str
     The url to the server hosting the conductor api.
-    Ex: 'http://localhost:8080/api'
+    Ex: '{{ server_host }}{{ api_prefix }}'
 
 thread_count: int
     The number of threads that will be polling for and

@@ -1,12 +1,8 @@
----
-sidebar_position: 1
----
-
 # Task Configurations
 
 Refer to [Task Definitions](../../../documentation/configuration/taskdef.md) for details on how to configure task definitions
 
-### Example
+## Example
 
 Here is a task template payload with commonly used fields:
 
@@ -29,7 +25,7 @@ Here is a task template payload with commonly used fields:
 }
 ```
 
-### Best Practices
+## Best Practices
 
 1. Refer to [Task Timeouts](task-timeouts.md) for additional information on how the various timeout settings work
 2. Refer to [Monitoring Task Queues](monitoring-task-queues.md) on how to monitor task queues

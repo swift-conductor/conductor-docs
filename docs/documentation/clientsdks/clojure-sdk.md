@@ -13,7 +13,7 @@ https://clojars.org/io.orkes/conductor-clojure
 
 ```clojure
 (def options {
-                  :url  "http://localhost:8080/api/" ;; Conductor Server Path
+                  :url  "{{ server_host }}{{ api_prefix }}/" ;; Conductor Server Path
                   :app-key "THIS-IS-SOME-APP-KEY" ;; Optional if using Orkes Conductor
                   :app-secret "THIS-IS-SOME-APP-SECRET" ;; Optional if using Orkes Conductor
               } )
@@ -81,7 +81,7 @@ https://clojars.org/io.orkes/conductor-clojure
 Options are a map with optional paremeters
 ```
 (def options {
-                  :url  "http://localhost:8080/api/" ;; Api url (Optional will default to "http://localhost:8080")
+                  :url  "{{ server_host }}{{ api_prefix }}/" ;; Api url (Optional will default to "{{ server_host }}")
                   :app-key "THIS-IS-SOME-APP-KEY" ;; Application Key (This is only relevant if you are using Orkes Conductor)
                   :app-secret "THIS-IS-SOME-APP-SECRET" ;; Application Secret (This is only relevant if you are using Orkes Conductor)
               } )

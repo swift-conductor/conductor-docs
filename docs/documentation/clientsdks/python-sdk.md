@@ -84,14 +84,14 @@ The code for the Python SDk is available on [Github](https://github.com/conducto
 
       You should be able to access:
       * Conductor API:
-        * http://localhost:8080/swagger-ui/index.html
+        * {{ server_host }}/swagger-ui/index.html
       * Conductor UI:
         * http://localhost:5000
 
 6. Create a `Task` within `Conductor`. Example:
 
         $ curl -X 'POST' \
-            'http://localhost:8080/api/metadata/taskdefs' \
+            '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
             -H 'accept: */*' \
             -H 'Content-Type: application/json' \
             -d '[
@@ -111,7 +111,7 @@ The code for the Python SDk is available on [Github](https://github.com/conducto
 7. Create a `Workflow` within `Conductor`. Example:
 
         $ curl -X 'POST' \
-            'http://localhost:8080/api/metadata/workflow' \
+            '{{ server_host }}{{ api_prefix }}/metadata/workflow' \
             -H 'accept: */*' \
             -H 'Content-Type: application/json' \
             -d '{
@@ -142,7 +142,7 @@ The code for the Python SDk is available on [Github](https://github.com/conducto
 8. Start a new workflow:
 
         $ curl -X 'POST' \
-            'http://localhost:8080/api/workflow/workflow_with_python_task_example' \
+            '{{ server_host }}{{ api_prefix }}/workflow/workflow_with_python_task_example' \
             -H 'accept: text/plain' \
             -H 'Content-Type: application/json' \
             -d '{}'

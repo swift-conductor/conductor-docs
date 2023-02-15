@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Build a Java Task Worker
 
 This guide provides introduction to building Task Workers in Java.
@@ -85,7 +81,7 @@ Use the [Builder](https://github.com/Netflix/conductor/blob/main/client/src/main
 
 ```java
  TaskClient taskClient = new TaskClient();
- taskClient.setRootURI("http://localhost:8080/api/");        //Point this to the server API
+ taskClient.setRootURI("{{ server_host }}{{ api_prefix }}/");        //Point this to the server API
 
         int threadCount = 2;            //number of threads used to execute workers.  To avoid starvation, should be same or more than number of workers
 

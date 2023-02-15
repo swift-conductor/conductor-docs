@@ -174,7 +174,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
 Start the execution of the kitchensink workflow by posting the following:
 
 ```shell
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: text/plain' 'http://localhost:8080/api/workflow/kitchensink' -d '
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: text/plain' '{{ server_host }}{{ api_prefix }}/workflow/kitchensink' -d '
 {
 	"task2Name": "task_5" 
 }
@@ -185,7 +185,7 @@ The response is a text string identifying the workflow instance id.
 #### Poll for the first task:
   
 ```shell
-curl http://localhost:8080/api/tasks/poll/task_1
+curl {{ server_host }}{{ api_prefix }}/tasks/poll/task_1
 ```
    
 The response should look something like:
@@ -223,7 +223,7 @@ The response should look something like:
 * Update the status of the task as ```COMPLETED``` as below:
 
 ```json
-curl -H 'Content-Type:application/json' -H 'Accept:application/json' -X POST http://localhost:8080/api/tasks/ -d '
+curl -H 'Content-Type:application/json' -H 'Accept:application/json' -X POST {{ server_host }}{{ api_prefix }}/tasks/ -d '
 {
 	"taskId": "b9eea7dd-3fbd-46b9-a9ff-b00279459476",
 	"workflowInstanceId": "b0d1a935-3d74-46fd-92b2-0ca1e388659f",

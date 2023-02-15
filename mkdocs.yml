@@ -60,11 +60,10 @@ nav:
     - API Specification:
       - documentation/api/index.md
       - documentation/api/metadata.md
-      - Start Workflow API:
-        - documentation/api/startworkflow/index.md
-        - documentation/api/startworkflow/taskdomains.md
+      - documentation/api/startworkflow.md
       - documentation/api/workflow.md
       - documentation/api/task.md
+      - documentation/api/taskdomains.md
     - Configuration:
       - Workflow Definition:
         - documentation/configuration/workflowdef/index.md
@@ -138,6 +137,8 @@ markdown_extensions:
   - pymdownx.superfences  
 copyright: Netflix OSS
 extra:
+  server_host: http://localhost:8080
+  api_prefix: /api
   social:
     - icon: fontawesome/solid/blog
       link: https://netflixtechblog.com/

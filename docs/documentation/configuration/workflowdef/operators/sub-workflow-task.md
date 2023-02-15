@@ -24,7 +24,7 @@ case, Sub Workflow Task would be used.
 | ------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name               | String                            | Name of the workflow to execute                                                                                                                                               |
 | version            | Integer                           | Version of the workflow to execute                                                                                                                                            |
-| taskToDomain       | Map[String, String]               | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../../../api/startworkflow/taskdomains.md) for instructions to configure taskDomains. |
+| taskToDomain       | Map[String, String]               | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../../../api/taskdomains.md) for instructions to configure taskDomains. |
 | workflowDefinition | [WorkflowDefinition](../index.md) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                             |
 
 ## Output

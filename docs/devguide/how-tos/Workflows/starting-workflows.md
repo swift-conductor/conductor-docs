@@ -3,7 +3,7 @@
 Workflow executions can be started by using the following API:
 
 ```http
-POST /api/workflow/{name}
+POST {{ api_prefix }}/workflow/{name}
 ```
 
 `{name}` is the placeholder for workflow name. The POST API body is your workflow input parameters which can be empty if
@@ -17,7 +17,7 @@ Refer to the SDK documentation to configure a client in your selected language t
 ### Example using curl
 
 ```bash
-curl 'https://localhost:8080/api/workflow/sample_workflow' \
+curl '{{ server_host }}{{ api_prefix }}/workflow/sample_workflow' \
   -H 'accept: text/plain' \
   -H 'content-type: application/json' \
   --data-raw '{"service":"fedex"}'
@@ -29,7 +29,7 @@ is `sample_workflow`
 ### Example using node fetch
 
 ```javascript
-fetch("https://localhost:8080/api/workflow/sample_workflow", {
+fetch("{{ server_host }}{{ api_prefix }}/workflow/sample_workflow", {
     "headers": {
         "accept": "text/plain",
         "content-type": "application/json",

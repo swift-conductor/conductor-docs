@@ -13,7 +13,7 @@ fields.
 
 > `timeoutSeconds` should always be greater than `responseTimeoutSeconds`
 
-### Timeout Seconds
+## Timeout Seconds
 
 ```json
 "timeoutSeconds" : 30
@@ -23,7 +23,7 @@ When configured with a value > `0`, the system will wait for this task to comple
 seconds from when the task is first polled. We can use this to fail a workflow when a task breaches the overall SLA for
 completion.
 
-### Response Timeout Seconds
+## Response Timeout Seconds
 
 ```json
 "responseTimeoutSeconds" : 10
@@ -33,7 +33,7 @@ When configured with a value > `0`, the system will wait for this number of seco
 the worker updates back with a status. The worker can keep the task in `IN_PROGRESS` state if it requires more time to
 complete.
 
-### Poll Timeout Seconds
+## Poll Timeout Seconds
 
 ```json
 "pollTimeoutSeconds" : 10
