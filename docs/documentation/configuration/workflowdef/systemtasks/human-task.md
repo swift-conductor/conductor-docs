@@ -20,12 +20,12 @@ To conclude a `HUMAN` task, the `POST {{ api_prefix }}/tasks` [API](../../../api
 You'll need to provide the`taskId`, the task status (generally `COMPLETED` or `FAILED`), and the desired task output.
 
 ### Event Handler
-If SQS integration is enabled, the `HUMAN` task can also be resolved using the `/queue` API.
+If SQS integration is enabled, the `HUMAN` task can also be resolved using the `{{ api_prefix }}/queue` API.
 
 You'll need the  `workflowId` and `taskRefName` or `taskId`.
 
-2. POST `/queue/update/{workflowId}/{taskRefName}/{status}` 
-3. POST `/queue/update/{workflowId}/task/{taskId}/{status}` 
+2. POST `{{ api_prefix }}/queue/update/{workflowId}/{taskRefName}/{status}` 
+3. POST `{{ api_prefix }}/queue/update/{workflowId}/task/{taskId}/{status}` 
 
 An [event handler](../../eventhandlers.md) using the `complete_task` action can also be configured.
 
