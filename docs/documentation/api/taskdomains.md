@@ -3,7 +3,7 @@ Task domains helps support task development. The idea is same “task definition
 
 As an example if a workflow (WF1) has 3 tasks T1, T2, T3. The workflow is deployed and working fine, which means there are T2 workers polling and executing. If you modify T2 and run it locally there is no guarantee that your modified T2 worker will get the task that you are looking for as it coming from the general T2 queue. “Task Domain” feature solves this problem by splitting the T2 queue by domains, so when the app polls for task T2 in a specific domain, it get the correct task.
 
-When starting a workflow multiple domains can be specified as a fall backs, for example "domain1,domain2". Conductor keeps track of last polling time for each task, so in this case it checks if the there are any active workers for "domain1" then the task is put in "domain1", if not then the same check is done for the next domain in sequence "domain2" and so on.
+When starting a workflow multiple domains can be specified as a fall backs, for example "domain1,domain2". Conductor keeps track of last polling time for each task, so in this case it checks if the there are any active workers (workers polled at least once in a 10 second window) for "domain1" then the task is put in "domain1", if not then the same check is done for the next domain in sequence "domain2" and so on.
 
 If no workers are active for the domains provided:
 
