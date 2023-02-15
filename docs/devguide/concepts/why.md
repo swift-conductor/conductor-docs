@@ -25,6 +25,6 @@ Conductor was built to help Netflix orchestrate microservices based process flow
 With peer to peer task choreography, we found it was harder to scale with growing business needs and complexities.
 Pub/sub model worked for simplest of the flows, but quickly highlighted some of the issues associated with the approach:
 
-* Process flows are “embedded” within the code of multiple application.
+* Process flows are "embedded" within the code of multiple application.
 * Often, there is tight coupling and assumptions around input/output, SLAs etc, making it harder to adapt to changing needs.
-* Almost no way to systematically answer “How much are we done with process X”?
+* Almost no way to systematically answer "How much are we done with process X"?
