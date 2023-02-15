@@ -43,10 +43,13 @@ HTTP task is configured using the following key inside the `inputParameters`  of
 | readTimeOut       | Integer          | Read Time Out in milliseconds. If set to 0, equivalent to infinity. Default: 150.                                                                                          |
 
 !!!tip Asynchronous Requests
-      In the case that remote service sends an asynchronous event to signal the completion of the request, consider setting the `asyncComplete` flag on the HTTP task to `true`. In this case, you will need
-      to transition the HTTP task to COMPLETED manually.
+    In the case that remote service sends an asynchronous event to signal the completion of the request, consider setting the `asyncComplete` flag on the HTTP task to `true`. In this case, you will need
+    to transition the HTTP task to COMPLETED manually.
+    
+!!!tip Authorization Header
+    If the remote address that you are connecting to is a secure location, add the Authorization header with `Bearer <access_token>` to headers.
 
-## Task Output
+## Output
 
 | name         | type             | description                                                                 |
 | ------------ | ---------------- | --------------------------------------------------------------------------- |
