@@ -8,8 +8,6 @@ This API takes an array of new task definitions.
 ## Examples
 ### Example using curl
 ```shell
-{{ serverHost }}
-
 curl '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
   -H 'accept: */*' \
   -H 'content-type: application/json' \
