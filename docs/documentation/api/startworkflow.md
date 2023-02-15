@@ -26,7 +26,7 @@ On success, this API returns the ID of the workflow.
 {
   "name": "myWorkflow", // Name of the workflow
   "version": 1, // Version
-  “correlationId”: “corr1”, // Correlation Id
+  "correlationId": "corr1", // Correlation Id
   "priority": 1, // Priority
     "input": { // Input Value Map
       "param1": "value1",
