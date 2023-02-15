@@ -3,16 +3,16 @@
 ## Retrieve Workflows
 | Endpoint                                                                    | Description                                   |
 |-----------------------------------------------------------------------------|-----------------------------------------------|
-| `GET /workflow/{workflowId}?includeTasks=true                               | false`                                        |Get Workflow State by workflow Id.  If includeTasks is set, then also includes all the tasks executed and scheduled.|
-| `GET /workflow/running/{name}`                                              | Get all the running workflows of a given type |
-| `GET /workflow/running/{name}/correlated/{correlationId}?includeClosed=true | false&includeTasks=true                       |false`|Get all the running workflows filtered by correlation Id.  If includeClosed is set, also includes workflows that have completed running.|
-| `GET /workflow/search`                                                      | Search for workflows.  See Below.             |
+| `GET {{ api_prefix }}/workflow/{workflowId}?includeTasks=true                               | false`                                        |Get Workflow State by workflow Id.  If includeTasks is set, then also includes all the tasks executed and scheduled.|
+| `GET {{ api_prefix }}/workflow/running/{name}`                                              | Get all the running workflows of a given type |
+| `GET {{ api_prefix }}/workflow/running/{name}/correlated/{correlationId}?includeClosed=true | false&includeTasks=true                       |false`|Get all the running workflows filtered by correlation Id.  If includeClosed is set, also includes workflows that have completed running.|
+| `GET {{ api_prefix }}/workflow/search`                                                      | Search for workflows.  See Below.             |
 
 
 ## Workflow Search
 Conductor uses Elasticsearch for indexing workflow execution and is used by search APIs.
 
-`GET /workflow/search?start=&size=&sort=&freeText=&query=`
+`GET {{ api_prefix }}/workflow/search?start=&size=&sort=&freeText=&query=`
 
 | Parameter | Description                                                                                                      |
 |-----------|------------------------------------------------------------------------------------------------------------------|
@@ -50,19 +50,19 @@ Search result as described below:
 ## Manage Workflows
 | Endpoint                                                  | Description                                                                                        |
 |-----------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| `PUT /workflow/{workflowId}/pause`                        | Pause.  No further tasks will be scheduled until resumed.  Currently running tasks are not paused. |
-| `PUT /workflow/{workflowId}/resume`                       | Resume normal operations after a pause.                                                            |
-| `POST /workflow/{workflowId}/rerun`                       | See Below.                                                                                         |
-| `POST /workflow/{workflowId}/restart`                     | Restart workflow execution from the start.  Current execution history is wiped out.                |
-| `POST /workflow/{workflowId}/retry`                       | Retry the last failed task.                                                                        |
-| `PUT /workflow/{workflowId}/skiptask/{taskReferenceName}` | See below.                                                                                         |
-| `DELETE /workflow/{workflowId}`                           | Terminates the running workflow.                                                                   |
-| `DELETE /workflow/{workflowId}/remove`                    | Deletes the workflow from system.  Use with caution.                                               |
+| `PUT {{ api_prefix }}/workflow/{workflowId}/pause`                        | Pause.  No further tasks will be scheduled until resumed.  Currently running tasks are not paused. |
+| `PUT {{ api_prefix }}/workflow/{workflowId}/resume`                       | Resume normal operations after a pause.                                                            |
+| `POST {{ api_prefix }}/workflow/{workflowId}/rerun`                       | See Below.                                                                                         |
+| `POST {{ api_prefix }}/workflow/{workflowId}/restart`                     | Restart workflow execution from the start.  Current execution history is wiped out.                |
+| `POST {{ api_prefix }}/workflow/{workflowId}/retry`                       | Retry the last failed task.                                                                        |
+| `PUT {{ api_prefix }}/workflow/{workflowId}/skiptask/{taskReferenceName}` | See below.                                                                                         |
+| `DELETE {{ api_prefix }}/workflow/{workflowId}`                           | Terminates the running workflow.                                                                   |
+| `DELETE {{ api_prefix }}/workflow/{workflowId}/remove`                    | Deletes the workflow from system.  Use with caution.                                               |
 
 ### Rerun
 Re-runs a completed workflow from a specific task. 
 
-`POST /workflow/{workflowId}/rerun`
+`POST {{ api_prefix }}/workflow/{workflowId}/rerun`
 
 ```json
 {
@@ -77,7 +77,7 @@ Re-runs a completed workflow from a specific task.
 
 Skips a task execution (specified as `taskReferenceName` parameter) in a running workflow and continues forward.
 Optionally updating task's input and output as specified in the payload.
-`PUT /workflow/{workflowId}/skiptask/{taskReferenceName}?workflowId=&taskReferenceName=`
+`PUT {{ api_prefix }}/workflow/{workflowId}/skiptask/{taskReferenceName}?workflowId=&taskReferenceName=`
 ```json
 {
   "taskInput": {},

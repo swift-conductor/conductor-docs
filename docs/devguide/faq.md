@@ -19,7 +19,7 @@ Ensure all the tasks are registered via `/metadata/taskdefs` APIs.  Add any miss
 
 ## Where does my worker run?  How does conductor run my tasks?
 
-Conductor does not run the workers.  When a task is scheduled, it is put into the queue maintained by Conductor.  Workers are required to poll for tasks using `/tasks/poll` API at periodic interval, execute the business logic for the task and report back the results using `POST /tasks` API call. 
+Conductor does not run the workers.  When a task is scheduled, it is put into the queue maintained by Conductor.  Workers are required to poll for tasks using `/tasks/poll` API at periodic interval, execute the business logic for the task and report back the results using `POST {{ api_prefix }}/tasks` API call. 
 Conductor, however will run [system tasks](../documentation/configuration/workflowdef/systemtasks/index.md) on the Conductor server.
 
 

@@ -45,7 +45,7 @@ Specify the timestamp using one of the formats, using the `until` key.
 ```
 ## External Triggers
 
-The task endpoint `POST /tasks` can be used to update the status of a task to COMPLETED prior to the configured timeout. This is
+The task endpoint `POST {{ api_prefix }}/tasks` can be used to update the status of a task to COMPLETED prior to the configured timeout. This is
 same technique as prescribed for the [HUMAN](human-task.md#completing) task.
 
 For cases where no timeout is necessary it is recommended that you use the [HUMAN](human-task.md) task directly.

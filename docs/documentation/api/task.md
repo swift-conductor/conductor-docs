@@ -3,10 +3,10 @@
 ## Manage Tasks
 | Endpoint                                              | Description                                           |
 |-------------------------------------------------------|-------------------------------------------------------|
-| `GET /tasks/{taskId}`                                 | Get task details.                                     |
-| `GET /tasks/queue/all`                                | List the pending task sizes.                          |
-| `GET /tasks/queue/all/verbose`                        | Same as above, includes the size per shard            |
-| `GET /tasks/queue/sizes?taskType=&taskType=&taskType` | Return the size of pending tasks for given task types |
+| `GET {{ api_prefix }}/tasks/{taskId}`                                 | Get task details.                                     |
+| `GET {{ api_prefix }}/tasks/queue/all`                                | List the pending task sizes.                          |
+| `GET {{ api_prefix }}/tasks/queue/all/verbose`                        | Same as above, includes the size per shard            |
+| `GET {{ api_prefix }}/tasks/queue/sizes?taskType=&taskType=&taskType` | Return the size of pending tasks for given task types |
 |||
 
 ## Polling, Ack and Update Task
@@ -14,9 +14,9 @@ These endpoints are used by the worker to poll for task, send ack (after polling
 
 | Endpoint                                                            | Description                                                                                                                                                                                                                                                                                                        |
 |---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `GET /tasks/poll/{taskType}?workerid=&domain=`                      | Poll for a task. `workerid` identifies the worker that polled for the job and `domain` allows the poller to poll for a task in a specific domain                                                                                                                                                                   |
-| `GET /tasks/poll/batch/{taskType}?count=&timeout=&workerid=&domain` | Poll for a task in a batch specified by `count`.  This is a long poll and the connection will wait until `timeout` or if there is at-least 1 item available, whichever comes first.`workerid` identifies the worker that polled for the job and `domain` allows the poller to poll for a task in a specific domain |
-| `POST /tasks`                                                       | Update the result of task execution.  See the schema below.                                                                                                                                                                                                                                                        |
+| `GET {{ api_prefix }}/tasks/poll/{taskType}?workerid=&domain=`                      | Poll for a task. `workerid` identifies the worker that polled for the job and `domain` allows the poller to poll for a task in a specific domain                                                                                                                                                                   |
+| `GET {{ api_prefix }}/tasks/poll/batch/{taskType}?count=&timeout=&workerid=&domain` | Poll for a task in a batch specified by `count`.  This is a long poll and the connection will wait until `timeout` or if there is at-least 1 item available, whichever comes first.`workerid` identifies the worker that polled for the job and `domain` allows the poller to poll for a task in a specific domain |
+| `POST {{ api_prefix }}/tasks`                                                       | Update the result of task execution.  See the schema below.                                                                                                                                                                                                                                                        |
 
 
 ### Schema for updating Task Result

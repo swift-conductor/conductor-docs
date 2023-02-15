@@ -1,6 +1,7 @@
 # Start Workflow API
 
-When starting a Workflow execution with a registered definition, `/workflow` accepts following parameters:
+## API Parameters
+When starting a Workflow execution with a registered definition, `{{ api_prefix }}/workflow` accepts following parameters in the `POST` payload:
 
 | Field                           | Description                                                                                                                               | Notes                                                                                                   |
 |:--------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
@@ -14,12 +15,12 @@ When starting a Workflow execution with a registered definition, `/workflow` acc
 | priority                        | Priority level for the tasks within this workflow execution. Possible values are between 0 - 99.                                          | optional                                                                                                |
 
 ## Output
-On success, this API returnes the ID of the workflow.
+On success, this API returns the ID of the workflow.
 
 
-## Example
+## Basic Example
 
-`POST /workflow` with payload body:
+`POST {{ server_host }}{{ api_prefix }}/workflow` with payload body:
 
 ```js
 {
@@ -45,7 +46,7 @@ This enables you to provide a workflow definition embedded with the required tas
 
 **Example:**
 
-Send a `POST` request to `/workflow` with payload like:
+Send a `POST` request to `{{ api_prefix }}/workflow` with payload like:
 ```json
 {
   "name": "my_adhoc_unregistered_workflow",
