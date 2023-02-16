@@ -7,9 +7,6 @@
 `JSON_JQ_TRANSFORM` is a System task that allows processing of JSON data that is supplied to the task, by using the
 popular JQ processing tool’s query expression language.
 
-Check the [JQ Manual](https://stedolan.github.io/jq/manual/v1.5/), and the
-[JQ Playground](https://jqplay.org/) for more information on JQ.
-
 ## Use Cases
 
 JSON is a popular format of choice for data-interchange. It is widely used in web and server applications, document
@@ -26,6 +23,8 @@ the output of one task to the input of another.
 |-----------------|---------------------|
 | queryExpression | JQ query expression |
 
+### About JQ
+Check out the [JQ Manual](https://stedolan.github.io/jq/manual/v1.5/).
 
 ## Output
 

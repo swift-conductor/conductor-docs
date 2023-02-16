@@ -67,7 +67,7 @@ The `tasks` property in a Workflow Definition defines an array of *Task Configur
 * System Tasks
 * Operators
 
-Note: Task Configuration should not be confused with [Task Definitions](../taskdef.md), which are used to register SIMPLE (worker based) tasks.
+Note: Task Configuration should not be confused with **Task Definitions**, which are used to register SIMPLE (worker based) tasks.
 
 | Field             | Type    | Description                                                                                                                                    | Notes                                                                 |
 | :---------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------- |

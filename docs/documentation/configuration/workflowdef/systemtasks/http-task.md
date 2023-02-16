@@ -137,5 +137,5 @@ Here we are using variables for our POST body which happens to be data from a pr
 Why are my HTTP tasks not getting picked up?
 
 We might have too many HTTP tasks in the queue. There is a concept called Isolation Groups that you can rely on
-for prioritizing certain HTTP tasks over others. Read more here: [Isolation Groups](../../../advanced/isolationgroups.md)
+for prioritizing certain HTTP tasks over others. 
    

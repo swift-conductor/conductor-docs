@@ -166,8 +166,9 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
 ![img](kitchensink.png)
 
 ### Running Kitchensink Workflow
-1. Start the server as documented [here](../../devguide/running/docker.md).  Use ```-DloadSample=true``` java system property when launching the server.  This will create a kitchensink workflow, related task definitions and kick off an instance of kitchensink workflow.
-2. Once the workflow has started, the first task remains in the ```SCHEDULED``` state.  This is because no workers are currently polling for the task.
+1. If you are running Conductor locally, use the `-DloadSample=true` Java system property when launching the server.  This will create a kitchensink workflow, 
+related task definitions and kick off an instance of kitchensink workflow. Otherwise, you can create a new Workflow Definition in the UI by copying the sample above.
+2. Once the workflow has started, the first task remains in the `SCHEDULED` state.  This is because no workers are currently polling for the task.
 3. We will use the REST endpoints directly to poll for tasks and updating the status.
 
 #### Start workflow execution
