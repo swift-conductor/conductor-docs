@@ -2,9 +2,7 @@
 
 The Workflow Definition contains all the information necessary to define the behavior of a workflow. The most important part of this definition is the `tasks` property, which is an array of [**Task Configurations**](#task-configurations). 
 
-## Schema
-
-
+## Workflow Properties
 | Field                         | Type                             | Description                                                                                                                     | Notes                                                                                             |
 | :---------------------------- | :------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------ |
 | name                          | string                           | Name of the workflow                                                                                                            |                                                                                                   |
@@ -77,20 +75,20 @@ Note: Task Configuration should not be confused with **Task Definitions**, which
 | description       | string  | Description of the task                                                                                                                        | optional                                                              |
 | optional          | boolean | true  or false.  When set to true - workflow continues even if the task fails.  The status of the task is reflected as `COMPLETED_WITH_ERRORS` | Defaults to `false`                                                   |
 | inputParameters   | object  | JSON template that defines the input given to the task. Only one of `inputParameters` or `inputExpression` can be used in a task.              | See [Using Expressions](#using-expressions) for details |
-| inputExpression   | object  | JSONPath expression that defines the input given to the task. Only one of `inputParameters` or `inputExpression` can be used in a task.        | See [Using Expressions](#tusing-expressions) for details |
+| inputExpression   | object  | JSONPath expression that defines the input given to the task. Only one of `inputParameters` or `inputExpression` can be used in a task.        | See [Using Expressions](#using-expressions) for details |
 | asyncComplete     | boolean | `false` to mark status COMPLETED upon execution; `true` to keep the task IN_PROGRESS and wait for an external event to complete it.            | Defaults to `false`                                                   |
 | startDelay        | number  | Time in seconds to wait before making the task available to be polled by a worker.                                                             | Defaults to 0.                                                        |
 
 
-In addition to these parameters, System Tasks have their own parameters. Checkout [System Tasks](systemtasks/index.md) for more information.
+In addition to these parameters, System Tasks have their own parameters. Check out [System Tasks](systemtasks/index.md) for more information.
 
 ### Using Expressions
+Each executed task is given an input based on the `inputParameters` template or the `inputExpression` configured in the task configuration. Only one of `inputParameters` or `inputExpression` can be used in a task.
 
-Each executed task is given an input based on the `inputParameters` template configured in the task configuration. This template can use JSONPath **expressions** to extract values out of both the top-level workflow and other tasks in the workflow.
+#### inputParameters
+`inputParameters` can use JSONPath **expressions** to extract values out of the workflow input and other tasks in the workflow.
 
-For example, workflows are supplied an `input` by the client/caller when a new execution is triggered. The workflow `input` is available via an *expression* of the form `${workflow.input...}`.
-
-Likewise, the `input` and `output` data of a previously executed task can also be extracted using an *expression* for use in the `inputParameters` of a subsequent task.
+For example, workflows are supplied an `input` by the client/caller when a new execution is triggered. The workflow `input` is available via an *expression* of the form `${workflow.input...}`. Likewise, the `input` and `output` data of a previously executed task can also be extracted using an *expression* for use in the `inputParameters` of a subsequent task.
 
 Generally, `inputParameters` can use *expressions* of the following syntax:
 
@@ -109,7 +107,17 @@ Generally, `inputParameters` can use *expressions* of the following syntax:
 !!! note "Escaping expressions"
     To escape an expression, prefix it with an extra _$_ character (ex.: ```$${workflow.input...}```).
 
+#### inputExpression
 
+`inputExpression` can be used to select an entire object from the workflow input, or the output of another task. The field supports all [definite](https://github.com/json-path/JsonPath#what-is-returned-when) JSONPath expressions.
+
+The syntax for mapping values in `inputExpression` follows the pattern,
+
+> `SOURCE.input/output.JSONPath`
+
+**NOTE:** The ```inputExpression``` field does not require the expression to be wrapped in `${}`.
+
+See [example](#example-3-inputexpression) below.
 
 ## Examples
 
@@ -258,5 +266,37 @@ When scheduling the task, Conductor will merge the values from workflow input an
     	"Content-Type": "application/json"
     }
   }
+}
+```
+
+### Example 3 - inputExpression
+Given the following task configuration:
+```json
+{
+  "name": "loc_task",
+  "taskReferenceName": "loc_task_ref",
+  "taskType": "SIMPLE",
+  "inputExpression": {
+    "expression": "workflow.input",
+    "type": "JSON_PATH"
+  }  
+}
+```
+
+When the workflow is invoked with the following _workflow input_
+```json
+{
+  "movieId": "movie_123",
+  "fileLocation":"s3://moviebucket/file123",
+  "recipe":"png"
+}
+```
+
+When the task `loc_task` is scheduled, the entire workflow input object will be passed in as the task input:
+```json
+{
+  "movieId": "movie_123",
+  "fileLocation":"s3://moviebucket/file123",
+  "recipe":"png"
 }
 ```
