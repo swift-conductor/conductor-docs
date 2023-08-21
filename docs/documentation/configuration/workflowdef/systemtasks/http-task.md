@@ -27,6 +27,7 @@ HTTP task is configured using the following key inside the `inputParameters`  of
 | name         | type        | description                              |
 | ------------ | ----------- | ---------------------------------------- |
 | http_request | HttpRequest | JSON object (see [below](#http_request)) |
+| asyncComplete | String | Overrides the ```asyncComplete``` at the task level |
 
 ### http_request
 
