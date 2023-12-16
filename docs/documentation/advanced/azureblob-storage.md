@@ -1,6 +1,6 @@
 # Azure Blob Storage
 
-The [AzureBlob storage](https://github.com/Netflix/conductor/tree/main/azureblob-storage) module uses azure blob to store and retrieve workflows/tasks input/output payload that
+The [AzureBlob storage](https://github.com/swift-conductor/conductor/tree/main/azureblob-storage) module uses azure blob to store and retrieve workflows/tasks input/output payload that
 went over the thresholds defined in properties named `conductor.[workflow|task].[input|output].payload.threshold.kb`.
 
 **Warning** Azure Java SDK use libs already present inside `conductor` like `jackson` and `netty`.
@@ -11,7 +11,7 @@ It has only been tested with **v12.2.0**.
 
 ### Usage
 
-Cf. Documentation [External Payload Storage](https://netflix.github.io/conductor/externalpayloadstorage/#azure-blob-storage)
+Cf. Documentation [External Payload Storage](https://swiftconductor.com/externalpayloadstorage/#azure-blob-storage)
 
 ### Example
 

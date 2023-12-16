@@ -8,7 +8,7 @@
 ```
 
 ## Implement a Task Worker
-[ConductorWorker](https://github.com/Netflix/conductor/blob/main/polyglot-clients/python/conductor/ConductorWorker.py#L36) 
+[ConductorWorker](https://github.com/swift-conductor/conductor/blob/main/polyglot-clients/python/conductor/ConductorWorker.py#L36) 
 class is used to implement task workers.
 The following script shows how to bring up two task workers named `book_flight` and `book_car`:
 
@@ -78,5 +78,5 @@ domain: str, optional
 ```
 
 See 
-[https://github.com/Netflix/conductor/tree/main/polyglot-clients/python](https://github.com/Netflix/conductor/tree/main/polyglot-clients/python)
+[https://github.com/swift-conductor/conductor/tree/main/polyglot-clients/python](https://github.com/swift-conductor/conductor/tree/main/polyglot-clients/python)
 for the source code.
