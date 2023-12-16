@@ -1,7 +1,7 @@
 site_name: Conductor Documentation
-site_description: Conductor is a platform created by Netflix to orchestrate workflows that span across microservices.
-repo_url: https://github.com/Netflix/conductor
-site_url: https://conductor.netflix.com
+site_description: Conductor is a platform for orchestrating workflows that span across microservices.
+repo_url: https://github.com/swift-conductor/conductor
+site_url: https://swiftconductor.com
 edit_uri: ''
 strict: false
 use_directory_urls: false
@@ -135,24 +135,15 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences  
-copyright: Netflix OSS
+copyright: '&copy; 2023 Swift Software Group <br>(Contents before Dec 13, 2023, &copy; Netflix OSS)'
 extra:
   server_host: http://localhost:8080
   api_prefix: /api
   social:
     - icon: fontawesome/solid/blog
-      link: https://netflixtechblog.com/
-      name: Netflix Tech Blog
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/netflixeng
-      name: Netflix Engineering on Twitter
-    - icon: fontawesome/brands/youtube
-      link: https://www.youtube.com/channel/UCGGRRqAjPm6sL3-WGBDnKJA
-      name: Netflix Engineering on Youtube
+      link: https://blog.swiftsoftwaregroup.com/
+      name: Swift Software Group Tech Blog
     - icon: fontawesome/brands/github
-      link: https://netflix.github.io
-      name: Netflix OSS Github
-    - icon: fontawesome/solid/clipboard
-      link: https://jobs.netflix.com
-      name: Netflix Careers
+      link: https://github.com/swift-conductor
+      name: SwiftConductor OSS Github
 
