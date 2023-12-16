@@ -135,7 +135,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences  
-copyright: '&copy; 2023 Swift Software Group <br>(Before Dec 15, 2023, &copy; Netflix OSS)'
+copyright: '&copy; 2023 Swift Software Group <br>(Contents before Dec 13, 2023, &copy; Netflix OSS)'
 extra:
   server_host: http://localhost:8080
   api_prefix: /api
