@@ -2,3 +2,4 @@
 .venv
 site
 gh-pages
+*.pyc
