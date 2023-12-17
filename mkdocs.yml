@@ -2,7 +2,7 @@ site_name: Conductor Documentation
 site_description: Conductor is a platform for orchestrating workflows that span across microservices.
 repo_url: https://github.com/swift-conductor/conductor
 site_url: https://swiftconductor.com
-edit_uri: ''
+edit_uri: https://github.com/swift-conductor/conductor-docs
 strict: false
 use_directory_urls: false
 
@@ -139,6 +139,9 @@ copyright: '&copy; 2023 Swift Software Group <br>(Content published before Dec 1
 extra:
   server_host: http://localhost:8080
   api_prefix: /api
+  analytics:
+    provider: google
+    property: G-97C4QGRKW4  
   social:
     - icon: fontawesome/solid/blog
       link: https://blog.swiftsoftwaregroup.com/
@@ -146,4 +149,3 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/swift-conductor
       name: SwiftConductor OSS Github
-
