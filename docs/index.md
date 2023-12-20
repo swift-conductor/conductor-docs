@@ -11,14 +11,14 @@ hide:
         Scalable Workflow Orchestration
       </div>
       <div class="caption" style="padding-top:15px">
-        Conductor is a platform created by <b>Netflix</b> to orchestrate workflows that span across microservices.
-      </div >
-      <div style="padding-top:15px">
-        <b>NOTE:</b> On December 13, 2023 Netflix abandoned the original Conductor OSS project. This is a <a href=https://github.com/swift-conductor>fork</a> of Conductor that is maintained by <b>Swift Software Group</b>. 
+        Conductor is a platform for orchestrating workflows that span across microservices.
       </div >
       <div style="display: flex; margin-top: 45px;">
         <a type="button" class="btn btn-primary" href="../devguide/concepts/index.html">Get Started</a>
       </div>
+      <div style="padding-top:50px">
+        <b>NOTE:</b> As of December 13, 2023 Netflix has abandoned the <a href=https://github.com/Netflix/conductor>original</a> Conductor OSS project. This is a <a href=https://github.com/swift-conductor>fork</a> of Conductor that is maintained by <b>Swift Software Group</b>. 
+      </div >
     </div>
     <div class="col-6">
       <img src="home/workflow.svg" class="illustration">
