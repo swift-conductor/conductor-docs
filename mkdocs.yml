@@ -18,7 +18,6 @@ nav:
     - Running Conductor:
       - devguide/running/source.md
       - devguide/running/docker.md
-      - devguide/running/hosted.md
     - Architecture: 
       - devguide/architecture/index.md
       - devguide/architecture/tasklifecycle.md
@@ -126,6 +125,9 @@ extra_css:
 plugins:
   - search
   - macros
+  - redirects:
+      redirect_maps:
+        'devguide/running/hosted.md': 'devguide/running/source.md'
 markdown_extensions:
   - admonition
   - codehilite
