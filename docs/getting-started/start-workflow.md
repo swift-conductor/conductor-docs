@@ -1,40 +1,30 @@
-# Start Workflow API
-
-## API Parameters
-When starting a Workflow execution with a registered definition, `{{ api_prefix }}/workflow` accepts following parameters in the `POST` payload:
+# Starting a Workflow
+## Start Workflow Endpoint
+When starting a Workflow execution with a registered definition, `/workflow` accepts following parameters:
 
 | Field                           | Description                                                                                                                               | Notes                                                                                                   |
 |:--------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
 | name                            | Name of the Workflow. MUST be registered with Conductor before starting workflow                                                          |                                                                                                         |
 | version                         | Workflow version                                                                                                                          | defaults to latest available version                                                                    |
-| input                           | JSON object with key value params, that can be used by downstream tasks                                                                   | See [Wiring Inputs and Outputs](../configuration/workflowdef/index.md#wiring-inputs-and-outputs) for details |
+| input                           | JSON object with key value params, that can be used by downstream tasks                                                                   | See [Wiring Inputs and Outputs](../documentation/configuration/workerdef.md#wiring-inputs-and-outputs) for details |
 | correlationId                   | Unique Id that correlates multiple Workflow executions                                                                                    | optional                                                                                                |
-| taskToDomain                    | See [Task Domains](taskdomains.md) for more information.                                                   | optional                                                                                                |
-| workflowDef                     | An adhoc [Workflow Definition](../configuration/workflowdef/index.md) to run, without registering. See [Dynamic Workflows](#dynamic-workflows). | optional                                                                                                |
-| externalInputPayloadStoragePath | This is taken care of by Java client. See [External Payload Storage](../advanced/externalpayloadstorage.md) for more info.                        | optional                                                                                                |
+| taskToDomain                    | See [Task Domains](../documentation/configuration/taskdomains.md) for more information.                                                   | optional                                                                                                |
+| workflowDef                     | An adhoc [Workflow Definition](../documentation/configuration/workerdef.md) to run, without registering. See [Dynamic Workflows](#dynamic-workflows). | optional                                                                                                |
+| externalInputPayloadStoragePath | This is taken care of by Java client. See [External Payload Storage](../documentation/advanced/externalpayloadstorage.md) for more info.                        | optional                                                                                                |
 | priority                        | Priority level for the tasks within this workflow execution. Possible values are between 0 - 99.                                          | optional                                                                                                |
 
-## Output
-On success, this API returns the ID of the workflow.
+**Example:**
 
-
-## Basic Example
-
-`POST {{ server_host }}{{ api_prefix }}/workflow` with payload body:
-
-```js
+Send a `POST` request to `/workflow` with payload like:
+```json
 {
-  "name": "myWorkflow", // Name of the workflow
-  "version": 1, // Version
-  "correlationId": "corr1", // Correlation Id
-  "priority": 1, // Priority
-    "input": { // Input Value Map
-      "param1": "value1",
-      "param2": "value2"
-    },
-  "taskToDomain": {
-	// Task to domain map
-  }
+    "name": "encode_and_deploy",
+    "version": 1,
+    "correlationId": "my_unique_correlation_id",
+    "input": {
+        "param1": "value1",
+        "param2": "value2"
+    }
 }
 ```
 
@@ -46,7 +36,7 @@ This enables you to provide a workflow definition embedded with the required tas
 
 **Example:**
 
-Send a `POST` request to `{{ api_prefix }}/workflow` with payload like:
+Send a `POST` request to `/workflow` with payload like:
 ```json
 {
   "name": "my_adhoc_unregistered_workflow",

@@ -17,3 +17,4 @@ Conductor supports the following programming language constructs:
 | Switch/if..then...else     | [Switch Task](switch-task.md)             |
 | Exit                       | [Terminate Task](terminate-task.md)       |
 | Global Variables           | [Variable Task](set-variable-task.md)     |
+| Wait                       | [Wait Task](wait-task.md)                 | 

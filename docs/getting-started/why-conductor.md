@@ -1,5 +1,6 @@
 # Why Conductor?
-Conductor is built to help orchestrate microservices based process flows.
+
+## Conductor was built to help teams orchestrate microservices based process flows.
 
 ## Features
 
@@ -17,7 +18,7 @@ Conductor is built to help orchestrate microservices based process flows.
 * Backed by a queuing service abstracted from the clients.
 * Be able to operate on HTTP or other transports e.g. gRPC.
 * Event handlers to control workflows via external actions.
-* Client implementations in Java, Python and other languages.
+* Client implementations in Python, Java, C#, Go and other languages.
 * Various configurable properties with sensible defaults to fine tune workflow and task executions like rate limiting, concurrent execution limits etc.
 
 ## Why not peer to peer choreography?
@@ -25,6 +26,6 @@ Conductor is built to help orchestrate microservices based process flows.
 With peer to peer task choreography, we found it was harder to scale with growing business needs and complexities.
 Pub/sub model worked for simplest of the flows, but quickly highlighted some of the issues associated with the approach:
 
-* Process flows are "embedded" within the code of multiple application.
+* Process flows are “embedded” within the code of multiple application.
 * Often, there is tight coupling and assumptions around input/output, SLAs etc, making it harder to adapt to changing needs.
-* Almost no way to systematically answer "How much are we done with process X"?
+* Almost no way to systematically answer “How much are we done with process X”?

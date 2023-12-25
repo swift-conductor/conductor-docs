@@ -19,7 +19,7 @@ The workflow invocation payload is passed into `startWorkflow` under `inputParam
 ### inputParameters
 | name          | type             | description                                                                                                         |
 |---------------|------------------|---------------------------------------------------------------------------------------------------------------------|
-| startWorkflow | Map[String, Any] | The value of this parameter is [Start Workflow Request](../../../api/startworkflow.md#start-workflow-request). |
+| startWorkflow | Map[String, Any] | The value of this parameter is [Start Workflow Request](../../reference/api/startworkflow.md#start-workflow-request). |
 
 ## Output
 | name       | type   | description                    |

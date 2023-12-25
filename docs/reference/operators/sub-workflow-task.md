@@ -24,8 +24,8 @@ case, Sub Workflow Task would be used.
 | ------------------ | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name               | String                            | Name of the workflow to execute                                                                                                                                               |
 | version            | Integer                           | Version of the workflow to execute                                                                                                                                            |
-| taskToDomain       | Map[String, String]               | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../../../api/taskdomains.md) for instructions to configure taskDomains. |
-| workflowDefinition | [WorkflowDefinition](../index.md) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                             |
+| taskToDomain       | Map[String, String]               | Allows scheduling the sub workflow's tasks per given mappings. <br/> See [Task Domains](../../documentation/configuration/taskdomains.md) for instructions to configure taskDomains. |
+| workflowDefinition | [WorkflowDefinition](../../documentation/configuration/workflowdef/index.md) | Allows starting a subworkflow with a dynamic workflow definition.                                                                                                             |
 
 ## Output
 
@@ -169,5 +169,6 @@ The ```subWorkflowParam``` tells conductor which workflow to call. The task is m
 If the sub-workflow is terminated or fails the task is marked as failure and retried if configured. 
 
 ### Optional Sub Workflow Task
+
 If the Sub Workflow task is defined as optional in the parent workflow task definition, the parent workflow task will not be retried if sub-workflow is terminated or failed.
 In addition, even if the sub-workflow is retried/rerun/restarted after reaching to a terminal status, the parent workflow task status will remain as it is.
