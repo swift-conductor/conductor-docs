@@ -60,7 +60,7 @@ All files are released with the Apache 2.0 license, and the following license he
 ```
 /**
  * Copyright $YEAR Swift Software Group, Inc.
- * Copyright 2022 Netflix, Inc.
+ * (Code and content before December 13, 2023, Copyright Netflix, Inc.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at

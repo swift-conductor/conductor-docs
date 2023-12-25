@@ -10,4 +10,3 @@ Such tasks allow you to get started without having to write custom workers.
 | Inline Code Execution | [Inline Task](inline-task.md)        | Execute arbitrary lightweight javascript code                           |
 | JQ Transform          | [JQ Task](json-jq-transform-task.md) | Use [JQ](https://github.com/stedolan/jq) to transform task input/output |
 | Kafka Publish         | [Kafka Task](kafka-publish-task.md)  | Publish messages to Kafka                                               |
-| Wait                  | [Wait Task](wait-task.md)            | Block until resolved                                                    |

@@ -80,7 +80,7 @@ Note: Task Configuration should not be confused with **Task Definitions**, which
 | startDelay        | number  | Time in seconds to wait before making the task available to be polled by a worker.                                                             | Defaults to 0.                                                        |
 
 
-In addition to these parameters, System Tasks have their own parameters. Check out [System Tasks](systemtasks/index.md) for more information.
+In addition to these parameters, System Tasks have their own parameters. Check out [System Tasks](../../../reference/systemtasks/index.md) for more information.
 
 ### Using Expressions
 Each executed task is given an input based on the `inputParameters` template or the `inputExpression` configured in the task configuration. Only one of `inputParameters` or `inputExpression` can be used in a task.

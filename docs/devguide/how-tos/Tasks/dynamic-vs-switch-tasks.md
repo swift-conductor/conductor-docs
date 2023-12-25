@@ -14,5 +14,5 @@ as `DYNAMIC` and determine which underlying task does it run during the workflow
 
 Learn more about
 
-* [Dynamic Tasks](../../../documentation/configuration/workflowdef/operators/dynamic-task.md)
-* [Switch Tasks](../../../documentation/configuration/workflowdef/operators/switch-task.md)
+* [Dynamic Tasks](../../../reference/operators/dynamic-task.md)
+* [Switch Tasks](../../../reference/operators/switch-task.md)

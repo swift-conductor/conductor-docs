@@ -15,7 +15,7 @@ No parameters are required
 
 ## Completing
 ### Task Update API
-To conclude a `HUMAN` task, the `POST {{ api_prefix }}/tasks` [API](../../../api/task.md) can be used.
+To conclude a `HUMAN` task, the `POST {{ api_prefix }}/tasks` [API](../../reference/api/task.md) can be used.
 
 You'll need to provide the`taskId`, the task status (generally `COMPLETED` or `FAILED`), and the desired task output.
 
@@ -27,7 +27,7 @@ You'll need the  `workflowId` and `taskRefName` or `taskId`.
 2. POST `{{ api_prefix }}/queue/update/{workflowId}/{taskRefName}/{status}` 
 3. POST `{{ api_prefix }}/queue/update/{workflowId}/task/{taskId}/{status}` 
 
-An [event handler](../../eventhandlers.md) using the `complete_task` action can also be configured.
+An [event handler](../../documentation/configuration/eventhandlers.md) using the `complete_task` action can also be configured.
 
 Any parameter that is sent in the body of the POST message will be repeated as the output of the task.  For example, if we send a COMPLETED message as follows:
 

@@ -63,7 +63,7 @@ softwareupdate --install-rosetta
 As an alternative to building from source, you can download and run the pre-compiled JAR.
 
 ```shell
-export CONDUCTOR_VER=3.3.4
+export CONDUCTOR_VER=3.15.0
 export REPO_URL=https://repo1.maven.org/maven2/com/netflix/conductor/conductor-server
 curl $REPO_URL/$CONDUCTOR_VER/conductor-server-$CONDUCTOR_VER-boot.jar \
 --output conductor-server-$CONDUCTOR_VER-boot.jar; java -jar conductor-server-$CONDUCTOR_VER-boot.jar 
@@ -97,6 +97,7 @@ Launch UI [http://localhost:5000](http://localhost:5000)
 ![conductor ui](conductorUI.png)
 
 ## Summary
-1. By default in-memory persistence is used, so any workflows created or excuted will be wiped out once the server is terminated.
+
+1. By default in-memory persistence is used, so any workflows created or executed will be wiped out once the server is terminated.
 2. Without indexing configured, the search functionality in UI will not work and will result an empty set.
 3. See how to install Conductor using [Docker](docker.md) with persistence and indexing.

@@ -1,4 +1,4 @@
-# Architecture Overview
+# Overview
 
 ![Architecture diagram](conductor-architecture.png)
 

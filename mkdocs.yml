@@ -6,23 +6,33 @@ edit_uri: https://github.com/swift-conductor/conductor-docs
 strict: false
 use_directory_urls: false
 
+dev_addr: '127.0.0.1:8001'
+
 nav:
   - index.md
+  - Getting Started:
+    - getting-started/why-conductor.md
+    - Running Conductor:
+      - From Source: getting-started/running/source.md
+      - Using Docker: getting-started/running/docker.md  
+    - getting-started/basic-concepts.md
+    - getting-started/steps.md
+    - getting-started/client.md
+    - getting-started/start-workflow.md
   - Developer's Guide:
-    - Concepts: 
+    - Introduction: 
       - devguide/concepts/index.md
       - devguide/concepts/workflows.md
       - devguide/concepts/tasks.md
       - devguide/concepts/workers.md
-      - devguide/concepts/why.md
-    - Running Conductor:
-      - devguide/running/source.md
-      - devguide/running/docker.md
-    - Architecture: 
-      - devguide/architecture/index.md
-      - devguide/architecture/tasklifecycle.md
-      - devguide/architecture/technicaldetails.md
-      - devguide/architecture/directed-acyclic-graph.md
+    # - Running Conductor:
+    #   - devguide/running/source.md
+    #   - devguide/running/docker.md
+    # - Architecture: 
+    #   - devguide/architecture/index.md
+    #   - devguide/architecture/tasklifecycle.md
+    #   - devguide/architecture/technicaldetails.md
+    #   - devguide/architecture/directed-acyclic-graph.md
     - How Tos:
       - Workflows:
         - devguide/how-tos/Workflows/debugging-workflows.md
@@ -43,58 +53,38 @@ nav:
         - devguide/how-tos/Tasks/updating-tasks.md
         - devguide/how-tos/Tasks/extending-system-tasks.md
       - Workers:
-        - devguide/how-tos/Workers/build-a-golang-task-worker.md
-        - devguide/how-tos/Workers/build-a-java-task-worker.md
         - devguide/how-tos/Workers/build-a-python-task-worker.md
+        - devguide/how-tos/Workers/build-a-java-task-worker.md
+        - devguide/how-tos/Workers/build-a-golang-task-worker.md
       - Monitoring:
         - devguide/how-tos/Monitoring/Conductor-LogLevel.md
     - Tutorial:
       - devguide/labs/index.md
+      - devguide/labs/beginner.md
       - devguide/labs/first-workflow.md
       - devguide/labs/eventhandlers.md
       - devguide/labs/kitchensink.md
-    - FAQ: devguide/faq.md
     - Best Practices: devguide/bestpractices.md
+    - FAQ: devguide/faq.md
+
   - Documentation: 
-    - API Specification:
-      - documentation/api/index.md
-      - documentation/api/metadata.md
-      - documentation/api/startworkflow.md
-      - documentation/api/workflow.md
-      - documentation/api/task.md
-      - documentation/api/taskdomains.md
+    - Architecture: 
+      - documentation/architecture/overview.md
+      - documentation/architecture/directed-acyclic-graph.md
+      - documentation/architecture/tasklifecycle.md
     - Configuration:
       - Workflow Definition:
         - documentation/configuration/workflowdef/index.md
-        - Operators:
-          - documentation/configuration/workflowdef/operators/index.md
-          - documentation/configuration/workflowdef/operators/do-while-task.md
-          - documentation/configuration/workflowdef/operators/dynamic-task.md
-          - documentation/configuration/workflowdef/operators/dynamic-fork-task.md
-          - documentation/configuration/workflowdef/operators/fork-task.md
-          - documentation/configuration/workflowdef/operators/join-task.md
-          - documentation/configuration/workflowdef/operators/set-variable-task.md
-          - documentation/configuration/workflowdef/operators/start-workflow-task.md
-          - documentation/configuration/workflowdef/operators/sub-workflow-task.md
-          - documentation/configuration/workflowdef/operators/switch-task.md
-          - documentation/configuration/workflowdef/operators/terminate-task.md
-        - System Tasks:
-          - documentation/configuration/workflowdef/systemtasks/index.md
-          - documentation/configuration/workflowdef/systemtasks/event-task.md
-          - documentation/configuration/workflowdef/systemtasks/http-task.md
-          - documentation/configuration/workflowdef/systemtasks/human-task.md
-          - documentation/configuration/workflowdef/systemtasks/inline-task.md
-          - documentation/configuration/workflowdef/systemtasks/json-jq-transform-task.md
-          - documentation/configuration/workflowdef/systemtasks/kafka-publish-task.md
-          - documentation/configuration/workflowdef/systemtasks/wait-task.md
       - documentation/configuration/taskdef.md
+      - documentation/configuration/workerdef.md
       - documentation/configuration/eventhandlers.md
+      - documentation/configuration/taskdomains.md
+      - documentation/configuration/isolation-groups.md      
     - Conductor Metrics:
       - Server Metrics: documentation/metrics/server.md
       - Client Metrics: documentation/metrics/client.md
     - Advanced Topics:
       - documentation/advanced/extend.md
-      - documentation/advanced/isolationgroups.md
       - documentation/advanced/annotation-processor.md
       - documentation/advanced/archival-of-workflows.md
       - documentation/advanced/azureblob-storage.md
@@ -102,16 +92,46 @@ nav:
       - documentation/advanced/redis.md
     - Client SDKs:
       - documentation/clientsdks/index.md
+      - documentation/clientsdks/python-sdk.md
       - documentation/clientsdks/java-sdk.md
+      - documentation/clientsdks/go-sdk.md
       - documentation/clientsdks/csharp-sdk.md
       - documentation/clientsdks/clojure-sdk.md
-      - documentation/clientsdks/go-sdk.md
-      - documentation/clientsdks/python-sdk.md
+    - documentation/architecture/technicaldetails.md
+  - Reference:
+    - API Specification:
+      - reference/api/index.md
+      - reference/api/metadata.md
+      - reference/api/workflow.md
+      - reference/api/task.md
+      - reference/api/startworkflow.md
+    - System Operators:
+      - reference/operators/index.md
+      - reference/operators/do-while-task.md
+      - reference/operators/dynamic-task.md
+      - reference/operators/dynamic-fork-task.md
+      - reference/operators/fork-task.md
+      - reference/operators/join-task.md
+      - reference/operators/set-variable-task.md
+      - reference/operators/start-workflow-task.md
+      - reference/operators/sub-workflow-task.md
+      - reference/operators/switch-task.md
+      - reference/operators/terminate-task.md
+      - reference/operators/wait-task.md
+    - System Tasks:
+      - reference/systemtasks/index.md
+      - reference/systemtasks/event-task.md
+      - reference/systemtasks/http-task.md
+      - reference/systemtasks/human-task.md
+      - reference/systemtasks/inline-task.md
+      - reference/systemtasks/json-jq-transform-task.md
+      - reference/systemtasks/kafka-publish-task.md
   - Resources:
     - Contributing: resources/contributing.md
     - Code of Conduct: resources/code-of-conduct.md
     - Related Projects: resources/related.md
     - License: resources/license.md
+
 theme: 
   name: material
   logo: img/logo.svg
@@ -120,14 +140,49 @@ theme:
     - navigation.tabs.sticky
     - navigation.indexes
     - navigation.footer
+
 extra_css:
   - css/custom.css
+
 plugins:
   - search
   - macros
   - redirects:
       redirect_maps:
-        'devguide/running/hosted.md': 'devguide/running/source.md'
+        'devguide/running/hosted.md': 'getting-started/running/source.md'
+        'devguide/concepts/why.md': 'getting-started/why-conductor.md'
+        'devguide/architecture/index.md': 'documentation/architecture/overview.md'
+        
+        'documentation/advanced/isolationgroups.md' : 'documentation/configuration/isolation-groups.md'
+
+        'documentation/api/index.md' : 'reference/api/index.md'
+        'documentation/api/metadata.md' : 'reference/api/metadata.md'
+        'documentation/api/workflow.md' : 'reference/api/workflow.md'
+        'documentation/api/task.md' : 'reference/api/task.md'
+        'documentation/api/startworkflow.md' : 'reference/api/startworkflow.md'
+
+        'documentation/configuration/workflowdef/operators/index.md' : 'reference/operators/index.md'
+        'documentation/configuration/workflowdef/operators/do-while-task.md' : 'reference/operators/do-while-task.md'
+        'documentation/configuration/workflowdef/operators/dynamic-task.md' : 'reference/operators/dynamic-task.md'
+        'documentation/configuration/workflowdef/operators/dynamic-fork-task.md' : 'reference/operators/dynamic-fork-task.md'
+        'documentation/configuration/workflowdef/operators/fork-task.md' : 'reference/operators/fork-task.md'
+        'documentation/configuration/workflowdef/operators/join-task.md' : 'reference/operators/join-task.md'
+        'documentation/configuration/workflowdef/operators/set-variable-task.md' : 'reference/operators/set-variable-task.md'
+        'documentation/configuration/workflowdef/operators/start-workflow-task.md' : 'reference/operators/start-workflow-task.md'
+        'documentation/configuration/workflowdef/operators/sub-workflow-task.md' : 'reference/operators/sub-workflow-task.md'
+        'documentation/configuration/workflowdef/operators/switch-task.md' : 'reference/operators/switch-task.md'
+        'documentation/configuration/workflowdef/operators/terminate-task.md' : 'reference/operators/terminate-task.md'
+        'documentation/configuration/workflowdef/operators/wait-task.md' : 'reference/operators/wait-task.md'
+        'documentation/configuration/workflowdef/systemtasks/wait-task.md': 'reference/operators/wait-task.md' 
+
+        'documentation/configuration/workflowdef/systemtasks/index.md': 'reference/systemtasks/index.md' 
+        'documentation/configuration/workflowdef/systemtasks/event-task.md' : 'reference/systemtasks/event-task.md'
+        'documentation/configuration/workflowdef/systemtasks/http-task.md' : 'reference/systemtasks/http-task.md'
+        'documentation/configuration/workflowdef/systemtasks/human-task.md' : 'reference/systemtasks/human-task.md'
+        'documentation/configuration/workflowdef/systemtasks/inline-task.md' : 'reference/systemtasks/inline-task.md'
+        'documentation/configuration/workflowdef/systemtasks/json-jq-transform-task.md' : 'reference/systemtasks/json-jq-transform-task.md'
+        'documentation/configuration/workflowdef/systemtasks/kafka-publish-task.md' : 'reference/systemtasks/kafka-publish-task.md'
+
 markdown_extensions:
   - admonition
   - codehilite
@@ -137,7 +192,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences  
+
 copyright: '&copy; 2023 Swift Software Group <br>(Content published before Dec 13, 2023, &copy; Netflix OSS)'
+
 extra:
   server_host: http://localhost:8080
   api_prefix: /api

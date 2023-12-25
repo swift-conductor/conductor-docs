@@ -16,7 +16,7 @@ source configure.sh
 Clone the `conductor-docs-gh-pages` repo:
 
 ```bash
-mkdir gh-pages
+mkdir -p gh-pages
 git clone git@github.com:swift-conductor/conductor-docs-gh-pages.git gh-pages/conductor-docs-gh-pages
 ```
 
