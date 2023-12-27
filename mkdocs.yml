@@ -129,7 +129,7 @@ nav:
   - Resources:
     - Contributing: resources/contributing.md
     - Code of Conduct: resources/code-of-conduct.md
-    - Related Projects: resources/related.md
+    # - Related Projects: resources/related.md
     - License: resources/license.md
 
 theme: 
@@ -182,6 +182,8 @@ plugins:
         'documentation/configuration/workflowdef/systemtasks/inline-task.md' : 'reference/systemtasks/inline-task.md'
         'documentation/configuration/workflowdef/systemtasks/json-jq-transform-task.md' : 'reference/systemtasks/json-jq-transform-task.md'
         'documentation/configuration/workflowdef/systemtasks/kafka-publish-task.md' : 'reference/systemtasks/kafka-publish-task.md'
+
+        'resources/related.md' : 'documentation/clientsdks/index.md'
 
 markdown_extensions:
   - admonition
