@@ -117,7 +117,7 @@ Which means that SweeperService in conductor instance #1 is responsible for swee
 
 This illustrates the race condition: If the HTTP task completion in instance #2 happens at the same time as sweep in instance #1 ... you can end up with 2 different updates to a workflow execution: one update timing workflow out while the other completing the task and scheduling next.
 
-> The round-robin strategy responsible for work distribution is defined [here](https://github.com/Netflix/dyno-queues/blob/1cde55bbb69acd631c671a0cb2f9db2419163e33/dyno-queues-redis/src/main/java/com/netflix/dyno/queues/redis/sharding/RoundRobinStrategy.java)
+> The round-robin strategy responsible for work distribution is defined [here](https://github.com/Netflix/dyno-queues/blob/1cde55bbb69acd631c671a0cb2f9db2419163e33/dyno-queues-redis/src/main/java/com/swiftconductor/dyno/queues/redis/sharding/RoundRobinStrategy.java)
 
 ##### Back to alternative solution
 

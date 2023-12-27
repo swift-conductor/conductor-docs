@@ -34,7 +34,7 @@ System tasks are executed within the JVM of the Conductor server and managed by 
 See [Systems tasks](../reference/systemtasks/index.md) for list of available Task types, and instructions for using them.
 
 !!! Note
-	Conductor provides an API to create user defined tasks that are executed in the same JVM as the engine.	See [WorkflowSystemTask](https://github.com/swift-conductor/conductor/blob/main/core/src/main/java/com/netflix/conductor/core/execution/tasks/WorkflowSystemTask.java) interface for details.
+	Conductor provides an API to create user defined tasks that are executed in the same JVM as the engine.	See [WorkflowSystemTask](https://github.com/swift-conductor/conductor/blob/main/core/src/main/java/com/swiftconductor/conductor/core/execution/tasks/WorkflowSystemTask.java) interface for details.
 
 ## Worker Tasks
 

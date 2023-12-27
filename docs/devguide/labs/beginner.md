@@ -143,6 +143,7 @@ curl -X POST \
 Creating Workflow definition is almost similar. We shall use the Task definitions created above. Note that same Task definitions can be used in multiple workflows, or for multiple times in same Workflow (that's where `taskReferenceName` is useful).
 
 A workflow without any tasks looks like this:
+
 ```json
 {
     "name": "add_netflix_identation",

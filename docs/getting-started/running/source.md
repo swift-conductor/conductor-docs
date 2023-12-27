@@ -64,7 +64,7 @@ As an alternative to building from source, you can download and run the pre-comp
 
 ```shell
 export CONDUCTOR_VER=3.15.0
-export REPO_URL=https://repo1.maven.org/maven2/com/netflix/conductor/conductor-server
+export REPO_URL=https://repo1.maven.org/maven2/com/swiftconductor/conductor/conductor-server
 curl $REPO_URL/$CONDUCTOR_VER/conductor-server-$CONDUCTOR_VER-boot.jar \
 --output conductor-server-$CONDUCTOR_VER-boot.jar; java -jar conductor-server-$CONDUCTOR_VER-boot.jar 
 ```

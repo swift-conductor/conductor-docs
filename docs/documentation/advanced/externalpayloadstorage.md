@@ -51,7 +51,7 @@ conductor.external-payload-storage.type=S3
 ```
 
 !!! note
-    This [implementation](https://github.com/swift-conductor/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/utils/S3PayloadStorage.java#L44-L45) assumes that S3 access is configured on the instance.
+    This [implementation](https://github.com/swift-conductor/conductor/blob/master/core/src/main/java/com/swiftconductor/conductor/core/utils/S3PayloadStorage.java#L44-L45) assumes that S3 access is configured on the instance.
 
 Set the following properties to the desired values in the JVM system properties:
 
@@ -60,7 +60,7 @@ Set the following properties to the desired values in the JVM system properties:
 | conductor.external-payload-storage.s3.bucketName | S3 bucket where the payloads will be stored | |
 | conductor.external-payload-storage.s3.signedUrlExpirationDuration | The expiration time in seconds of the signed url for the payload | 5 |
 
-The payloads will be stored in the bucket configured above in a `UUID.json` file at locations determined by the type of the payload. See [here](https://github.com/swift-conductor/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/utils/S3PayloadStorage.java#L149-L167) for information about how the object key is determined.
+The payloads will be stored in the bucket configured above in a `UUID.json` file at locations determined by the type of the payload. See [here](https://github.com/swift-conductor/conductor/blob/master/core/src/main/java/com/swiftconductor/conductor/core/utils/S3PayloadStorage.java#L149-L167) for information about how the object key is determined.
 
 ### Azure Blob Storage
 
@@ -86,7 +86,7 @@ Set the following properties to the desired values in the JVM system properties:
 | workflow.external.payload.storage.azure_blob.task_input_path | Path prefix where tasks input will be stored with an random UUID filename | task/input/ |
 | workflow.external.payload.storage.azure_blob.task_output_path | Path prefix where tasks output will be stored with an random UUID filename | task/output/ |
 
-The payloads will be stored as done in [Amazon S3](https://github.com/swift-conductor/conductor/blob/master/core/src/main/java/com/netflix/conductor/core/utils/S3PayloadStorage.java#L149-L167).
+The payloads will be stored as done in [Amazon S3](https://github.com/swift-conductor/conductor/blob/master/core/src/main/java/com/swiftconductor/conductor/core/utils/S3PayloadStorage.java#L149-L167).
 
 ### PostgreSQL Storage
 

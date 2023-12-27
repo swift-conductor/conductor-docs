@@ -10,22 +10,22 @@ Conductor provides Java client libraries, which we will use to build a simple ta
 
 ```xml
 <dependency>
-    <groupId>com.netflix.conductor</groupId>
+    <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-client</artifactId>
-    <version>3.13.2</version>
+    <version>3.16</version>
 </dependency>
 <dependency>
-    <groupId>com.netflix.conductor</groupId>
+    <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-common</artifactId>
-    <version>3.13.2</version>
+    <version>3.16</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation group: 'com.netflix.conductor', name: 'conductor-client', version: '3.13.2'
-implementation group: 'com.netflix.conductor', name: 'conductor-common', version: '3.13.2'
+implementation group: 'com.swiftconductor.conductor', name: 'conductor-client', version: '3.16'
+implementation group: 'com.swiftconductor.conductor', name: 'conductor-common', version: '3.16'
 ```
 
 ## Implementing a Task Worker
@@ -70,14 +70,14 @@ Worker's core implementation logic goes in the `execute` method. Upon completion
 
 The `getTaskDefName()` method returns the name of the task for which this worker provides the execution logic.
 
-See [SampleWorker.java](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/netflix/conductor/client/sample/SampleWorker.java) for the complete example.
+See [SampleWorker.java](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java) for the complete example.
 
 ## Configuring polling using TaskRunnerConfigurer
 
 The `TaskRunnerConfigurer` can be used to register the worker(s) and initialize the polling loop.
 It manages the task workers thread pool and server communication (poll and task update).
 
-Use the [Builder](https://github.com/swift-conductor/conductor/blob/main/client/src/main/java/com/netflix/conductor/client/automator/TaskRunnerConfigurer.java#L64) to create an instance of the `TaskRunnerConfigurer`. The builder accepts the following parameters:
+Use the [Builder](https://github.com/swift-conductor/conductor/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automator/TaskRunnerConfigurer.java#L64) to create an instance of the `TaskRunnerConfigurer`. The builder accepts the following parameters:
 
 ```java
  TaskClient taskClient = new TaskClient();
@@ -97,7 +97,7 @@ Use the [Builder](https://github.com/swift-conductor/conductor/blob/main/client/
         configurer.init();
 ```
 
-See [Sample](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/netflix/conductor/client/sample/Main.java) for full example.
+See [Sample](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java) for full example.
 
 ### Configuration Details
 

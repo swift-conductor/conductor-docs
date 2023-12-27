@@ -1,12 +1,14 @@
 # Build a Go Task Worker
 
 ## Install
+
 ```shell 
-go get github.com/netflix/conductor/client/go
+go get github.com/swiftconductor/conductor/client/go
 ```
 This will create a Go project under $GOPATH/src and download any dependencies.
 
 ## Implementing a Task a Worker
+
 `task`package provies the types used to implement the worker.  Here is a reference worker implementation:
 
 ```go
@@ -39,8 +41,8 @@ Here is an example that shows how to start polling for tasks after defining the 
 package main
 
 import (
-    "github.com/netflix/conductor/client/go"
-    "github.com/netflix/conductor/client/go/task/sample"
+    "github.com/swiftconductor/conductor/client/go"
+    "github.com/swiftconductor/conductor/client/go/task/sample"
 )
 
 func main() {
@@ -51,6 +53,7 @@ func main() {
 }
 ```
 ### `NewConductorWoker` parameters
+
 1. baseUrl: Server address.  
 2. threadCount: No. of threads.  Number of threads should be at-least same as the number of workers
 3. pollingInterval: Time in millisecond between subsequent polls

@@ -16,7 +16,7 @@ Cf. Documentation [External Payload Storage](https://swiftconductor.com/external
 ### Example
 
 ```properties
-conductor.additional.modules=com.netflix.conductor.azureblob.AzureBlobModule
+conductor.additional.modules=com.swiftconductor.conductor.azureblob.AzureBlobModule
 es.set.netty.runtime.available.processors=false
 
 workflow.external.payload.storage=AZURE_BLOB

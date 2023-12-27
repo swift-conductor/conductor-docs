@@ -10,16 +10,16 @@ This is an actual example of this module which is implemented in common/build.gr
 ```groovy
 task protogen(dependsOn: jar, type: JavaExec) {
     classpath configurations.annotationsProcessorCodegen
-    main = 'com.netflix.conductor.annotationsprocessor.protogen.ProtoGenTask'
+    main = 'com.swiftconductor.conductor.annotationsprocessor.protogen.ProtoGenTask'
     args(
             "conductor.proto",
-            "com.netflix.conductor.proto",
-            "github.com/netflix/conductor/client/gogrpc/conductor/model",
+            "com.swiftconductor.conductor.proto",
+            "github.com/swift-conductor/conductor/client/gogrpc/conductor/model",
             "${rootDir}/grpc/src/main/proto",
-            "${rootDir}/grpc/src/main/java/com/netflix/conductor/grpc",
-            "com.netflix.conductor.grpc",
+            "${rootDir}/grpc/src/main/java/com/swiftconductor/conductor/grpc",
+            "com.swiftconductor.conductor.grpc",
             jar.archivePath,
-            "com.netflix.conductor.common",
+            "com.swiftconductor.conductor.common",
     )
 }
 ```
