@@ -1,8 +1,8 @@
-# C# SDK
+# .NET Client SDK
 
-`conductor-csharp` repository provides the client SDKs to build Task Workers and Clients in C#
+`conductor-client-dotnet` repository provides a way to build Task Workers and Clients in C#
 
-The code for the C# SDk is available on [Github](https://github.com/conductor-sdk/conductor-csharp). Please feel free to file PRs, issues, etc. there.
+The code for the .NET Client SDK is available on [Github](https://github.com/swift-conductor/conductor-client-dotnet). Please feel free to file PRs, issues, etc. there.
 
 
 ## Quick Start
@@ -12,11 +12,11 @@ The code for the C# SDk is available on [Github](https://github.com/conductor-sd
 4. [Worker Configurations](#Worker-Configurations)
 
 ### Dependencies
-`conductor-csharp` packages are published to nugget package manager.  You can find the latest releases [here](https://www.nuget.org/packages/conductor-csharp/).
+`conductor-client-dotnet` packages are published to nugget package manager.  You can find the latest releases [here](https://www.nuget.org/packages/conductor-client-dotnet/).
 
 ### Write workers  
 
-```
+```csharp
  internal class MyWorkflowTask : IWorkflowTask
     {
         public MyWorkflowTask(){}
@@ -51,7 +51,7 @@ The code for the C# SDk is available on [Github](https://github.com/conductor-sd
 
 ### Run workers
 
-```
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -67,7 +67,7 @@ using Task = System.Threading.Tasks.Task;
 using Conductor.Client;
 using System.Collections.Concurrent;
 
-namespace TestOrkesSDK
+namespace TestSDK
 {
     class Program
     {
@@ -111,12 +111,9 @@ namespace TestOrkesSDK
 }
 ```
 
-####Note:
-Replace KEY and SECRET by obtaining a new key and secret from [Orkes Playground](https://play.orkes.io/)
+#### Note:
 
-See [Generating Access Keys for Programmatic Access](https://orkes.io/content/docs/getting-started/concepts/access-control#access-keys) for details./
-
-```
+```csharp
     internal class WorkflowsWorkerService : BackgroundService
     {
         private readonly IWorkflowTaskCoordinator workflowTaskCoordinator;
@@ -144,17 +141,19 @@ See [Generating Access Keys for Programmatic Access](https://orkes.io/content/do
 ```
 
 ### Worker Configurations
+
 Worker configuration is handled via Configuration object passed when initializing TaskHandler.
-```
+
+```csharp
 Configuration configuration = 
-    new Configuration(new ConcurrentDictionary<string, string>(), "KEY", "SECRET", "https://play.orkes.io/");
+    new Configuration(new ConcurrentDictionary<string, string>(), "http://localhost:8080/api");
 ```
 
 ### Registering and starting the workflow using SDK.
 
 Below is the code snippet that shows how to register a simple workflow and start execution:
 
-```
+```csharp
 IDictionary<string, string> optionalHeaders = new ConcurrentDictionary<string, string>();
 Configuration configuration = new Configuration(optionalHeaders, "keyId", "keySecret");
 
@@ -180,11 +179,13 @@ Dictionary<string, object> request = new Dictionary<string, object>();
 request.Add("http_request", requestParams);
 workflowTask.InputParameters = request;
 workflowDef.Tasks = new List<WorkflowTask>() { workflowTask };
+
 //Run a workflow
 WorkflowResourceApi workflowResourceApi = new WorkflowResourceApi(configuration);
 Dictionary<string, Object> input = new Dictionary<string, Object>();
+
 //Fill the input map which workflow consumes.
 workflowResourceApi.StartWorkflow("test_workflow", input, 1);
 Console.ReadLine();
 ```
-Please see [Conductor.Api](https://github.com/conductor-sdk/conductor-csharp/tree/main/Api) for the APIs.
+Please see [Conductor.Api](https://github.com/swift-conductor/conductor-client-dotnet/tree/main/Conductor/Api) for the APIs.

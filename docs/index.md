@@ -70,7 +70,7 @@ hide:
         <img src="home/icons/brackets.svg" class="icon"/> Polyglot
       </div>
       <div class="caption">
-        Client libraries in multiple languages allows workers to be implemented in Java, Node JS, Python and C#.
+        Client libraries in multiple languages allows workers to be implemented in Java, Python, Golang, and C#.
       </div>
     </div>
     <div class="col-4">

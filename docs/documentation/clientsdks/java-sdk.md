@@ -1,4 +1,4 @@
-# Java SDK
+# Java Client SDK
 
 Conductor provides the following java clients to interact with the various APIs
 
@@ -9,12 +9,15 @@ Conductor provides the following java clients to interact with the various APIs
 | Task Client     | Poll for task / Update task result after execution / Get status of a task |
 
 ## Worker
+
 Conductor provides an automated framework to poll for tasks, manage the execution thread and update the status of the execution back to the server.
 
 Implement the [Worker](https://github.com/swift-conductor/conductor/blob/main/client/src/main/java/com/swiftconductor/conductor/client/worker/Worker.java) interface to execute the task.
 
 ## TaskRunnerConfigurer  
+
 The TaskRunnerConfigurer can be used to register the worker(s) and initialize the polling loop.  
+
 Manages the task workers thread pool and server communication (poll and task update).  
 
 Use the [Builder](https://github.com/swift-conductor/conductor/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automator/TaskRunnerConfigurer.java#L62) to create an instance of the TaskRunnerConfigurer. The Builder constructor takes the following parameters.
@@ -41,6 +44,7 @@ Once an instance is created, call `init()` method to initialize the TaskPollExec
     To ensure that the TaskRunnerConfigurer stops polling for tasks when the instance becomes unhealthy, call the provided `shutdown()` hook in a `PreDestroy` block.
 
 ## Properties
+
 The worker behavior can be further controlled by using these properties:
 
 | Property           | Type    | Description                                                                                                                                | Default |
@@ -59,5 +63,6 @@ Further, these properties can be set either by Worker implementation or by setti
 ## Examples
 
 * [Sample Worker Implementation](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java)
+
 * [Example](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java)
 

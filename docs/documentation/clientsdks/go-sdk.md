@@ -1,14 +1,14 @@
-# Go SDK
+# Go Client SDK
 
-The code for the Golang SDk is available on [Github](https://github.com/conductor-sdk/conductor-go). Please feel free to file PRs, issues, etc. there.
+The code for the Go Client SDK is available on [Github](https://github.com/swift-conductor/conductor-client-golang). Please feel free to file PRs, issues, etc. there.
 
 
 ## Quick Start
 
-1. [Setup conductor-go package](#Setup-conductor-go-package)
-2. [Create and run Task Workers](https://github.com/conductor-sdk/conductor-go/blob/main/workers_sdk.md)
-3. [Create workflows using Code](https://github.com/conductor-sdk/conductor-go/blob/main/workflow_sdk.md)
-4. [API Documentation](https://github.com/conductor-sdk/conductor-go/blob/main/docs/)
+1. [Setup conductor-client-golang package](#Setup-conductor-client-golang-package)
+2. [Create and run Task Workers](https://github.com/swift-conductor/conductor-client-golang/blob/main/workers_sdk.md)
+3. [Create workflows using Code](https://github.com/swift-conductor/conductor-client-golang/blob/main/workflow_sdk.md)
+4. [API Documentation](https://github.com/swift-conductor/conductor-client-golang/blob/main/docs/)
    
 ### Setup conductor go package
 
@@ -19,45 +19,27 @@ cd quickstart/
 go mod init quickstart
 ```
 
-Get Conductor Go SDK
+Get Swift Conductor Go Client SDK
 
 ```shell
-go get github.com/conductor-sdk/conductor-go
+go get github.com/swift-conductor/conductor-client-golang
 ```
 ## Configuration
 
-### Authentication settings (optional)
-Use if your conductor server requires authentication
-* keyId: Key
-* keySecret: Secret for the Key
-
-```go
-authenticationSettings := settings.NewAuthenticationSettings(
-  "keyId",
-  "keySecret",
-)
-```
-
-### Access Control Setup
-See [Access Control](https://orkes.io/content/docs/getting-started/concepts/access-control) for more details on role based access control with Conductor and generating API keys for your environment.
-
 ### Configure API Client
-```go
 
+```go
 apiClient := client.NewAPIClient(
-    settings.NewAuthenticationSettings(
-        KEY,
-        SECRET,
-    ),
     settings.NewHttpSettings(
-        "https://play.orkes.io",
+        "http://localhost:8080/api",
     ),
 )
 	
 ```
 
 ### Setup Logging
-SDK uses [logrus](https://github.com/sirupsen/logrus) for the logging.
+
+The Go Client SDK uses [logrus](https://github.com/sirupsen/logrus) for logging.
 
 ```go
 func init() {
@@ -67,4 +49,4 @@ func init() {
 }
 ```
 
-### Next: [Create and run Task Workers](https://github.com/conductor-sdk/conductor-go/blob/main/workers_sdk.md)
+### Next: [Create and run Task Workers](https://github.com/swift-conductor/conductor-client-golang/blob/main/workers_sdk.md)

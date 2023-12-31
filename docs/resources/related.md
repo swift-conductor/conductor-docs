@@ -2,14 +2,12 @@
 
 ## Client SDKs
 
-Further, all of the (non-Java) SDKs have a new GitHub home: the Conductor SDK repository is your new source for Conductor SDKs:
+* [Python](https://github.com/swift-conductor/conductor-client-python)
+* [Java]https://github.com/swift-conductor/conductor/tree/main/java-sdk)
+* [.NET](https://github.com/swift-conductor/conductor-client-dotnet)
+* [Golang](https://github.com/swift-conductor/conductor-client-golang)
 
-* [Golang](https://github.com/conductor-sdk/conductor-go)
-* [Python](https://github.com/conductor-sdk/conductor-python)
-* [C#](https://github.com/conductor-sdk/conductor-csharp)
-* [Clojure](https://github.com/conductor-sdk/conductor-clojure)
-
-All contributions on the above client sdks can be made on [Conductor SDK](https://github.com/conductor-sdk) repository.
+Contributions on the above SDKs can be made in the corresponding repositories.
 
 ## Microservices operations
 
@@ -39,7 +37,7 @@ Docker image published to [Docker Hub](https://hub.docker.com/repository/docker/
 
 ## Conductor Worker utilities
 
-* https://github.com/ggrcha/conductor-go-client - Conductor Golang client for writing Workers in Golang
+* https://github.com/ggrcha/conductor-client-golang-client - Conductor Golang client for writing Workers in Golang
 
 * https://github.com/courosh12/conductor-dotnet-client - Conductor DOTNET client for writing Workers in DOTNET
   * https://github.com/TwoUnderscorez/serilog-sinks-conductor-task-log - Serilog sink for sending worker log events to Conductor
