@@ -12,11 +12,11 @@ Conductor provides Java client libraries, which we will use to build a simple ta
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-client</artifactId>
-    <version>3.16</version>
+    <version>3.16-SNAPSHOT</version>
 </dependency>
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
-    <artifactId>conductor-common</artifactId>
+    <artifactId>3.16-SNAPSHOT</artifactId>
     <version>3.16</version>
 </dependency>
 ```

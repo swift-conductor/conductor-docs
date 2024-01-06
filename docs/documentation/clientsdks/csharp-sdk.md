@@ -1,8 +1,8 @@
 # .NET Client SDK
 
-`conductor-client-dotnet` repository provides a way to build Task Workers and Clients in C#
+The .NET Client SDK `conductor-client-dotnet` provides a way to build Task Workers and Clients in C#.
 
-The code for the .NET Client SDK is available on [Github](https://github.com/swift-conductor/conductor-client-dotnet). Please feel free to file PRs, issues, etc. there.
+The code for the .NET Client SDK is available on [Github](https://github.com/swift-conductor/conductor-client-dotnet). Please feel free to file PRs, issues, etc. there. 
 
 ## Quick Start
 
