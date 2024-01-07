@@ -26,7 +26,7 @@ git clone https://github.com/swift-conductor/conductor.git
 
 Navigate to the Swagger API docs:
 
-[http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config](http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config)
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
 ![swagger](swagger.png)
 
@@ -77,7 +77,7 @@ git clone https://github.com/swift-conductor/conductor-ui
 
 ### Install packages
 
-The UI is a standard `create-react-app` React Single Page Application (SPA). To get started, with Node 14 and `npm` installed, run `npm install` to retrieve package dependencies.
+You need Node 14 and `npm` installed. After that run `npm install` to install all packages:
 
 ```sh
 npm install
@@ -85,13 +85,11 @@ npm install
 
 ### Run
 
-To run the UI on the bundled development server, run `npm run start`. Navigate your browser to `http://localhost:5000`. The Conductor server must already be running on port 8080. 
-
 ```sh
 npm run start
 ```
 
-Launch UI [http://localhost:5000](http://localhost:5000)
+Open [http://localhost:5000](http://localhost:5000) in your browser. 
 
 ![conductor ui](conductorUI.png)
 

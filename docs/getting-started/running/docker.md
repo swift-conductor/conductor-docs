@@ -12,6 +12,34 @@ The docker compose will bring up the following:
 1. Docker: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 2. Recommended host with CPU and RAM to be able to run multiple docker containers (at-least 16GB RAM)
 
+## Swift Conductor Core Server
+
+### Clone
+
+```sh
+git clone https://github.com/swift-conductor/conductor.git
+```
+
+### Build
+
+```sh
+cd conductor/docker
+
+docker-compose build
+```
+
+### Run
+
+#### Use `docker-compose` to bring up the local server:
+
+```sh
+docker-compose up --detach
+```
+
+You can open the Server and UI URLs in your browser to verify that they are running correctly:
+
+- Server: http://localhost:8080
+
 ## Swift Conductor CE (Community Edition)
 
 ### Clone
