@@ -1,18 +1,13 @@
 # Running Conductor using Docker
 
 In this article we will explore how you can set up Conductor on your local machine using Docker compose.
-The docker compose will bring up the following:
-
-1. Conductor API Server
-2. Conductor UI
-3. Elasticsearch for searching workflows
 
 ## Prerequisites
 
 1. Docker: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 2. Recommended host with CPU and RAM to be able to run multiple docker containers (at-least 16GB RAM)
 
-## Swift Conductor Core Server
+## Swift Conductor Core
 
 ### Clone
 
@@ -36,11 +31,19 @@ docker-compose build
 docker-compose up --detach
 ```
 
-You can open the Server and UI URLs in your browser to verify that they are running correctly:
+The docker compose will bring up the following containers:
 
-- Server: http://localhost:8080
+1. Swift Conductor Core Server
+2. Redis for database and task queue
+3. Elasticsearch v6 for searching workflows
 
-## Swift Conductor CE (Community Edition)
+
+You can open the server URL in your browser to verify that they are running correctly:
+
+- Server: [http://localhost:8080](http://localhost:8080)
+
+## Swift Conductor CE 
+> CE == Community Edition
 
 ### Clone
 
@@ -72,6 +75,14 @@ For example this will start the server instance backed by a Redis database, Redi
 docker-compose --file docker-compose-redis.yaml up --detach
 ```
 
+The docker compose will bring up the following containers:
+
+1. Swift Conductor CE Server 
+1. Swift Conductor UI
+1. Redis for database and task queue
+1. Elasticsearch v7 for searching workflows
+
+
 You can open the Server and UI URLs in your browser to verify that they are running correctly:
 
 - Server: [http://localhost:8080](http://localhost:8080)
@@ -79,15 +90,15 @@ You can open the Server and UI URLs in your browser to verify that they are runn
 
 ## Monitoring with Prometheus
 
-Start Prometheus only with:
+Start Prometheus only:
 
 ```sh
 docker-compose --file docker-compose-prometheus.yaml up --detach
 ```
 
-Open Prometheus ([http://localhost:9090](http://localhost:9090)) in your browser:
+**or**
 
-(Optionally) Start Prometheus and Grafana with:
+Start Prometheus and Grafana (optional):
 
 ```sh
 docker-compose --file docker-compose-prometheus-grafana.yaml up --detach
