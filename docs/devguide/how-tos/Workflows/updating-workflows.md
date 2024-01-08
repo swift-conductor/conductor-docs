@@ -13,7 +13,7 @@ curl '{{ server_host }}{{ api_prefix }}/metadata/workflow' \
   -X 'PUT' \
   -H 'accept: */*' \
   -H 'content-type: application/json' \
-  --data-raw '[{"name":"sample_workflow","version":1,"tasks":[{"name":"ship_via_fedex","taskReferenceName":"ship_via_fedex","type":"SIMPLE"}],"schemaVersion":2}]'
+  --data-raw '[{"name":"sample_workflow","version":1,"tasks":[{"name":"ship_via_fedex","taskReferenceName":"ship_via_fedex","type":"CUSTOM"}],"schemaVersion":2}]'
 ```
 
 ### Example using node fetch
@@ -24,7 +24,7 @@ fetch("{{ server_host }}{{ api_prefix }}/metadata/workflow", {
     "accept": "*/*",
     "content-type": "application/json"
   },
-  "body": "[{\"name\":\"sample_workflow\",\"version\":1,\"tasks\":[{\"name\":\"ship_via_fedex\",\"taskReferenceName\":\"ship_via_fedex\",\"type\":\"SIMPLE\"}],\"schemaVersion\":2}]",
+  "body": "[{\"name\":\"sample_workflow\",\"version\":1,\"tasks\":[{\"name\":\"ship_via_fedex\",\"taskReferenceName\":\"ship_via_fedex\",\"type\":\"CUSTOM\"}],\"schemaVersion\":2}]",
   "method": "PUT"
 });
 ```

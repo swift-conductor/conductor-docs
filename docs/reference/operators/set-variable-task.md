@@ -47,7 +47,7 @@ Following is the workflow definition with `SET_VARIABLE` task.
       "inputParameters": {
         "saved_name" : "${workflow.variables.name}"
       },
-      "type": "SIMPLE"
+      "type": "CUSTOM"
     }
   ],
   "restartable": true,

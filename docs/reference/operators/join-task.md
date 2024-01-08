@@ -76,21 +76,21 @@ proceeding.
         {
           "name": "email_notification",
           "taskReferenceName": "email_notification_ref",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         }
       ],
       [
         {
           "name": "sms_notification",
           "taskReferenceName": "sms_notification_ref",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         }
       ],
       [
         {
           "name": "http_notification",
           "taskReferenceName": "http_notification_ref",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         }
       ]
     ]

@@ -1,6 +1,6 @@
-# Worker Tasks
+# Custom Tasks
 
-A worker is responsible for executing a worker task (`type=SIMPLE`). Operator and System Tasks are handled by the Conductor server, while user defined tasks (`type=SIMPLE`) need to have a worker created that awaits the work to be scheduled by the server for it to be executed.
+A worker is responsible for executing a worker task (`type=CUSTOM`). Operator and System Tasks are handled by the Conductor server, while user defined tasks (`type=CUSTOM`) need to have a worker created that awaits the work to be scheduled by the server for it to be executed.
 
 Worker implementation should follow these basic design principles:
 

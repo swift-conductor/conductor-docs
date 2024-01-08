@@ -22,12 +22,12 @@ Tasks can be categorized into three types:
 Task Configurations appear within the `tasks` array property of the Workflow Definition. This array is the blueprint that describes how a workflow will process an input payload by passing it through successive tasks.
 
 * For all tasks, the configuration will specify what **input parameters** the task takes. 
-* For SIMPLE (worker based) tasks, the configuration will contain a reference to a registered worker `taskName`. 
+* For CUSTOM (worker based) tasks, the configuration will contain a reference to a registered worker `taskName`. 
 * For System Tasks and Operators, the task configuration will contain important parameters that control the behavior of the task. For example, the task configuration of an HTTP task will specify an endpoint URL and the template payload that it will be called with when the task executes.
 
 ## Task Definition
 
-Not to be confused with Task Configurations, [Task Definitions](../../documentation/configuration/taskdef.md) help define default task level parameters like inputs and outputs, timeouts, retries etc. for SIMPLE (i.e. worker implemented) tasks.
+Not to be confused with Task Configurations, [Task Definitions](../../documentation/configuration/taskdef.md) help define default task level parameters like inputs and outputs, timeouts, retries etc. for CUSTOM (i.e. worker implemented) tasks.
 
 * All simple tasks need to be registered before they can be used by active workflows.
 * Task definitions can be registered via the UI, or through the API.

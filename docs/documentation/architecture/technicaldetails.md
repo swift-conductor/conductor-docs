@@ -20,7 +20,7 @@ The payload size is evaluated in the client before being sent over the wire to t
 ### Dynamic Workflow Executions
 In the earlier version (v1.x), Conductor allowed the execution of workflows referencing the workflow and task definitions stored as metadata in the system. This meant that a workflow execution with 10 custom tasks to run entailed:
 
-- Registration of the 10 task definitions if they don't exist (assuming workflow task type SIMPLE for simplicity)
+- Registration of the 10 task definitions if they don't exist (assuming workflow task type CUSTOM for simplicity)
 - Registration of the workflow definition
 - Each time a definition needs to be retrieved, a call to the metadata store needed to be performed
 - In addition to that, the system allowed current metadata that is in use to be altered, leading to possible inconsistencies/race conditions

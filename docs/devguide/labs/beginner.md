@@ -32,7 +32,7 @@ This workflow contains the following:
 ### Creating Task definitions
 
 
-Let's create the [task definition](../../documentation/configuration/taskdef.md) for `verify_if_idents_are_added` in JSON. This task will be a *SIMPLE* task which is supposed to be executed by an Idents microservice. We'll be mocking the Idents microservice part.
+Let's create the [task definition](../../documentation/configuration/taskdef.md) for `verify_if_idents_are_added` in JSON. This task will be a *CUSTOM* task which is supposed to be executed by an Idents microservice. We'll be mocking the Idents microservice part.
 
 
 
@@ -169,7 +169,7 @@ Add the first task that this workflow has to execute. All the tasks must be adde
 		    "inputParameters": {
 		        "contentId": "${workflow.input.contentId}"
 		    },
-		    "type": "SIMPLE"
+		    "type": "CUSTOM"
     	}
     ]
 }
@@ -208,7 +208,7 @@ Adding the switch task (without any decision cases):
 		    "inputParameters": {
 		        "contentId": "${workflow.input.contentId}"
 		    },
-		    "type": "SIMPLE"
+		    "type": "CUSTOM"
     	},
         {
             "name": "switch_task",
@@ -242,7 +242,7 @@ Each switch task can have multiple tasks, so it has to be defined as an array.
 		    "inputParameters": {
 		        "contentId": "${workflow.input.contentId}"
 		    },
-		    "type": "SIMPLE"
+		    "type": "CUSTOM"
     	},
         {
             "name": "switch_task",
@@ -262,7 +262,7 @@ Each switch task can have multiple tasks, so it has to be defined as an array.
                         	"identType": "${workflow.input.identType}",
                         	"contentId": "${workflow.input.contentId}"
                         },
-                        "type": "SIMPLE"
+                        "type": "CUSTOM"
                     }
                 ]
             }
@@ -290,7 +290,7 @@ curl -X POST \
 		    "inputParameters": {
 		        "contentId": "${workflow.input.contentId}"
 		    },
-		    "type": "SIMPLE"
+		    "type": "CUSTOM"
     	},
         {
             "name": "switch_task",
@@ -310,7 +310,7 @@ curl -X POST \
                         	"identType": "${workflow.input.identType}",
                         	"contentId": "${workflow.input.contentId}"
                         },
-                        "type": "SIMPLE"
+                        "type": "CUSTOM"
                     }
                 ]
             }
@@ -437,7 +437,7 @@ You will notice that Workflow is in the state as below after sending the POST re
 
 Conductor has executed `is_idents_added` all through it's lifecycle, without us polling, or returning the status of Task. If it is still unclear, `is_idents_added` is a System task, and System tasks are executed by Conductor Server.
 
-But, `add_idents` is a SIMPLE task. So, the complete lifecycle of this task (Poll, Update) should be handled by a worker to continue with W\workflow execution. When Conductor has finished executing all the tasks in given flow, the workflow will reach Terminal state (COMPLETED, FAILED, TIMED_OUT etc.)
+But, `add_idents` is a CUSTOM task. So, the complete lifecycle of this task (Poll, Update) should be handled by a worker to continue with W\workflow execution. When Conductor has finished executing all the tasks in given flow, the workflow will reach Terminal state (COMPLETED, FAILED, TIMED_OUT etc.)
 
 ## Next steps
 

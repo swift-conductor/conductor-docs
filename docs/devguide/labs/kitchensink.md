@@ -16,7 +16,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
         "mod": "${workflow.input.mod}",
         "oddEven": "${workflow.input.oddEven}"
       },
-      "type": "SIMPLE"
+      "type": "CUSTOM"
     },
     {
       "name": "event_task",
@@ -54,7 +54,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
               "mod": "${task_2.output.mod}",
               "oddEven": "${task_2.output.oddEven}"
             },
-            "type": "SIMPLE"
+            "type": "CUSTOM"
           },
           {
             "name": "dynamic_fanout",
@@ -83,7 +83,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
                 {
                   "name": "task_10",
                   "taskReferenceName": "task_10",
-                  "type": "SIMPLE"
+                  "type": "CUSTOM"
                 },
                 {
                   "name": "sub_workflow_x",
@@ -103,7 +103,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
                 {
                   "name": "task_11",
                   "taskReferenceName": "task_11",
-                  "type": "SIMPLE"
+                  "type": "CUSTOM"
                 },
                 {
                   "name": "sub_workflow_x",
@@ -151,7 +151,7 @@ An example kitchensink workflow that demonstrates the usage of all the schema co
         "statuses": "${get_es_1.output..status}",
         "workflowIds": "${get_es_1.output..workflowId}"
       },
-      "type": "SIMPLE"
+      "type": "CUSTOM"
     }
   ],
   "outputParameters": {
@@ -238,7 +238,7 @@ curl -H 'Content-Type:application/json' -H 'Accept:application/json' -X POST {{ 
 	        {
 	            "name": "task_1",
 	            "taskReferenceName": "task_1_1",
-	            "type": "SIMPLE"
+	            "type": "CUSTOM"
 	        },
 	        {
 	            "name": "sub_workflow_4",

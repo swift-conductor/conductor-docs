@@ -56,36 +56,36 @@ Here's the JSON definition for the workflow:
         {
           "name": "process_notification_payload",
           "taskReferenceName": "process_notification_payload_email",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         },
         {
           "name": "email_notification",
           "taskReferenceName": "email_notification_ref",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         }
       ],
       [
         {
           "name": "process_notification_payload",
           "taskReferenceName": "process_notification_payload_sms",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         },
         {
           "name": "sms_notification",
           "taskReferenceName": "sms_notification_ref",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         }
       ],
       [
         {
           "name": "process_notification_payload",
           "taskReferenceName": "process_notification_payload_http",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         },
         {
           "name": "http_notification",
           "taskReferenceName": "http_notification_ref",
-          "type": "SIMPLE"
+          "type": "CUSTOM"
         }
       ]
     ]

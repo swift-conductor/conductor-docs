@@ -1,6 +1,6 @@
 # Task Definition
 
-Task Definitions are used to register SIMPLE tasks (workers). Conductor maintains a registry of user task types. A task type MUST be registered before being used in a workflow.
+Task Definitions are used to register CUSTOM tasks (workers). Conductor maintains a registry of user task types. A task type MUST be registered before being used in a workflow.
 
 This should not be confused with [*Task Configurations*](./workflowdef/index.md#task-configurations) which are part of the Workflow Definition, and are iterated in the `tasks` property in the definition.
 

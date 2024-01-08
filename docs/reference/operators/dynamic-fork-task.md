@@ -35,7 +35,7 @@ To use the `DYNAMIC_FORK` task, you need to provide the following attributes at 
 ### inputParameters
 | Attribute                       | Description                                                                                                                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| *dynamicForkTasksParam          | This is a JSON array of tasks or sub-workflow objects that needs to be forked and run in parallel (Note: This has a different format for ```SUB_WORKFLOW``` compared to ```SIMPLE``` tasks.) |
+| *dynamicForkTasksParam          | This is a JSON array of tasks or sub-workflow objects that needs to be forked and run in parallel (Note: This has a different format for ```SUB_WORKFLOW``` compared to ```CUSTOM``` tasks.) |
 | *dynamicForkTasksInputParamName | A JSON map, where the keys are task or sub-workflow names, and the values are the `inputParameters` to be passed into the corresponding spawned tasks or sub-workflows.                      |
 
 Note: * means the de-referenced name.
@@ -81,7 +81,7 @@ the `FORK_JOIN_DYNAMIC` task that will prepare the input that needs to be passed
 * ```dynamicForkTasksParam``` the JSON array of tasks/subworkflows to be run in parallel. Each JSON object will have: 
   * A unique ```taskReferenceName```.
   * The name of the Task/Subworkflow to be called (note - the location of this key:value is different for a subworkflow).
-  * The type of the task (This is optional for SIMPLE tasks).
+  * The type of the task (This is optional for CUSTOM tasks).
 * ```dynamicForkTasksInputParamName``` a JSON map of input parameters for each task. The keys will be the unique ```taskReferenceName``` defined in the first JSON array, and the values will be the specific input parameters for the task/subworkflow.
 
 The ```image_resize``` task works to resize just one image. The `FORK_JOIN_DYNAMIC` and the following `JOIN` will manage the multiple invocations of the single ```image_resize``` task. The responsibilities are clearly broken out, where the individual  ```image_resize```
@@ -139,7 +139,7 @@ With 2 file formats and 2 sizes in the input, we'll be creating 4 images total. 
 
 
 #### ```dynamicForkTasksParam``` Simple task 
-In this case, our fork is running a SIMPLE task: ```image_convert_resize```:
+In this case, our fork is running a CUSTOM task: ```image_convert_resize```:
 
 ```
 { "dynamicTasks": [
