@@ -4,8 +4,8 @@ CUSTOM Conductor tasks that are executed by remote workers which communicate ove
 
 ## Client APIs
 
-* [Python](../documentation/clientsdks/python-sdk.md)
 * [TypeScript](../documentation/clientsdks/typescript-sdk.md)
-* [.NET](../documentation/clientsdks/csharp-sdk.md)
+* [Python](../documentation/clientsdks/python-sdk.md)
 * [Java](../documentation/clientsdks/java-sdk.md)
+* [.NET](../documentation/clientsdks/csharp-sdk.md)
 * [Go](../documentation/clientsdks/go-sdk.md)
