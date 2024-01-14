@@ -1,14 +1,15 @@
 # Build a Java Task Worker
 
-This guide provides introduction to building Task Workers in Java.
-
 ## Dependencies
-
-Conductor provides Java client libraries, which we will use to build a simple task worker.
 
 ### Maven Dependency
 
 ```xml
+<dependency>
+    <groupId>com.swiftconductor.conductor</groupId>
+    <artifactId>conductor-common</artifactId>
+    <version>3.16-SNAPSHOT</version>
+</dependency>
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-client</artifactId>
@@ -16,19 +17,20 @@ Conductor provides Java client libraries, which we will use to build a simple ta
 </dependency>
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
-    <artifactId>3.16-SNAPSHOT</artifactId>
-    <version>3.16</version>
+    <artifactId>conductor-java-sdk</artifactId>
+    <version>3.16-SNAPSHOT</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation group: 'com.swiftconductor.conductor', name: 'conductor-client', version: '3.16'
-implementation group: 'com.swiftconductor.conductor', name: 'conductor-common', version: '3.16'
+implementation 'com.swiftconductor.conductor:conductor-common:3.16-SNAPSHOT'
+implementation 'com.swiftconductor.conductor:conductor-client:3.16-SNAPSHOT'
+implementation 'com.swiftconductor.conductor:conductor-java-sdk:3.16-SNAPSHOT'
 ```
 
-## Implementing a Task Worker
+## Implementing the Worker
 
 To create a worker, implement the `Worker` interface.
 
@@ -70,14 +72,14 @@ Worker's core implementation logic goes in the `execute` method. Upon completion
 
 The `getTaskDefName()` method returns the name of the task for which this worker provides the execution logic.
 
-See [SampleWorker.java](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java) for the complete example.
+See [SampleWorker.java](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java) for the complete example.
 
 ## Configuring polling using TaskRunnerConfigurer
 
 The `TaskRunnerConfigurer` can be used to register the worker(s) and initialize the polling loop.
 It manages the task workers thread pool and server communication (poll and task update).
 
-Use the [Builder](https://github.com/swift-conductor/conductor/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automator/TaskRunnerConfigurer.java#L64) to create an instance of the `TaskRunnerConfigurer`. The builder accepts the following parameters:
+Use the [Builder](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automator/TaskRunnerConfigurer.java#L64) to create an instance of the `TaskRunnerConfigurer`. The builder accepts the following parameters:
 
 ```java
  TaskClient taskClient = new TaskClient();
@@ -97,7 +99,7 @@ Use the [Builder](https://github.com/swift-conductor/conductor/blob/main/client/
         configurer.init();
 ```
 
-See [Sample](https://github.com/swift-conductor/conductor/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java) for full example.
+See [Sample](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java) for full example.
 
 ### Configuration Details
 
