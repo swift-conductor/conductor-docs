@@ -89,7 +89,7 @@ Here is a list of fields and what it does:
    also provide dynamic inputs such as from the workflow input or based on the output of another worker. We can find
    examples of this in our documentation.
 4. `"type"` : This is what defines what the type of worker is. In our example - this is `HTTP`. There are more task
-   types which we can find in the Conductor documentation.
+   types which we can find in the Swift Conductor documentation.
 5. `"http_request"` : This is an input that is required for tasks of type `HTTP`. In our example we have provided a well
    known internet JSON API url and the type of HTTP method to invoke - `GET`
 

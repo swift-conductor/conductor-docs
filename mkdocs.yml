@@ -1,5 +1,5 @@
-site_name: Conductor Documentation
-site_description: Conductor is a platform for orchestrating workflows that span across microservices.
+site_name: Swift Conductor Documentation
+site_description: Swift Conductor is a platform for orchestrating workflows that span across microservices.
 repo_url: https://github.com/swift-conductor/conductor
 site_url: https://swiftconductor.com
 edit_uri: https://github.com/swift-conductor/conductor-docs

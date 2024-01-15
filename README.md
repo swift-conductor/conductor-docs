@@ -1,8 +1,8 @@
-![Conductor](docs/img/logo.svg)
+![Swift Conductor](docs/img/logo.svg)
 
-# Conductor Documentation
+# Swift Conductor Documentation
 
-This is the mkdocs source for the Conductor documentation site hosted at https://swiftconductor.com.
+This is the mkdocs source for the Swift Conductor documentation site hosted at https://swiftconductor.com.
 
 # Edit
 
