@@ -32,10 +32,10 @@ implementation 'com.swiftconductor.conductor:conductor-java-sdk:3.16-SNAPSHOT'
 
 ## Implementing the Worker
 
-To create a worker, implement the `Worker` interface.
+To create a worker, implement the `AbstractWorker` interface.
 
 ```java
-public class SampleWorker implements Worker {
+public class SampleWorker implements AbstractWorker {
 
     private final String taskDefName;
 
@@ -53,7 +53,7 @@ public class SampleWorker implements Worker {
         TaskResult result = new TaskResult(task);
         result.setStatus(Status.COMPLETED);
 
-        //Register the output of the task
+        // Register the output of the task
         result.getOutputData().put("outputKey1", "value");
         result.getOutputData().put("oddEven", 1);
         result.getOutputData().put("mod", 4);
@@ -62,8 +62,6 @@ public class SampleWorker implements Worker {
     }
 }
 ```
-
-### Implementing worker's logic
 
 Worker's core implementation logic goes in the `execute` method. Upon completion, set the `TaskResult` with status as one of the following:
 
@@ -74,34 +72,37 @@ The `getTaskDefName()` method returns the name of the task for which this worker
 
 See [SampleWorker.java](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java) for the complete example.
 
-## Configuring polling using TaskRunnerConfigurer
+## Running Workers via WorkerHost
 
-The `TaskRunnerConfigurer` can be used to register the worker(s) and initialize the polling loop.
+The `WorkerHost` can be used to register the worker(s) and initialize the polling loop.
 It manages the task workers thread pool and server communication (poll and task update).
 
-Use the [Builder](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automator/TaskRunnerConfigurer.java#L64) to create an instance of the `TaskRunnerConfigurer`. The builder accepts the following parameters:
+Use the [Builder](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automation/WorkerHost.java) to create an instance of `WorkerHost`. 
 
 ```java
- TaskClient taskClient = new TaskClient();
- taskClient.setRootURI("{{ server_host }}{{ api_prefix }}/");        //Point this to the server API
+// Point this to the server API
+TaskClient taskClient = new TaskClient();
+taskClient.setRootURI("http://localhost:8080/api");        
 
-        int threadCount = 2;            //number of threads used to execute workers.  To avoid starvation, should be same or more than number of workers
+// number of threads used to execute workers.  
+// To avoid starvation, this should be same or more than number of workers
+int threadCount = 2;            
 
-        Worker worker1 = new SampleWorker("task_1");
-        Worker worker2 = new SampleWorker("task_5");
+Worker worker1 = new SampleWorker("task_1");
+Worker worker2 = new SampleWorker("task_5");
 
-        // Create TaskRunnerConfigurer
-        TaskRunnerConfigurer configurer = new TaskRunnerConfigurer.Builder(taskClient, Arrays.asList(worker1, worker2))
-            .withThreadCount(threadCount)
-            .build();
+// Create WorkerHost
+WorkerHost host = new WorkerHost.Builder(taskClient, Arrays.asList(worker1, worker2))
+    .withThreadCount(threadCount)
+    .build();
 
-        // Start the polling and execution of tasks
-        configurer.init();
+// Start the polling and execution of tasks
+host.init();
 ```
 
 See [Sample](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java) for full example.
 
-### Configuration Details
+## Worker Configuration Details
 
 Initialize the `Builder` with the following:
 
@@ -118,12 +119,12 @@ Initialize the `Builder` with the following:
 | withUpdateRetryCount | Number of attempts to be made when updating task status when update status call fails. | 3 |
 | withWorkerNamePrefix | String prefix that will be used for all the workers. | workflow-worker- |
 
-Once an instance is created, call `init()` method to initialize the `TaskPollExecutor` and begin the polling and execution of tasks.
+Once an instance is created, call `init()` method to initialize the `WorkerProcess` and begin the polling and execution of tasks.
 
 !!! tip "Note"
-    To ensure that the `TaskRunnerConfigurer` stops polling for tasks when the instance becomes unhealthy, call the provided `shutdown()` hook in a `PreDestroy` block.
+    To ensure that the `WorkerHost` stops polling for tasks when the instance becomes unhealthy, call the provided `shutdown()` hook in a `PreDestroy` block.
 
-#### Properties
+## Worker Properties
 
 The worker behavior can be further controlled by using these properties:
 
@@ -133,7 +134,7 @@ The worker behavior can be further controlled by using these properties:
 | pollInterval | int | Interval in milliseconds at which the server should be polled for tasks. | 1000 |
 | pollOutOfDiscovery | boolean | If set to true, the instance will poll for tasks regardless of the discovery status. This is useful while running on a dev machine. | false |
 
-Further, these properties can be set either by a `Worker` implementation or by setting the following system properties in the JVM:
+Further, these properties can be set either by a `AbstractWorker` implementation or by setting the following system properties in the JVM:
 
 | Name | Description |
 | --- | --- |

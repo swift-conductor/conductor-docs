@@ -12,22 +12,22 @@ Conductor provides the following java clients to interact with the various APIs
 
 Conductor provides an automated framework to poll for tasks, manage the execution thread and update the status of the execution back to the server.
 
-Implement the [Worker](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/worker/Worker.java) interface to execute the task.
+Implement the [AbstractWorker](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/worker/AbstractWorker.java) interface to execute the task.
 
-## TaskRunnerConfigurer  
+## WorkerHost  
 
-The TaskRunnerConfigurer can be used to register the worker(s) and initialize the polling loop.  
+The WorkerHost can be used to register the worker(s) and initialize the polling loop.  
 
 Manages the task workers thread pool and server communication (poll and task update).  
 
-Use the [Builder](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automator/TaskRunnerConfigurer.java#L104) to create an instance of the TaskRunnerConfigurer. The Builder constructor takes the following parameters.
+Use the [Builder](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/main/java/com/swiftconductor/conductor/client/automation/WorkerHost.java) to create an instance of the `WorkerHost`. The `Builder` constructor takes the following parameters.
 
 | Parameter  | Description                                                   |
 | ---------- | ------------------------------------------------------------- |
 | TaskClient | TaskClient used to communicate to the Conductor server        |
 | Workers    | Workers that will be used for polling work and task execution.|
 
-The builder accepts the following parameters:
+The Builder also accepts the following parameters:
 
 | Parameter                      | Description                                                                                                                                                                                                                    | Default                      |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -41,7 +41,7 @@ The builder accepts the following parameters:
 Once an instance is created, call `init()` method to initialize the TaskPollExecutor and begin the polling and execution of tasks.
 
 !!! tip "Note"
-    To ensure that the TaskRunnerConfigurer stops polling for tasks when the instance becomes unhealthy, call the provided `shutdown()` hook in a `PreDestroy` block.
+    To ensure that the `WorkerHost` stops polling for tasks when the instance becomes unhealthy, call the provided `shutdown()` hook in a `PreDestroy` block.
 
 ## Properties
 
@@ -62,7 +62,7 @@ Further, these properties can be set either by Worker implementation or by setti
 
 ## Examples
 
-* [Sample Worker Implementation](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java)
+* [Sample Worker](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java)
 
-* [Example](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java)
+* [Running via WorkerHost](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java)
 
