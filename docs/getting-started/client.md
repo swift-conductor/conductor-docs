@@ -1,8 +1,4 @@
-# Using the Client
-
-CUSTOM Conductor tasks that are executed by remote workers which communicate over HTTP endpoints or gRPC to poll for the tasks, perform the work, and update the status of the execution.
-
-## Client APIs
+# Client SDKs
 
 * [TypeScript](../documentation/clientsdks/typescript-sdk.md)
 * [Python](../documentation/clientsdks/python-sdk.md)

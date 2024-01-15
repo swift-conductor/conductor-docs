@@ -1,21 +1,25 @@
 
 # High Level Steps
-Steps required for a new workflow to be registered and get executed
 
-1. Define task definitions used by the workflow. 
-2. Create the workflow definition
-3. Create task worker(s) that polls for scheduled tasks at regular interval
+Steps required for a new workflow to be created and executed
 
-### Trigger Workflow Execution
+1. Define any `CUSTOM` tasks 
+2. Define a workflow
+1. Start the workflow
+1. Create worker(s) for the `CUSTOM` tasks
+
+## Start the workflow
 
 ```
 POST /workflow/{name}
 {
-	... //json payload as workflow input
+    ... //json payload as workflow input
 }
 ```
 
-### Polling for a task
+## Create worker(s) for `CUSTOM` tasks
+
+### Poll for tasks
 
 ```
 GET /tasks/poll/batch/{taskType}
@@ -26,11 +30,11 @@ GET /tasks/poll/batch/{taskType}
 ```
 POST /tasks
 {
-	"outputData": {
+    "outputData": {
         "encodeResult":"success",
         "location": "http://cdn.example.com/file/location.png"
         //any task specific output
-     },
-     "status": "COMPLETED"
+    },
+    "status": "COMPLETED"
 }
 ```

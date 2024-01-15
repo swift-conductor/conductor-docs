@@ -1,4 +1,4 @@
-# Building Conductor From Source
+# Building From Source
 
 ## Prerequisites
 

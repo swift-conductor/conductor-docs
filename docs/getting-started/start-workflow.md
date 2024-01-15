@@ -1,5 +1,7 @@
 # Starting a Workflow
-## Start Workflow Endpoint
+
+## Workflow Endpoint
+
 When starting a Workflow execution with a registered definition, `/workflow` accepts following parameters:
 
 | Field                           | Description                                                                                                                               | Notes                                                                                                   |
@@ -13,9 +15,12 @@ When starting a Workflow execution with a registered definition, `/workflow` acc
 | externalInputPayloadStoragePath | This is taken care of by Java client. See [External Payload Storage](../documentation/advanced/externalpayloadstorage.md) for more info.                        | optional                                                                                                |
 | priority                        | Priority level for the tasks within this workflow execution. Possible values are between 0 - 99.                                          | optional                                                                                                |
 
-**Example:**
+## Static Workflows
 
-Send a `POST` request to `/workflow` with payload like:
+Static workflows must be defined before execution. You start them by passing `name` and `version` to the Conductor API.
+
+To start a predefined static workflow, send a `POST` request to `/workflow` endpoint with a payload like this:
+
 ```json
 {
     "name": "encode_and_deploy",
@@ -30,13 +35,10 @@ Send a `POST` request to `/workflow` with payload like:
 
 ## Dynamic Workflows
 
-If the need arises to run a one-time workflow, and it doesn't make sense to register Task and Workflow definitions in Conductor Server, as it could change dynamically for each execution, dynamic workflow executions can be used.
+Dynamic workflows allow you to provide the workflow definition together with the all task definitions directly in the the `workflowDef` parameter of a `StartWorkflowRequest` thus avoiding the need to create task and workflow definitions before the execution.
 
-This enables you to provide a workflow definition embedded with the required task definitions to the Start Workflow Request in the `workflowDef` parameter, avoiding the need to register the blueprints before execution.
+To start a dynamic workflow, send a `POST` request to `/workflow` endpoint with a payload like this:
 
-**Example:**
-
-Send a `POST` request to `/workflow` with payload like:
 ```json
 {
   "name": "my_adhoc_unregistered_workflow",
@@ -83,6 +85,3 @@ Send a `POST` request to `/workflow` with payload like:
   }
 }
 ```
-
-!!! Note
-    If the `taskDefinition` is defined with Metadata API, it doesn't have to be added in above dynamic workflow definition.

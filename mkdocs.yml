@@ -13,12 +13,12 @@ nav:
   - Getting Started:
     - getting-started/why-conductor.md
     - Running Conductor:
-      - From Source: getting-started/running/source.md
-      - Using Docker: getting-started/running/docker.md  
+      - getting-started/running/source.md
+      - getting-started/running/docker.md  
     - getting-started/basic-concepts.md
     - getting-started/steps.md
-    - getting-started/client.md
     - getting-started/start-workflow.md
+    - getting-started/client.md
   - Developer's Guide:
     - Introduction: 
       - devguide/concepts/index.md

@@ -1,4 +1,4 @@
-# Running Conductor using Docker
+# Running using Docker
 
 In this article we will explore how you can set up Conductor on your local machine using Docker compose.
 
@@ -15,7 +15,7 @@ In this article we will explore how you can set up Conductor on your local machi
 git clone https://github.com/swift-conductor/conductor.git
 ```
 
-### Build
+### Build image
 
 ```sh
 cd conductor/docker
@@ -25,7 +25,7 @@ docker-compose build
 
 ### Run
 
-#### Use `docker-compose` to bring up the local server:
+Use `docker-compose` to bring up the local server:
 
 ```sh
 docker-compose up --detach
@@ -51,7 +51,7 @@ You can open the server URL in your browser to verify that they are running corr
 git clone https://github.com/swift-conductor/conductor-community.git
 ```
 
-### Build Docker image
+### Build image
 
 ```sh
 cd conductor-community/docker
@@ -61,7 +61,7 @@ docker-compose --file docker-compose-redis.yaml build
 
 ### Run
 
-#### Use `docker-compose` to bring up the local server:
+Use `docker-compose` to bring up the local server:
 
 | Docker Compose               | Description                                                                      |
 | ---------------------------- | -------------------------------------------------------------------------------- |

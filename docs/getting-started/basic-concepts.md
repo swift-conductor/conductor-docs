@@ -1,9 +1,5 @@
 # Basic Concepts
 
-## Definitions (aka Metadata or Blueprints)
-
-Conductor definitions are like class definitions in OOP paradigm, or templates. You define this once, and use for each workflow execution. Definitions to Executions have 1:N relationship.
-
 ## Workflow Definition
 
 A Workflow Definition is the container that describes your process. It contains tasks, sub-workflows, with inputs and outputs connected to each other in order to achieve the desired action. The tasks are either System Operators (e.g. fork, join, wait, switch, conditional, etc), System Tasks (e.g. HTTP, Inline, Human) or Custom Tasks (e.g. encode a file). The system operators and tasks are executed by the Swift Conductor server. The custom tasks are executed by a dedicated Worker on a remote machine.
@@ -35,7 +31,7 @@ System tasks are executed within the JVM of the Conductor server and managed by 
 See [Systems tasks](../reference/systemtasks/index.md) for list of available Task types, and instructions for using them.
 
 !!! Note
-	Conductor provides an API to create user defined tasks that are executed in the same JVM as the engine.	See [WorkflowSystemTask](https://github.com/swift-conductor/conductor/blob/main/core/src/main/java/com/swiftconductor/conductor/core/execution/tasks/WorkflowSystemTask.java) interface for details.
+	Conductor provides an API to add system tasks that are executed in the same JVM as the engine.	See [WorkflowSystemTask](https://github.com/swift-conductor/conductor/blob/main/core/src/main/java/com/swiftconductor/conductor/core/execution/tasks/WorkflowSystemTask.java) interface for details.
 
 ## Custom Tasks
 
