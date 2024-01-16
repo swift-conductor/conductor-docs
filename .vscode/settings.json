@@ -1,5 +1,8 @@
 {
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
-    }
+    },
+    "[markdown]": {
+        "editor.wordWrap": "off"
+    }    
 }

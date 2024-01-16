@@ -55,7 +55,10 @@ nav:
       - Workers:
         - devguide/how-tos/Workers/build-a-java-task-worker.md
         - devguide/how-tos/Workers/build-a-python-task-worker.md
+        - devguide/how-tos/Workers/build-a-typescript-task-worker.md
+        - devguide/how-tos/Workers/build-a-csharp-task-worker.md
         - devguide/how-tos/Workers/build-a-golang-task-worker.md
+        
       - Monitoring:
         - devguide/how-tos/Monitoring/Conductor-LogLevel.md
     - Tutorial:

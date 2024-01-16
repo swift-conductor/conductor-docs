@@ -63,12 +63,12 @@ public class SampleWorker implements AbstractWorker {
 }
 ```
 
+The `getTaskDefName()` method returns the name of the task for which this worker provides the execution logic.
+
 Worker's core implementation logic goes in the `execute` method. Upon completion, set the `TaskResult` with status as one of the following:
 
 1. **COMPLETED**: If the task has completed successfully.
 2. **FAILED**: If there are failures - business or system failures. Based on the task's configuration, when a task fails, it may be retried.
-
-The `getTaskDefName()` method returns the name of the task for which this worker provides the execution logic.
 
 See [SampleWorker.java](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/SampleWorker.java) for the complete example.
 
@@ -89,7 +89,7 @@ taskClient.setRootURI("http://localhost:8080/api");
 int threadCount = 2;            
 
 Worker worker1 = new SampleWorker("task_1");
-Worker worker2 = new SampleWorker("task_5");
+Worker worker2 = new SampleWorker("task_2");
 
 // Create WorkerHost
 WorkerHost host = new WorkerHost.Builder(taskClient, Arrays.asList(worker1, worker2))
@@ -102,7 +102,7 @@ host.init();
 
 See [Sample](https://github.com/swift-conductor/conductor-client-java/blob/main/client/src/test/java/com/swiftconductor/conductor/client/sample/Main.java) for full example.
 
-## Worker Configuration Details
+## Worker Configuration
 
 Initialize the `Builder` with the following:
 
