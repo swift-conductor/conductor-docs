@@ -271,12 +271,12 @@ Each switch task can have multiple tasks, so it has to be defined as an array.
 }
 ```
 
-Just like the task definitions, register this workflow definition by sending a POST request to `/workflow` endpoint.
+Just like the task definitions, register this workflow definition by sending a POST request to `/workflowdef` endpoint.
 
 **Example**
 ```
 curl -X POST \
-  http://localhost:8080/api/metadata/workflowdefdef \
+  http://localhost:8080/api/metadata/workflowdef \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "add_netflix_identation",
