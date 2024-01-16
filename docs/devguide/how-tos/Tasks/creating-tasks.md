@@ -1,14 +1,14 @@
 # Creating Task Definitions
 Tasks can be created using the tasks metadata API
 
-`POST {{ api_prefix }}/metadata/taskdefs`
+`POST {{ api_prefix }}/metadata/taskdef`
 
 This API takes an array of new task definitions.
 
 ## Examples
 ### Example using curl
 ```shell
-curl '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
+curl '{{ server_host }}{{ api_prefix }}/metadata/taskdef' \
   -H 'accept: */*' \
   -H 'content-type: application/json' \
   --data-raw '[{"createdBy":"user","name":"sample_task_name_1","description":"This is a sample task for demo","responseTimeoutSeconds":10,"timeoutSeconds":30,"inputKeys":[],"outputKeys":[],"timeoutPolicy":"TIME_OUT_WF","retryCount":3,"retryLogic":"FIXED","retryDelaySeconds":5,"inputTemplate":{},"rateLimitPerFrequency":0,"rateLimitFrequencyInSeconds":1}]'
@@ -16,7 +16,7 @@ curl '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
 
 ### Example using node fetch
 ```javascript
-fetch("{{ server_host }}{{ api_prefix }}/metadata/taskdefs", {
+fetch("{{ server_host }}{{ api_prefix }}/metadata/taskdef", {
     "headers": {
         "accept": "*/*",
         "content-type": "application/json",

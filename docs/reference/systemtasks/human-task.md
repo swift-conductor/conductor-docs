@@ -15,7 +15,7 @@ No parameters are required
 
 ## Completing
 ### Task Update API
-To conclude a `HUMAN` task, the `POST {{ api_prefix }}/tasks` [API](../../reference/api/task.md) can be used.
+To conclude a `HUMAN` task, the `POST {{ api_prefix }}/task` [API](../../reference/api/task.md) can be used.
 
 You'll need to provide the`taskId`, the task status (generally `COMPLETED` or `FAILED`), and the desired task output.
 

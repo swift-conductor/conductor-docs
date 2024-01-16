@@ -41,8 +41,8 @@ If you are using the java client then a simple property change will force  TaskR
 	conductor.worker.T2.domain=mydomain //Task T2 needs to poll for domain "mydomain"
 ```
 #### REST call
-`GET {{ api_prefix }}/tasks/poll/batch/T2?workerid=myworker&domain=mydomain`
-`GET {{ api_prefix }}/tasks/poll/T2?workerid=myworker&domain=mydomain`
+`GET {{ api_prefix }}/task/poll/batch/T2?workerid=myworker&domain=mydomain`
+`GET {{ api_prefix }}/task/poll/T2?workerid=myworker&domain=mydomain`
 
 ### Change the start workflow call
 When starting the workflow, make sure the task to domain mapping is passes

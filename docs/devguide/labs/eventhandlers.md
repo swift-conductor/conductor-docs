@@ -23,7 +23,7 @@ Let's create two workflows:
 * `test_workflow_for_eventHandler` which will have an `Event` task to start another workflow, and a `WAIT` System task that will be completed by an event.
 * `test_workflow_startedBy_eventHandler` which will have an `Event` task to generate an event to complete `WAIT` task in the above workflow.
 
-Send `POST` requests to `/metadata/workflow` endpoint with below payloads:
+Send `POST` requests to `/metadata/workflowdef` endpoint with below payloads:
 
 ```json
 {

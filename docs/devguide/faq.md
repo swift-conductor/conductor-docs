@@ -14,12 +14,12 @@ Yes.  As long as the timeouts on the tasks are set to handle long running workfl
 
 ## My workflow fails to start with missing task error
 
-Ensure all the tasks are registered via `/metadata/taskdefs` APIs.  Add any missing task definition (as reported in the error) and try again.
+Ensure all the tasks are registered via `/metadata/taskdef` APIs.  Add any missing task definition (as reported in the error) and try again.
 
 
 ## Where does my worker run?  How does conductor run my tasks?
 
-Conductor does not run the workers.  When a task is scheduled, it is put into the queue maintained by Conductor.  Workers are required to poll for tasks using `/tasks/poll` API at periodic interval, execute the business logic for the task and report back the results using `POST {{ api_prefix }}/tasks` API call. 
+Conductor does not run the workers.  When a task is scheduled, it is put into the queue maintained by Conductor.  Workers are required to poll for tasks using `/task/poll` API at periodic interval, execute the business logic for the task and report back the results using `POST {{ api_prefix }}/task` API call. 
 Conductor, however will run [system tasks](../reference/systemtasks/index.md) on the Conductor server.
 
 

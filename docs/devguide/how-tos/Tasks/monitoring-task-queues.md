@@ -21,14 +21,14 @@ On this screen you can select and view the details of the task queue. The follow
 To see the size of the task queue via API:
 
 ```shell
-curl '{{ server_host }}{{ api_prefix }}/tasks/queue/sizes?taskType=<TASK_NAME>' \
+curl '{{ server_host }}{{ api_prefix }}/task/queue/sizes?taskType=<TASK_NAME>' \
   -H 'accept: */*' 
 ```
 
 To see the worker poll information of the task queue via API:
 
 ```shell
-curl '{{ server_host }}{{ api_prefix }}/tasks/queue/polldata?taskType=<TASK_NAME>' \
+curl '{{ server_host }}{{ api_prefix }}/task/queue/polldata?taskType=<TASK_NAME>' \
   -H 'accept: */*'
 ```
 

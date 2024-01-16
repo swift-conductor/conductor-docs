@@ -103,7 +103,7 @@ To configure the workflow, head over to the swagger API of conductor server and 
 [http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/metadata-resource/create](http://{{ server_host }}/swagger-ui/index.html?configUrl=/api-docs/swagger-config#/metadata-resource/create)
 
 If the link doesn’t open the right Swagger section, we can navigate to Metadata-Resource
-→ `POST {{ api_prefix }}/metadata/workflow`
+→ `POST {{ api_prefix }}/metadata/workflowdef`
 
 ![Swagger UI - Metadata - Workflow](img/metadataWorkflowPost.png)
 

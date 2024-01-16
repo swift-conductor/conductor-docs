@@ -100,7 +100,7 @@ Similarly, create another task definition: `add_idents`.
 }
 ```
 
-Send a `POST` request to `/metadata/taskdefs` endpoint to register these tasks. You can use Swagger, Postman, CURL or similar tools.
+Send a `POST` request to `/metadata/taskdef` endpoint to register these tasks. You can use Swagger, Postman, CURL or similar tools.
 
 !!!info "Why is the Switch Task not registered?"
     System Tasks that are part of control flow do not need to be registered. However, some system tasks where the retries, rate limiting and other mechanisms are required, like `HTTP` Task, are to be registered though.
@@ -112,7 +112,7 @@ Send a `POST` request to `/metadata/taskdefs` endpoint to register these tasks. 
 **Example**
 ```
 curl -X POST \
-  http://localhost:8080/api/metadata/taskdefs \
+  http://localhost:8080/api/metadata/taskdef \
   -H 'Content-Type: application/json' \
   -d '[
 	{
@@ -276,7 +276,7 @@ Just like the task definitions, register this workflow definition by sending a P
 **Example**
 ```
 curl -X POST \
-  http://localhost:8080/api/metadata/workflow \
+  http://localhost:8080/api/metadata/workflowdefdef \
   -H 'Content-Type: application/json' \
   -d '{
     "name": "add_netflix_identation",
@@ -373,7 +373,7 @@ For example:
 
 ```sh
 curl -X GET \
-    http://localhost:8080/api/tasks/poll/verify_if_idents_are_added
+    http://localhost:8080/api/task/poll/verify_if_idents_are_added
 ```
 
 
@@ -385,7 +385,7 @@ We can respond to Conductor with any of the following states:
 * Task has FAILED.
 * Call back after seconds [Process the task at a later time].
 
-Considering our Ident Service has verified that the Ident's are not yet added to given Content Id, let's return the task status by sending the below `POST` request to `/tasks` endpoint, with payload:
+Considering our Ident Service has verified that the Ident's are not yet added to given Content Id, let's return the task status by sending the below `POST` request to `/tass` endpoint, with payload:
 
 ```json
 {
@@ -405,7 +405,7 @@ Example:
 
 ```sh
 curl -X POST \
-  http://localhost:8080/api/tasks \
+  http://localhost:8080/api/task \
   -H 'Content-Type: application/json' \
   -d '{
     "workflowInstanceId": "cb7c5041-aa85-4940-acb4-3bdcfa9f5c5c",

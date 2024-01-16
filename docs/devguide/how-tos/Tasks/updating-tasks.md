@@ -4,7 +4,7 @@ Updates to the task definitions can be made using the following API
 
 ```http
 
-PUT {{ api_prefix }}/metadata/taskdefs
+PUT {{ api_prefix }}/metadata/taskdef
 ```
 
 This API takes a single task definition and updates itself. 
@@ -13,7 +13,7 @@ This API takes a single task definition and updates itself.
 ### Example using curl
 
 ```shell
-curl '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
+curl '{{ server_host }}{{ api_prefix }}/metadata/taskdef' \
   -X 'PUT' \
   -H 'accept: */*' \
   -H 'content-type: application/json' \
@@ -23,7 +23,7 @@ curl '{{ server_host }}{{ api_prefix }}/metadata/taskdefs' \
 ### Example using node fetch
 
 ```javascript
-fetch("{{ server_host }}{{ api_prefix }}/metadata/taskdefs", {
+fetch("{{ server_host }}{{ api_prefix }}/metadata/taskdef", {
     "headers": {
         "accept": "*/*",
         "content-type": "application/json",

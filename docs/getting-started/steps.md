@@ -22,13 +22,13 @@ POST /workflow/{name}
 ### Poll for tasks
 
 ```
-GET /tasks/poll/batch/{taskType}
+GET /task/poll/batch/{taskType}
 ```
 	
 ### Update task status
 	
 ```
-POST /tasks
+POST /task
 {
     "outputData": {
         "encodeResult":"success",

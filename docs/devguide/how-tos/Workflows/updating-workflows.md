@@ -3,13 +3,13 @@
 Workflows can be created or updated using the workflow metadata API
 
 ```html
-PUT {{ api_prefix }}/metadata/workflow
+PUT {{ api_prefix }}/metadata/workflowdef
 ```
 
 ### Example using curl 
 
 ```shell
-curl '{{ server_host }}{{ api_prefix }}/metadata/workflow' \
+curl '{{ server_host }}{{ api_prefix }}/metadata/workflowdef' \
   -X 'PUT' \
   -H 'accept: */*' \
   -H 'content-type: application/json' \
@@ -19,7 +19,7 @@ curl '{{ server_host }}{{ api_prefix }}/metadata/workflow' \
 ### Example using node fetch
 
 ```javascript
-fetch("{{ server_host }}{{ api_prefix }}/metadata/workflow", {
+fetch("{{ server_host }}{{ api_prefix }}/metadata/workflowdef", {
   "headers": {
     "accept": "*/*",
     "content-type": "application/json"
