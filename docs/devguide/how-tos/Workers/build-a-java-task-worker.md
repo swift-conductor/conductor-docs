@@ -8,26 +8,26 @@
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-common</artifactId>
-    <version>3.16-SNAPSHOT</version>
+    <version>3.16.0</version>
 </dependency>
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-client</artifactId>
-    <version>3.16-SNAPSHOT</version>
+    <version>3.16.0</version>
 </dependency>
 <dependency>
     <groupId>com.swiftconductor.conductor</groupId>
     <artifactId>conductor-java-sdk</artifactId>
-    <version>3.16-SNAPSHOT</version>
+    <version>3.16.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'com.swiftconductor.conductor:conductor-common:3.16-SNAPSHOT'
-implementation 'com.swiftconductor.conductor:conductor-client:3.16-SNAPSHOT'
-implementation 'com.swiftconductor.conductor:conductor-java-sdk:3.16-SNAPSHOT'
+implementation 'com.swiftconductor.conductor:conductor-common:3.16.0'
+implementation 'com.swiftconductor.conductor:conductor-client:3.16.0'
+implementation 'com.swiftconductor.conductor:conductor-java-sdk:3.16.0'
 ```
 
 ## Implementing the Worker
