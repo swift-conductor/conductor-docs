@@ -135,6 +135,10 @@ nav:
     # - Related Projects: resources/related.md
     - License: resources/license.md
 
+  - Support:
+    - Getting Help: support/getting-help.md
+    - Commercial Support: support/commercial-support.md
+
 theme: 
   name: material
   logo: img/logo.svg
